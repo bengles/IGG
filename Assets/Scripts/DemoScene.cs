@@ -14,6 +14,8 @@ public class DemoScene : MonoBehaviour
 
 	[HideInInspector]
 	private float normalizedHorizontalSpeed = 0;
+	private bool facingRight = true;
+	private Object BombPrefab;
 
 	private CharacterController2D _controller;
 	private Animator _animator;
@@ -23,6 +25,8 @@ public class DemoScene : MonoBehaviour
 
 	void Awake()
 	{
+		BombPrefab = Resources.Load("Prefabs/Bomb");
+
 		_animator = GetComponent<Animator>();
 		_controller = GetComponent<CharacterController2D>();
 
@@ -66,38 +70,59 @@ public class DemoScene : MonoBehaviour
 		if( _controller.isGrounded )
 			_velocity.y = 0;
 
-		if( Input.GetKey( KeyCode.RightArrow ) )
+		if( Input.GetAxis( "Horizontal" ) > 0 )
 		{
 			normalizedHorizontalSpeed = 1;
 			if( transform.localScale.x < 0f )
 				transform.localScale = new Vector3( -transform.localScale.x, transform.localScale.y, transform.localScale.z );
 
 			if( _controller.isGrounded )
-				_animator.Play( Animator.StringToHash( "Run" ) );
+				_animator.Play( Animator.StringToHash( "Witch_Run" ) );
+
+			facingRight = true;
 		}
-		else if( Input.GetKey( KeyCode.LeftArrow ) )
+		else if( Input.GetAxis( "Horizontal" ) < 0 )
 		{
 			normalizedHorizontalSpeed = -1;
 			if( transform.localScale.x > 0f )
 				transform.localScale = new Vector3( -transform.localScale.x, transform.localScale.y, transform.localScale.z );
 
 			if( _controller.isGrounded )
-				_animator.Play( Animator.StringToHash( "Run" ) );
+				_animator.Play( Animator.StringToHash( "Witch_Run" ) );
+
+			facingRight = false;
 		}
 		else
 		{
 			normalizedHorizontalSpeed = 0;
 
 			if( _controller.isGrounded )
-				_animator.Play( Animator.StringToHash( "Idle" ) );
+				_animator.Play( Animator.StringToHash( "Witch_Idle" ) );
 		}
 
 
 		// we can only jump whilst grounded
-		if( _controller.isGrounded && Input.GetKeyDown( KeyCode.UpArrow ) )
+		if( _controller.isGrounded && Input.GetButtonDown("Jump") )
 		{
-			_velocity.y = Mathf.Sqrt( 2f * jumpHeight * -gravity );
+			_velocity.y = Mathf.Sqrt( 3f * jumpHeight * -gravity );
 			_animator.Play( Animator.StringToHash( "Jump" ) );
+		}
+
+		if (Input.GetButtonDown ("B")) {
+			print ("B pressed");
+			StickHit ();
+		}
+
+		if (Input.GetButtonUp ("B")) {
+			StickWithdraw ();
+		}
+
+		if (Input.GetButtonDown ("X")) {
+			ThrowBomb ();
+		}
+
+		if (Input.GetButtonDown ("Y")) {
+			print ("Y pressed");
 		}
 
 
@@ -122,4 +147,34 @@ public class DemoScene : MonoBehaviour
 		_velocity = _controller.velocity;
 	}
 
+	private void ThrowBomb ()
+	{
+		
+		if (facingRight == true) {
+			GameObject bomb = Object.Instantiate (BombPrefab, new Vector3(transform.position.x + 1f, transform.position.y, transform.position.z), Quaternion.identity) as GameObject;
+			Physics2D.IgnoreCollision (bomb.GetComponent<CircleCollider2D> (), this.GetComponent<BoxCollider2D> ());
+			BombScript bs = bomb.GetComponent<BombScript> ();
+			bs.Initialize(new Vector3(1f, 1f, 0));
+
+		} else {
+			GameObject bomb = Object.Instantiate (BombPrefab, new Vector3(transform.position.x - 1f, transform.position.y, transform.position.z), Quaternion.identity) as GameObject;
+			Physics2D.IgnoreCollision (bomb.GetComponent<CircleCollider2D> (), this.GetComponent<BoxCollider2D> ());
+			BombScript bs = bomb.GetComponent<BombScript> ();
+			bs.Initialize (new Vector3 (-1f, 1f, 0));
+		}
+	}
+
+	private void StickHit ()
+	{
+		if (facingRight == true) {
+			GameObject stick = Object.Instantiate (Resources.Load ("Prefabs/Stick"), new Vector3 (transform.position.x + 1f, transform.position.y, transform.position.z), Quaternion.identity) as GameObject;
+		} else {
+			GameObject stick = Object.Instantiate (Resources.Load ("Prefabs/Stick"), new Vector3 (transform.position.x - 1f, transform.position.y, transform.position.z), Quaternion.identity) as GameObject;
+		}
+	}
+
+	private void StickWithdraw ()
+	{
+		Destroy (GameObject.FindGameObjectWithTag ("Stick"));
+	}
 }

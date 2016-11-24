@@ -41,19 +41,22 @@ public class SmoothFollow : MonoBehaviour
 	{
 		if( _playerController == null )
 		{
+			//transform.position = Vector3.SmoothDamp( transform.position, new Vector3(target.position.x - cameraOffset.x, transform.position.y, transform.position.z), ref _smoothDampVelocity, smoothDampTime );
 			transform.position = Vector3.SmoothDamp( transform.position, target.position - cameraOffset, ref _smoothDampVelocity, smoothDampTime );
 			return;
 		}
 		
 		if( _playerController.velocity.x > 0 )
 		{
+			//transform.position = Vector3.SmoothDamp( transform.position, new Vector3(target.position.x - cameraOffset.x, transform.position.y, transform.position.z), ref _smoothDampVelocity, smoothDampTime );
 			transform.position = Vector3.SmoothDamp( transform.position, target.position - cameraOffset, ref _smoothDampVelocity, smoothDampTime );
 		}
 		else
 		{
 			var leftOffset = cameraOffset;
 			leftOffset.x *= -1;
-			transform.position = Vector3.SmoothDamp( transform.position, target.position - leftOffset, ref _smoothDampVelocity, smoothDampTime );
+			//transform.position = Vector3.SmoothDamp( transform.position, new Vector3(target.position.x - cameraOffset.x, transform.position.y, transform.position.z), ref _smoothDampVelocity, smoothDampTime );
+			transform.position = Vector3.SmoothDamp( transform.position, target.position - cameraOffset, ref _smoothDampVelocity, smoothDampTime );
 		}
 	}
 	

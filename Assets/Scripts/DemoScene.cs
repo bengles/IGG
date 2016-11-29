@@ -25,8 +25,6 @@ public class DemoScene : MonoBehaviour
 
 	void Awake()
 	{
-		BombPrefab = Resources.Load("Prefabs/Bomb");
-
 		_animator = GetComponent<Animator>();
 		_controller = GetComponent<CharacterController2D>();
 
@@ -151,14 +149,12 @@ public class DemoScene : MonoBehaviour
 	{
 		
 		if (facingRight == true) {
-			GameObject bomb = Object.Instantiate (BombPrefab, new Vector3(transform.position.x + 1f, transform.position.y, transform.position.z), Quaternion.identity) as GameObject;
-			Physics2D.IgnoreCollision (bomb.GetComponent<CircleCollider2D> (), this.GetComponent<BoxCollider2D> ());
+			GameObject bomb = Object.Instantiate (Resources.Load("Prefabs/Bomb"), new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity) as GameObject;
 			BombScript bs = bomb.GetComponent<BombScript> ();
 			bs.Initialize(new Vector3(1f, 1f, 0));
 
 		} else {
-			GameObject bomb = Object.Instantiate (BombPrefab, new Vector3(transform.position.x - 1f, transform.position.y, transform.position.z), Quaternion.identity) as GameObject;
-			Physics2D.IgnoreCollision (bomb.GetComponent<CircleCollider2D> (), this.GetComponent<BoxCollider2D> ());
+			GameObject bomb = Object.Instantiate (Resources.Load("Prefabs/Bomb"), new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity) as GameObject;
 			BombScript bs = bomb.GetComponent<BombScript> ();
 			bs.Initialize (new Vector3 (-1f, 1f, 0));
 		}
@@ -166,11 +162,14 @@ public class DemoScene : MonoBehaviour
 
 	private void StickHit ()
 	{
+		GameObject stick;
 		if (facingRight == true) {
-			GameObject stick = Object.Instantiate (Resources.Load ("Prefabs/Stick"), new Vector3 (transform.position.x + 1f, transform.position.y, transform.position.z), Quaternion.identity) as GameObject;
+			stick = Object.Instantiate (Resources.Load ("Prefabs/Stick"), new Vector3 (transform.position.x + 1f, transform.position.y, transform.position.z), Quaternion.identity) as GameObject;
+
 		} else {
-			GameObject stick = Object.Instantiate (Resources.Load ("Prefabs/Stick"), new Vector3 (transform.position.x - 1f, transform.position.y, transform.position.z), Quaternion.identity) as GameObject;
+			stick = Object.Instantiate (Resources.Load ("Prefabs/Stick"), new Vector3 (transform.position.x - 1f, transform.position.y, transform.position.z), Quaternion.identity) as GameObject;
 		}
+		stick.transform.parent = this.gameObject.transform;
 	}
 
 	private void StickWithdraw ()

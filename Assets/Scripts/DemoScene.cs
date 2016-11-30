@@ -23,6 +23,8 @@ public class DemoScene : MonoBehaviour
 	private float potionDuration;
 	private bool frozen = false;
 	public float velocity;
+	private bool inWater = false;
+	private float waterTimer = 0.0f;
 
 	private CharacterController2D _controller;
 	private Animator _animator;
@@ -84,7 +86,7 @@ public class DemoScene : MonoBehaviour
 
 		if (col.gameObject.layer == 4) 
 		{
-			if (col.gameObject.tag == "Water")
+			if (col.gameObject.tag == "Water") 
 				DeactivateWaterPhysics ();
 		}
 	}
@@ -99,6 +101,12 @@ public class DemoScene : MonoBehaviour
 		if (potionTime >= potionDuration && potionActivated) {
 			DeactivatePotion ();
 		}
+
+		if (inWater)
+			waterTimer += Time.deltaTime;
+
+		if (waterTimer > 0.3f)
+			Die ();
 
 		potionTime += Time.deltaTime;
 
@@ -284,14 +292,17 @@ public class DemoScene : MonoBehaviour
 		runSpeed /= 2f;
 		inAirDamping /= 2f;
 		groundDamping -= 5f;
+		inWater = true;
 	}
 
 	private void DeactivateWaterPhysics ()
 	{
+		waterTimer = 0.0f;
 		gravity *= 5f;
 		runSpeed *= 2f;
 		inAirDamping *= 2f;
 		groundDamping += 5f;
+		inWater = false;
 	}
 
 	private void Die()

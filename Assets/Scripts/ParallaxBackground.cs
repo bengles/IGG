@@ -16,7 +16,7 @@ public class ParallaxBackground : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		float velocity = Player.GetComponent<Rigidbody2D> ().velocity.x;
+		float velocity = Player.GetComponent<CharacterController2D> ().velocity.x;
 		if( velocity < -1f)
 		{
 			this.gameObject.transform.position = new Vector3( this.gameObject.transform.position.x - velocity/offsetMovement, this.gameObject.transform.position.y, this.gameObject.transform.position.z);

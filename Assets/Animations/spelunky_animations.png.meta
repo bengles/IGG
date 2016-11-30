@@ -1,34 +1,44 @@
 fileFormatVersion: 2
-guid: 0b9d272112b94bb43b8792c20f6ae222
-timeCreated: 1479985839
+guid: 85672b287a3b4c6418d87cef6888c599
+timeCreated: 1480528674
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: idle
-    21300002: main_animation_sheet_1
-    21300004: main_animation_sheet_2
-    21300006: main_animation_sheet_3
-    21300008: main_animation_sheet_4
-    21300010: main_animation_sheet_5
-    21300012: main_animation_sheet_6
-    21300014: main_animation_sheet_7
-    21300016: main_animation_sheet_8
-    21300018: main_animation_sheet_9
-    21300020: run_1
-    21300022: run_2
-    21300024: run_3
-    21300026: run_4
-    21300028: run_5
-    21300030: run_6
-    21300032: run_7
-    21300034: run_8
-    21300036: main_animation_sheet_18
-    21300038: main_animation_sheet_19
-    21300040: ledge_hang_1
-    21300042: ledge_hang_2
-    21300044: ledge_hang_3
-    21300046: ledge_hang_4
-    21300048: main_animation_sheet_24
+    21300002: spelunky_animations_1
+    21300004: dead
+    21300006: spelunky_animations_3
+    21300008: spelunky_animations_4
+    21300010: spelunky_animations_5
+    21300012: spelunky_animations_6
+    21300014: spelunky_animations_7
+    21300016: spelunky_animations_8
+    21300018: spelunky_animations_9
+    21300020: spelunky_animations_10
+    21300022: spelunky_animations_11
+    21300024: spelunky_animations_12
+    21300026: spelunky_animations_13
+    21300028: spelunky_animations_14
+    21300030: spelunky_animations_15
+    21300032: spelunky_animations_16
+    21300034: spelunky_animations_17
+    21300036: spelunky_animations_18
+    21300038: spelunky_animations_19
+    21300040: spelunky_animations_20
+    21300042: spelunky_animations_21
+    21300044: spelunky_animations_22
+    21300046: spelunky_animations_23
+    21300048: spelunky_animations_24
+    21300050: spelunky_animations_25
+    21300052: spelunky_animations_26
+    21300054: spelunky_animations_27
+    21300056: spelunky_animations_28
+    21300058: spelunky_animations_29
+    21300060: spelunky_animations_30
+    21300062: spelunky_animations_31
+    21300064: spelunky_animations_32
+    21300066: spelunky_animations_33
+    21300068: spelunky_animations_34
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -66,9 +76,9 @@ TextureImporter:
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 9
+  alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spriteBorder: {x: 0, y: 956, z: 955, w: 0}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -85,95 +95,17 @@ TextureImporter:
         y: 960
         width: 80
         height: 80
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5000001, y: 0.48964387}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: main_animation_sheet_1
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 960
-        width: 80
-        height: 80
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: main_animation_sheet_2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 880
-        width: 80
-        height: 80
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: main_animation_sheet_3
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 880
-        width: 80
-        height: 80
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: main_animation_sheet_4
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 880
-        width: 80
-        height: 80
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: main_animation_sheet_5
-      rect:
-        serializedVersion: 2
-        x: 240
-        y: 880
-        width: 80
-        height: 80
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: main_animation_sheet_6
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 880
-        width: 80
-        height: 80
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: main_animation_sheet_7
+      name: dead
       rect:
         serializedVersion: 2
         x: 400
-        y: 880
+        y: 950
         width: 80
         height: 80
       alignment: 0
@@ -182,37 +114,11 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: main_animation_sheet_8
-      rect:
-        serializedVersion: 2
-        x: 480
-        y: 880
-        width: 80
-        height: 80
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: main_animation_sheet_9
-      rect:
-        serializedVersion: 2
-        x: 560
-        y: 880
-        width: 80
-        height: 80
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: run_1
+      name: spelunky_animations_11
       rect:
         serializedVersion: 2
         x: 0
-        y: 800
+        y: 805
         width: 80
         height: 80
       alignment: 0
@@ -221,11 +127,11 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: run_2
+      name: spelunky_animations_12
       rect:
         serializedVersion: 2
         x: 80
-        y: 800
+        y: 805
         width: 80
         height: 80
       alignment: 0
@@ -234,11 +140,11 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: run_3
+      name: spelunky_animations_13
       rect:
         serializedVersion: 2
         x: 160
-        y: 800
+        y: 805
         width: 80
         height: 80
       alignment: 0
@@ -247,11 +153,11 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: run_4
+      name: spelunky_animations_14
       rect:
         serializedVersion: 2
         x: 240
-        y: 800
+        y: 805
         width: 80
         height: 80
       alignment: 0
@@ -260,11 +166,11 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: run_5
+      name: spelunky_animations_15
       rect:
         serializedVersion: 2
         x: 320
-        y: 800
+        y: 805
         width: 80
         height: 80
       alignment: 0
@@ -273,11 +179,11 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: run_6
+      name: spelunky_animations_16
       rect:
         serializedVersion: 2
         x: 400
-        y: 800
+        y: 805
         width: 80
         height: 80
       alignment: 0
@@ -286,11 +192,11 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: run_7
+      name: spelunky_animations_17
       rect:
         serializedVersion: 2
         x: 480
-        y: 800
+        y: 805
         width: 80
         height: 80
       alignment: 0
@@ -299,11 +205,11 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: run_8
+      name: spelunky_animations_18
       rect:
         serializedVersion: 2
         x: 560
-        y: 800
+        y: 805
         width: 80
         height: 80
       alignment: 0
@@ -312,33 +218,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: main_animation_sheet_18
-      rect:
-        serializedVersion: 2
-        x: 640
-        y: 800
-        width: 80
-        height: 80
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: main_animation_sheet_19
-      rect:
-        serializedVersion: 2
-        x: 480
-        y: 720
-        width: 80
-        height: 80
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: ledge_hang_1
+      name: spelunky_animations_21
       rect:
         serializedVersion: 2
         x: 720
@@ -351,7 +231,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ledge_hang_2
+      name: spelunky_animations_22
       rect:
         serializedVersion: 2
         x: 800
@@ -364,7 +244,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ledge_hang_3
+      name: spelunky_animations_23
       rect:
         serializedVersion: 2
         x: 880
@@ -377,7 +257,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ledge_hang_4
+      name: spelunky_animations_24
       rect:
         serializedVersion: 2
         x: 960
@@ -390,11 +270,102 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: main_animation_sheet_24
+      name: spelunky_animations_27
       rect:
         serializedVersion: 2
-        x: 880
-        y: 640
+        x: 5
+        y: 240
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spelunky_animations_28
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 243
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spelunky_animations_29
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 240
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spelunky_animations_30
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 240
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spelunky_animations_31
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 160
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spelunky_animations_32
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 160
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spelunky_animations_33
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 160
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spelunky_animations_34
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 160
         width: 80
         height: 80
       alignment: 0

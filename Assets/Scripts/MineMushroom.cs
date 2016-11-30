@@ -18,7 +18,6 @@ public class MineMushroom : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D coll)
 	{
-		Debug.Log ("what");
 		if (coll.gameObject.tag == "Player" || coll.gameObject.tag == "Enemy")
 		{
 			Object anim = Object.Instantiate (Resources.Load ("Prefabs/Explosion"), transform.position, Quaternion.identity) as GameObject;
@@ -28,10 +27,8 @@ public class MineMushroom : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D coll) 
 	{ 
-		
 		if (coll.gameObject.tag == "Player" || coll.gameObject.tag == "Enemy")
 		{
-			Debug.Log ("wha2t");
 			Object anim = Object.Instantiate (Resources.Load ("Prefabs/Explosion"), transform.position, Quaternion.identity) as GameObject;
 			Destroy (this.gameObject);
 		}

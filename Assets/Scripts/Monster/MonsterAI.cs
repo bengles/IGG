@@ -175,7 +175,15 @@ public class MonsterAI : MonoBehaviour {
                 Debug.Log("Monster new targetPos (x,y): (" + targetPosition.x + ", " + targetPosition.y + ")");
             }
         }
+
+		if (other.CompareTag ("Water"))
+			Die ();
     }
+
+	void Die()
+	{
+		
+	}
 
 }
 

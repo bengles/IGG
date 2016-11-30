@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using Prime31;
+using UnityEngine.SceneManagement;
 
 
 public class DemoScene : MonoBehaviour
@@ -69,7 +70,7 @@ public class DemoScene : MonoBehaviour
 
 	void onTriggerEnterEvent( Collider2D col )
 	{
-		Debug.Log( "onTriggerEnterEvent: " + col.gameObject.name );
+		//Debug.Log( "onTriggerEnterEvent: " + col.gameObject.name );
 
 		if (col.gameObject.layer == 4) 
 		{
@@ -80,6 +81,8 @@ public class DemoScene : MonoBehaviour
 			}
 			if (col.gameObject.tag == "Water")
 				ActivateWaterPhysics ();
+			if (col.gameObject.tag == "Enemy")
+				Die ();
 		}
 			
 	}
@@ -91,7 +94,7 @@ public class DemoScene : MonoBehaviour
 
 	void onTriggerExitEvent( Collider2D col )
 	{
-		Debug.Log( "onTriggerExitEvent: " + col.gameObject.name );
+		//Debug.Log( "onTriggerExitEvent: " + col.gameObject.name );
 
 		if (col.gameObject.layer == 4) 
 		{
@@ -122,6 +125,9 @@ public class DemoScene : MonoBehaviour
 		if( _controller.isGrounded )
 			_velocity.y = 0;
 
+		if (Input.GetButtonDown ("Reset"))
+			SceneManager.LoadScene (SceneManager.GetActiveScene().buildIndex);
+
 		if( Input.GetAxis( "Horizontal" ) > 0  && !isDead && !frozen)
 		{
 			normalizedHorizontalSpeed = 1;
@@ -148,10 +154,12 @@ public class DemoScene : MonoBehaviour
 		{
 			normalizedHorizontalSpeed = 0;
 
-			if( _controller.isGrounded )
-				_animator.Play( Animator.StringToHash( "Witch_Idle" ) );
+			if (_controller.isGrounded && !isDead)
+				_animator.Play (Animator.StringToHash ("Witch_Idle"));
 		}
 
+		if (!_controller.isGrounded && !isDead)
+			_animator.Play (Animator.StringToHash ("Witch_Fall"));
 
 		// we can only jump whilst grounded
 		if( _controller.isGrounded && Input.GetButtonDown("Jump")  && !isDead && !frozen)
@@ -318,7 +326,7 @@ public class DemoScene : MonoBehaviour
 	{
 		runSpeed = 0f;
 		_animator.Play( Animator.StringToHash( "Witch_Dead" ) );
-		isDead = true;
+		isDead = true;	
 	}
 
 }

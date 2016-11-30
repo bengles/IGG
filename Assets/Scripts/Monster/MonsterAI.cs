@@ -174,9 +174,11 @@ public class MonsterAI : MonoBehaviour {
                 targetPosition = new Vector2(targetPatrol.transform.position.x, targetPatrol.transform.position.y);
                 Debug.Log("Monster new targetPos (x,y): (" + targetPosition.x + ", " + targetPosition.y + ")");
             }
+        } else if (other.CompareTag("Water"))
+        {
+            Destroy(this);
         }
     }
-
 }
 
 public enum MonsterState { Sleep, Walk, Aggro };

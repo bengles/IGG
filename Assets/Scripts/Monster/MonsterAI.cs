@@ -114,7 +114,7 @@ public class MonsterAI : MonoBehaviour {
         }
         if (directionChangeCount > 1)
         {
-            Debug.Log("Supressing movement due to directionchanges");
+            Debug.Log("Supressing movement due to direction changes");
             transform.position = new Vector3(targetPosition.x, transform.position.y, transform.position.z);
             lastMovement = 0;
         }

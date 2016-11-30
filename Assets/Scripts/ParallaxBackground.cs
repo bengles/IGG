@@ -1,24 +1,29 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Prime31;
 
 public class ParallaxBackground : MonoBehaviour {
 
 	public float offsetMovement = 0.05f;
 
+	private GameObject Player;
+
+
 	// Use this for initialization
 	void Start () {
-		
+		Player = GameObject.Find ("Player");
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if( Input.GetAxis( "Horizontal" ) < 0 )
+		float velocity = Player.GetComponent<CharacterController2D> ().velocity.x;
+		if( velocity < -1f)
 		{
-			this.gameObject.transform.position = new Vector3( this.gameObject.transform.position.x + offsetMovement, this.gameObject.transform.position.y, this.gameObject.transform.position.z);
+			this.gameObject.transform.position = new Vector3( this.gameObject.transform.position.x - velocity/offsetMovement, this.gameObject.transform.position.y, this.gameObject.transform.position.z);
 		}
-		else if( Input.GetAxis( "Horizontal" ) > 0 )
+		else if( velocity > 1f )
 		{
-			this.gameObject.transform.position = new Vector3( this.gameObject.transform.position.x - offsetMovement, this.gameObject.transform.position.y, this.gameObject.transform.position.z);
+			this.gameObject.transform.position = new Vector3( this.gameObject.transform.position.x - velocity/offsetMovement, this.gameObject.transform.position.y, this.gameObject.transform.position.z);
 		}
 	}
 }

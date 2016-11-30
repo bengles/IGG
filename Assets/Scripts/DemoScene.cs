@@ -26,6 +26,7 @@ public class DemoScene : MonoBehaviour
 	public float velocity;
 	private bool inWater = false;
 	private float waterTimer = 0.0f;
+	private float deadTimer = 0.0f;
 
 	private CharacterController2D _controller;
 	private Animator _animator;
@@ -113,6 +114,12 @@ public class DemoScene : MonoBehaviour
 		if (potionTime >= potionDuration && potionActivated) {
 			DeactivatePotion ();
 		}
+
+		if (isDead)
+			deadTimer += Time.deltaTime;
+
+		if (deadTimer > 2.0f)
+			SceneManager.LoadScene (SceneManager.GetActiveScene().buildIndex);
 
 		if (inWater)
 			waterTimer += Time.deltaTime;

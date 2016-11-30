@@ -58,6 +58,10 @@ public class DemoScene : MonoBehaviour
 		if (hit.collider.gameObject.tag == "Enemy")
 			Die ();
 
+		if (hit.collider.gameObject.tag == "Mushroom") {
+			Die ();
+		}
+
 		// logs any collider hits if uncommented. it gets noisy so it is commented out for the demo
 		//Debug.Log( "flags: " + _controller.collisionState + ", hit.normal: " + hit.normal );
 	}
@@ -69,6 +73,11 @@ public class DemoScene : MonoBehaviour
 
 		if (col.gameObject.layer == 4) 
 		{
+			if (col.gameObject.tag == "Mushroom") {
+				Vector3 direction = transform.position - col.gameObject.transform.position;
+				_velocity = 100f * direction.normalized;
+				Die ();
+			}
 			if (col.gameObject.tag == "Water")
 				ActivateWaterPhysics ();
 		}

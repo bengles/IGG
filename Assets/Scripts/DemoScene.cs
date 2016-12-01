@@ -244,9 +244,9 @@ public class DemoScene : MonoBehaviour
 	{
 		GameObject stick;
 		if (facingRight == true) {
-			stick = Object.Instantiate (Resources.Load ("Prefabs/Stick"), new Vector3 (transform.position.x + 1f, transform.position.y, transform.position.z), Quaternion.identity) as GameObject;
+			stick = Object.Instantiate (Resources.Load ("Prefabs/Stick"), new Vector3 (transform.position.x + 1.1f, transform.position.y, transform.position.z), Quaternion.AngleAxis(-45f, new Vector3(0,0,1))) as GameObject;
 		} else {
-			stick = Object.Instantiate (Resources.Load ("Prefabs/Stick"), new Vector3 (transform.position.x - 1f, transform.position.y, transform.position.z), Quaternion.identity) as GameObject;
+			stick = Object.Instantiate (Resources.Load ("Prefabs/Stick"), new Vector3 (transform.position.x - 1.1f, transform.position.y - 0.1f, transform.position.z), Quaternion.AngleAxis(120f, new Vector3(0,0,1))) as GameObject;
 		}
 		stick.transform.parent = this.gameObject.transform;
 	}
@@ -265,6 +265,8 @@ public class DemoScene : MonoBehaviour
 
 			switch (potionIndex)
 			{
+			case -1:
+				break;
 			case 0: 
 				// Speed potion
 				runSpeed *= 2f;

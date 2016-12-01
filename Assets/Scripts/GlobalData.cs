@@ -36,6 +36,9 @@ public class ItemInfo
                 itemName = "Winter Mint";
                 flavorText = "";
                 break;
+            case 5:
+                itemName = "Mammoth Bone";
+                break;
             default:
                 Debug.Log("ItemInfo got bogus id?");
                 break;

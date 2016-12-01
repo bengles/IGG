@@ -15,22 +15,25 @@ public class MonsterAI : MonoBehaviour {
     public GameObject player;
     public float aggroDistance      = 5;
     public float runSpeed           = 2;
-    public float meleeRange         = 1.5f;
+    public float meleeRange         = 4f;
     public float attacksPerSecond   = 1;
 
     private MonsterState currentState;
     private Rigidbody2D monsterBody;
     private Vector2 targetPosition;
     private Vector2 spawnPosition;
+	private Animator _animator;
     
     private int directionChangeCount;
     private int lastMovement;
     private float timeSinceAttack;
+	private bool facingRight = false;
 
 	// Use this for initialization
 	void Start () {
         currentState = startState;
         monsterBody = this.GetComponent<Rigidbody2D>();
+		_animator = GetComponent<Animator> ();
         if (monsterBody == null) Debug.Log("No Rigidbody on monster");
         spawnPosition = new Vector2(this.transform.position.x, this.transform.position.y);
         directionChangeCount = 0;
@@ -83,6 +86,7 @@ public class MonsterAI : MonoBehaviour {
             {
                 Debug.Log("SHOULD MELEE THIS FUKKER");
                 //attack-animation etc
+				_animator.Play(Animator.StringToHash("Troll_Bash"));
                 timeSinceAttack = 0;
             } 
             lastMovement = 0;
@@ -121,24 +125,25 @@ public class MonsterAI : MonoBehaviour {
         monsterBody.velocity = new Vector2(lastMovement * runSpeed, monsterBody.velocity.y);
 
 
-        /*
-        //check if changed direction
-        if (movement > 0 && !facingRight)
-            Flip();
-        else if (movement < 0 && facingRight)
-            Flip();
-        */
+
+		Debug.Log (monsterBody.velocity.x);
+		if (monsterBody.velocity.x > 0 && !facingRight) {
+			Flip ();
+		} else if (monsterBody.velocity.x < 0 && facingRight) {
+			Flip ();
+		}
+
     }
 
     //Flip scale of monster (as to avoid implementing walking left animation)
-    /*
+
     void Flip()
     {
-        facingRight = !facingRight;
+		facingRight = !facingRight;
         Vector3 scale = transform.localScale;
         scale.x *= -1;
         transform.localScale = scale;
-    }*/
+    }
 
     /*
      * Switches monster into walkState.
@@ -146,6 +151,7 @@ public class MonsterAI : MonoBehaviour {
     void walkState()
     {
         Debug.Log("Entering Walk-state");
+		_animator.Play (Animator.StringToHash ("Troll_Walk"));
         targetPosition = new Vector2(firstPatrol.transform.position.x, firstPatrol.transform.position.y);
         currentState = MonsterState.Walk;
     }
@@ -155,6 +161,7 @@ public class MonsterAI : MonoBehaviour {
         Debug.Log("Entering Sleep-state.");
         targetPosition = new Vector2(this.transform.position.x, this.transform.position.y);
         currentState = MonsterState.Sleep;
+		_animator.Play (Animator.StringToHash("Troll_Idle"));
     }
 
     void aggroState()
@@ -166,18 +173,16 @@ public class MonsterAI : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("PatrolObject"))
-        {
-            if (currentState == MonsterState.Walk)
-            {
-                PatrolEndpoint targetPatrol = other.gameObject.GetComponent<PatrolEndpoint>().target;
-                targetPosition = new Vector2(targetPatrol.transform.position.x, targetPatrol.transform.position.y);
-                Debug.Log("Monster new targetPos (x,y): (" + targetPosition.x + ", " + targetPosition.y + ")");
-            }
-        } else if (other.CompareTag("Water"))
-        {
-            Destroy(this);
-        }
+		if (other.CompareTag ("PatrolObject")) {
+			if (currentState == MonsterState.Walk) {
+				PatrolEndpoint targetPatrol = other.gameObject.GetComponent<PatrolEndpoint> ().target;
+				targetPosition = new Vector2 (targetPatrol.transform.position.x, targetPatrol.transform.position.y);
+				Debug.Log ("Monster new targetPos (x,y): (" + targetPosition.x + ", " + targetPosition.y + ")");
+			}
+		} else if (other.CompareTag ("Water")) {
+			Destroy (this.gameObject);
+		} else if (other.CompareTag ("Mushroom"))
+			Destroy (this.gameObject);
     }
 }
 

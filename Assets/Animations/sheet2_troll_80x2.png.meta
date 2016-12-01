@@ -1,0 +1,927 @@
+fileFormatVersion: 2
+guid: 762ab8c2865f4054d945526c773d13a2
+timeCreated: 1480549884
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: sheet2_troll_80x2_0
+    21300002: sheet2_troll_80x2_1
+    21300004: sheet2_troll_80x2_2
+    21300006: sheet2_troll_80x2_3
+    21300008: sheet2_troll_80x2_4
+    21300010: sheet2_troll_80x2_5
+    21300012: sheet2_troll_80x2_6
+    21300014: sheet2_troll_80x2_7
+    21300016: sheet2_troll_80x2_8
+    21300018: sheet2_troll_80x2_9
+    21300020: sheet2_troll_80x2_10
+    21300022: sheet2_troll_80x2_11
+    21300024: sheet2_troll_80x2_12
+    21300026: sheet2_troll_80x2_13
+    21300028: sheet2_troll_80x2_14
+    21300030: sheet2_troll_80x2_15
+    21300032: sheet2_troll_80x2_16
+    21300034: sheet2_troll_80x2_17
+    21300036: sheet2_troll_80x2_18
+    21300038: sheet2_troll_80x2_19
+    21300040: sheet2_troll_80x2_20
+    21300042: sheet2_troll_80x2_21
+    21300044: sheet2_troll_80x2_22
+    21300046: sheet2_troll_80x2_23
+    21300048: sheet2_troll_80x2_24
+    21300050: sheet2_troll_80x2_25
+    21300052: sheet2_troll_80x2_26
+    21300054: sheet2_troll_80x2_27
+    21300056: sheet2_troll_80x2_28
+    21300058: sheet2_troll_80x2_29
+    21300060: sheet2_troll_80x2_30
+    21300062: sheet2_troll_80x2_31
+    21300064: sheet2_troll_80x2_32
+    21300066: sheet2_troll_80x2_33
+    21300068: sheet2_troll_80x2_34
+    21300070: sheet2_troll_80x2_35
+    21300072: sheet2_troll_80x2_36
+    21300074: sheet2_troll_80x2_37
+    21300076: sheet2_troll_80x2_38
+    21300078: sheet2_troll_80x2_39
+    21300080: sheet2_troll_80x2_40
+    21300082: sheet2_troll_80x2_41
+    21300084: sheet2_troll_80x2_42
+    21300086: sheet2_troll_80x2_43
+    21300088: sheet2_troll_80x2_44
+    21300090: sheet2_troll_80x2_45
+    21300092: sheet2_troll_80x2_46
+    21300094: sheet2_troll_80x2_47
+    21300096: sheet2_troll_80x2_48
+    21300098: sheet2_troll_80x2_49
+    21300100: sheet2_troll_80x2_50
+    21300102: sheet2_troll_80x2_51
+    21300104: sheet2_troll_80x2_52
+    21300106: sheet2_troll_80x2_53
+    21300108: sheet2_troll_80x2_54
+    21300110: sheet2_troll_80x2_55
+    21300112: sheet2_troll_80x2_56
+    21300114: sheet2_troll_80x2_57
+    21300116: sheet2_troll_80x2_58
+    21300118: sheet2_troll_80x2_59
+    21300120: sheet2_troll_80x2_60
+    21300122: sheet2_troll_80x2_61
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: sheet2_troll_80x2_0
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 798
+        width: 95
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sheet2_troll_80x2_1
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 797
+        width: 104
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sheet2_troll_80x2_2
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 796
+        width: 110
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sheet2_troll_80x2_3
+      rect:
+        serializedVersion: 2
+        x: 507
+        y: 795
+        width: 118
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sheet2_troll_80x2_4
+      rect:
+        serializedVersion: 2
+        x: 662
+        y: 795
+        width: 125
+        height: 135
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sheet2_troll_80x2_5
+      rect:
+        serializedVersion: 2
+        x: 817
+        y: 795
+        width: 133
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sheet2_troll_80x2_6
+      rect:
+        serializedVersion: 2
+        x: 973
+        y: 795
+        width: 140
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sheet2_troll_80x2_7
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 635
+        width: 107
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sheet2_troll_80x2_8
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 637
+        width: 101
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sheet2_troll_80x2_9
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 635
+        width: 108
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sheet2_troll_80x2_10
+      rect:
+        serializedVersion: 2
+        x: 509
+        y: 635
+        width: 116
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sheet2_troll_80x2_11
+      rect:
+        serializedVersion: 2
+        x: 666
+        y: 635
+        width: 122
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sheet2_troll_80x2_12
+      rect:
+        serializedVersion: 2
+        x: 822
+        y: 635
+        width: 129
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sheet2_troll_80x2_13
+      rect:
+        serializedVersion: 2
+        x: 977
+        y: 635
+        width: 138
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sheet2_troll_80x2_14
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 478
+        width: 91
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sheet2_troll_80x2_15
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 478
+        width: 104
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sheet2_troll_80x2_16
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 478
+        width: 123
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sheet2_troll_80x2_17
+      rect:
+        serializedVersion: 2
+        x: 478
+        y: 478
+        width: 132
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sheet2_troll_80x2_18
+      rect:
+        serializedVersion: 2
+        x: 637
+        y: 478
+        width: 134
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sheet2_troll_80x2_19
+      rect:
+        serializedVersion: 2
+        x: 808
+        y: 478
+        width: 123
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sheet2_troll_80x2_20
+      rect:
+        serializedVersion: 2
+        x: 979
+        y: 478
+        width: 109
+        height: 139
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sheet2_troll_80x2_21
+      rect:
+        serializedVersion: 2
+        x: 1149
+        y: 478
+        width: 96
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sheet2_troll_80x2_22
+      rect:
+        serializedVersion: 2
+        x: 1313
+        y: 478
+        width: 88
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sheet2_troll_80x2_23
+      rect:
+        serializedVersion: 2
+        x: 1479
+        y: 478
+        width: 81
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sheet2_troll_80x2_24
+      rect:
+        serializedVersion: 2
+        x: 1633
+        y: 478
+        width: 79
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sheet2_troll_80x2_25
+      rect:
+        serializedVersion: 2
+        x: 1769
+        y: 478
+        width: 102
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sheet2_troll_80x2_26
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 319
+        width: 103
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sheet2_troll_80x2_27
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 315
+        width: 102
+        height: 119
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sheet2_troll_80x2_28
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 314
+        width: 101
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sheet2_troll_80x2_29
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 312
+        width: 100
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sheet2_troll_80x2_30
+      rect:
+        serializedVersion: 2
+        x: 657
+        y: 312
+        width: 98
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sheet2_troll_80x2_31
+      rect:
+        serializedVersion: 2
+        x: 819
+        y: 312
+        width: 96
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sheet2_troll_80x2_32
+      rect:
+        serializedVersion: 2
+        x: 980
+        y: 314
+        width: 94
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sheet2_troll_80x2_33
+      rect:
+        serializedVersion: 2
+        x: 1142
+        y: 315
+        width: 92
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sheet2_troll_80x2_34
+      rect:
+        serializedVersion: 2
+        x: 1305
+        y: 316
+        width: 89
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sheet2_troll_80x2_35
+      rect:
+        serializedVersion: 2
+        x: 1468
+        y: 317
+        width: 87
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sheet2_troll_80x2_36
+      rect:
+        serializedVersion: 2
+        x: 1630
+        y: 318
+        width: 87
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sheet2_troll_80x2_37
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 319
+        width: 88
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sheet2_troll_80x2_38
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 159
+        width: 96
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sheet2_troll_80x2_39
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 159
+        width: 96
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sheet2_troll_80x2_40
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 159
+        width: 95
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sheet2_troll_80x2_41
+      rect:
+        serializedVersion: 2
+        x: 509
+        y: 159
+        width: 95
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sheet2_troll_80x2_42
+      rect:
+        serializedVersion: 2
+        x: 669
+        y: 159
+        width: 95
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sheet2_troll_80x2_43
+      rect:
+        serializedVersion: 2
+        x: 828
+        y: 159
+        width: 95
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sheet2_troll_80x2_44
+      rect:
+        serializedVersion: 2
+        x: 988
+        y: 159
+        width: 95
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sheet2_troll_80x2_45
+      rect:
+        serializedVersion: 2
+        x: 1147
+        y: 159
+        width: 95
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sheet2_troll_80x2_46
+      rect:
+        serializedVersion: 2
+        x: 1306
+        y: 159
+        width: 96
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sheet2_troll_80x2_47
+      rect:
+        serializedVersion: 2
+        x: 1466
+        y: 159
+        width: 95
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sheet2_troll_80x2_48
+      rect:
+        serializedVersion: 2
+        x: 1625
+        y: 159
+        width: 96
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sheet2_troll_80x2_49
+      rect:
+        serializedVersion: 2
+        x: 1784
+        y: 159
+        width: 96
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sheet2_troll_80x2_50
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 0
+        width: 96
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sheet2_troll_80x2_51
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 0
+        width: 96
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sheet2_troll_80x2_52
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 0
+        width: 95
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sheet2_troll_80x2_53
+      rect:
+        serializedVersion: 2
+        x: 509
+        y: 0
+        width: 95
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sheet2_troll_80x2_54
+      rect:
+        serializedVersion: 2
+        x: 669
+        y: 0
+        width: 95
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sheet2_troll_80x2_55
+      rect:
+        serializedVersion: 2
+        x: 828
+        y: 0
+        width: 95
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sheet2_troll_80x2_56
+      rect:
+        serializedVersion: 2
+        x: 988
+        y: 0
+        width: 95
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sheet2_troll_80x2_57
+      rect:
+        serializedVersion: 2
+        x: 1147
+        y: 0
+        width: 95
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sheet2_troll_80x2_58
+      rect:
+        serializedVersion: 2
+        x: 1306
+        y: 0
+        width: 96
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sheet2_troll_80x2_59
+      rect:
+        serializedVersion: 2
+        x: 1466
+        y: 0
+        width: 95
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sheet2_troll_80x2_60
+      rect:
+        serializedVersion: 2
+        x: 1625
+        y: 0
+        width: 96
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sheet2_troll_80x2_61
+      rect:
+        serializedVersion: 2
+        x: 1784
+        y: 0
+        width: 96
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -27,6 +27,7 @@ public class PlayerScript : MonoBehaviour
 	private bool inWater = false;
 	private float waterTimer = 0.0f;
 	private float deadTimer = 0.0f;
+	private bool inAir;
 
 	private CharacterController2D _controller;
 	private Animator _animator;
@@ -141,8 +142,15 @@ public class PlayerScript : MonoBehaviour
 
 		potionTime += Time.deltaTime;
 
-		if( _controller.isGrounded )
+		if (_controller.isGrounded) {
 			_velocity.y = 0;
+			if (inAir) {
+				inAir = false;
+				_as.Stop ();
+				_as.clip = Resources.Load ("Audio/Witch/land_1") as AudioClip;
+				_as.Play ();
+			}
+		}
 
 		if (Input.GetButtonDown ("Reset"))
 			SceneManager.LoadScene (SceneManager.GetActiveScene().buildIndex);
@@ -183,6 +191,7 @@ public class PlayerScript : MonoBehaviour
 		// we can only jump whilst grounded
 		if( _controller.isGrounded && Input.GetButtonDown("Jump")  && !isDead && !frozen)
 		{
+			inAir = true;
 			_velocity.y = Mathf.Sqrt( 3f * jumpHeight * -gravity );
 			_animator.Play( Animator.StringToHash( "Jump" ) );
 			_as.Stop ();

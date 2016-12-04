@@ -4,7 +4,7 @@ using Prime31;
 using UnityEngine.SceneManagement;
 
 
-public class DemoScene : MonoBehaviour
+public class PlayerScript : MonoBehaviour
 {
 	// movement config
 	public float gravity = -25f;
@@ -33,6 +33,9 @@ public class DemoScene : MonoBehaviour
 	private RaycastHit2D _lastControllerColliderHit;
 	private Vector3 _velocity;
 	private Rigidbody2D _rb;
+	private AudioSource _as;
+
+	private AudioClip[] audioClips;
 
 
 	void Awake()
@@ -40,6 +43,15 @@ public class DemoScene : MonoBehaviour
 		_animator = GetComponent<Animator>();
 		_controller = GetComponent<CharacterController2D>();
 		_rb = GetComponent<Rigidbody2D> ();
+		_as = GetComponent<AudioSource> ();
+		audioClips = new AudioClip[] {Resources.Load ("Audio/Witch/haha_1") as AudioClip, 
+			Resources.Load ("Audio/Witch/haha_2") as AudioClip,
+			Resources.Load ("Audio/Witch/humdidum_1") as AudioClip,
+			Resources.Load ("Audio/Witch/humdidum_2") as AudioClip,
+			Resources.Load ("Audio/Witch/whoa_1") as AudioClip,
+			Resources.Load ("Audio/Witch/laugh_short_1") as AudioClip,
+			Resources.Load ("Audio/Witch/laugh_long_1") as AudioClip
+		};
 
 		// listen to some events for illustration purposes
 		_controller.onControllerCollidedEvent += onControllerCollider;
@@ -173,6 +185,9 @@ public class DemoScene : MonoBehaviour
 		{
 			_velocity.y = Mathf.Sqrt( 3f * jumpHeight * -gravity );
 			_animator.Play( Animator.StringToHash( "Jump" ) );
+			_as.Stop ();
+			_as.clip = Resources.Load ("Audio/Witch/jump_1") as AudioClip;
+			_as.Play ();
 		}
 
 		if (Input.GetButtonDown ("B") && !isDead && !frozen) {
@@ -238,6 +253,9 @@ public class DemoScene : MonoBehaviour
 			BombScript bs = bomb.GetComponent<BombScript> ();
 			bs.Initialize (new Vector3(-runSpeed, 1f, 0f), bombIndex);
 		}
+
+		PlayRandomSound ();
+
 	}
 
 	private void StickHit ()
@@ -249,6 +267,7 @@ public class DemoScene : MonoBehaviour
 			stick = Object.Instantiate (Resources.Load ("Prefabs/Stick"), new Vector3 (transform.position.x - 1.1f, transform.position.y - 0.1f, transform.position.z), Quaternion.AngleAxis(120f, new Vector3(0,0,1))) as GameObject;
 		}
 		stick.transform.parent = this.gameObject.transform;
+		PlayRandomSound ();
 	}
 
 	private void StickWithdraw ()
@@ -285,6 +304,7 @@ public class DemoScene : MonoBehaviour
 				break;
 			} 
 		}
+		PlayRandomSound ();
 	}
 
 	private void DeactivatePotion ()
@@ -335,7 +355,16 @@ public class DemoScene : MonoBehaviour
 	{
 		runSpeed = 0f;
 		_animator.Play( Animator.StringToHash( "Witch_Dead" ) );
+		_as.Stop ();
+		_as.clip = Resources.Load ("Audio/Witch/die_1") as AudioClip;
+		_as.Play ();
 		isDead = true;	
 	}
 
+	private void PlayRandomSound()
+	{
+		_as.Stop ();
+		_as.clip = audioClips[Random.Range(0,7)];
+		_as.Play ();
+	}
 }

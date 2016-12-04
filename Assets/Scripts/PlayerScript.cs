@@ -28,6 +28,8 @@ public class PlayerScript : MonoBehaviour
 	private float waterTimer = 0.0f;
 	private float deadTimer = 0.0f;
 	private bool inAir;
+	private float poisonTimer = 0.0f;
+	private bool InPoison = false;
 
 	private CharacterController2D _controller;
 	private Animator _animator;
@@ -70,13 +72,6 @@ public class PlayerScript : MonoBehaviour
 		if( hit.normal.y == 1f )
 			return;
 
-		if (hit.collider.gameObject.tag == "Enemy")
-			Die ();
-
-		if (hit.collider.gameObject.tag == "Mushroom") {
-			Die ();
-		}
-
 		// logs any collider hits if uncommented. it gets noisy so it is commented out for the demo
 		//Debug.Log( "flags: " + _controller.collisionState + ", hit.normal: " + hit.normal );
 	}
@@ -84,7 +79,7 @@ public class PlayerScript : MonoBehaviour
 
 	void onTriggerEnterEvent( Collider2D col )
 	{
-		//Debug.Log( "onTriggerEnterEvent: " + col.gameObject.name );
+		Debug.Log( "onTriggerEnterEvent: " + col.gameObject.name );
 
 		if (col.gameObject.layer == 4) 
 		{
@@ -93,10 +88,13 @@ public class PlayerScript : MonoBehaviour
 				_velocity = 100f * direction.normalized;
 				Die ();
 			}
+			Debug.Log( "onTriggerEnterEvent: " + col.gameObject.name );
 			if (col.gameObject.tag == "Water")
 				ActivateWaterPhysics ();
 			if (col.gameObject.tag == "Enemy")
 				Die ();
+			if (col.gameObject.tag == "Poison")
+				InPoison = true;
 		}
 			
 	}
@@ -130,6 +128,14 @@ public class PlayerScript : MonoBehaviour
 
 		if (isDead)
 			deadTimer += Time.deltaTime;
+
+		if (InPoison)
+			poisonTimer += Time.deltaTime;
+		else
+			poisonTimer = 0;
+
+		if (poisonTimer > 2.0f)
+			Die ();
 
 		if (deadTimer > 2.0f)
 			SceneManager.LoadScene (SceneManager.GetActiveScene().buildIndex);

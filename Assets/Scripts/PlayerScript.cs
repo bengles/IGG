@@ -12,6 +12,7 @@ public class PlayerScript : MonoBehaviour
 	public float groundDamping = 20f; // how fast do we change direction? higher means faster
 	public float inAirDamping = 5f;
 	public float jumpHeight = 3f;
+    public int HP = 10;
 	public bool isDead = false;
 	public int potionIndex = 0;
 	public int bombIndex = 0;
@@ -30,6 +31,8 @@ public class PlayerScript : MonoBehaviour
 	private bool inAir;
 	private float poisonTimer = 0.0f;
 	private bool InPoison = false;
+    private int currentHP;
+    private int stickDmg;
 
 	private CharacterController2D _controller;
 	private Animator _animator;
@@ -61,6 +64,9 @@ public class PlayerScript : MonoBehaviour
 		_controller.onTriggerEnterEvent += onTriggerEnterEvent;
 		_controller.onTriggerStayEvent += onTriggerStayEvent;
 		_controller.onTriggerExitEvent += onTriggerExitEvent;
+
+        currentHP = HP;
+        stickDmg = 5; //Set this based on which item is equipped
 	}
 
 
@@ -72,15 +78,20 @@ public class PlayerScript : MonoBehaviour
 		if( hit.normal.y == 1f )
 			return;
 
+		if (hit.collider.gameObject.tag == "Enemy")
+			//Die ();
+
+		if (hit.collider.gameObject.tag == "Mushroom") {
+			Die ();
+		}
+
 		// logs any collider hits if uncommented. it gets noisy so it is commented out for the demo
-		//Debug.Log( "flags: " + _controller.collisionState + ", hit.normal: " + hit.normal );
+	    //Debug.Log( "flags: " + _controller.collisionState + ", hit.normal: " + hit.normal );
 	}
 
 
 	void onTriggerEnterEvent( Collider2D col )
 	{
-		Debug.Log( "onTriggerEnterEvent: " + col.gameObject.name );
-
 		if (col.gameObject.layer == 4) 
 		{
 			if (col.gameObject.tag == "Mushroom") {
@@ -92,11 +103,22 @@ public class PlayerScript : MonoBehaviour
 			if (col.gameObject.tag == "Water")
 				ActivateWaterPhysics ();
 			if (col.gameObject.tag == "Enemy")
-				Die ();
-			if (col.gameObject.tag == "Poison")
+            {
+                //Die();
+            }
+			if (col.gameObject.tag == "Poison") { 
 				InPoison = true;
-		}
-			
+    		}
+				
+		} else if (col.gameObject.layer == 9)           //this shit doesnt seem to fire /Johan
+        {
+            Debug.Log("Layer 9 event");
+            if (col.gameObject.tag == "MonsterAttack")
+            {
+                int dmg = col.transform.gameObject.GetComponentInParent<MonsterAI>().meleeDmg;
+                Debug.Log("Took " + dmg + " dmg.");
+            }
+        }	
 	}
 
 	void onTriggerStayEvent( Collider2D col)
@@ -376,10 +398,15 @@ public class PlayerScript : MonoBehaviour
 		isDead = true;	
 	}
 
-	private void PlayRandomSound()
+    private void PlayRandomSound()
 	{
 		_as.Stop ();
 		_as.clip = audioClips[Random.Range(0,7)];
 		_as.Play ();
 	}
+
+    public int getStickDmg()
+    {
+        return stickDmg;
+    }
 }

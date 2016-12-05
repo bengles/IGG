@@ -40,6 +40,7 @@ public class PlayerScript : MonoBehaviour
 	private Vector3 _velocity;
 	private Rigidbody2D _rb;
 	private AudioSource _as;
+	private bool hitting = false;
 
 	private AudioClip[] audioClips;
 	private GameObject frost;
@@ -191,8 +192,13 @@ public class PlayerScript : MonoBehaviour
 		if (Input.GetButtonDown ("Reset"))
 			SceneManager.LoadScene (SceneManager.GetActiveScene().buildIndex);
 
-		if( Input.GetAxis( "Horizontal" ) > 0  && !isDead && !frozen)
-		{
+		if (Input.GetButton ("B") && !isDead && !frozen) {
+			print ("B pressed");
+			if (_controller.isGrounded)
+				normalizedHorizontalSpeed = 0;
+			StickHit ();
+		}  else if ( Input.GetAxis( "Horizontal" ) > 0  && !isDead && !frozen) {
+			
 			normalizedHorizontalSpeed = 1;
 			if( transform.localScale.x < 0f )
 				transform.localScale = new Vector3( -transform.localScale.x, transform.localScale.y, transform.localScale.z );
@@ -201,9 +207,8 @@ public class PlayerScript : MonoBehaviour
 				_animator.Play( Animator.StringToHash( "Witch_Run" ) );
 
 			facingRight = true;
-		}
-		else if( Input.GetAxis( "Horizontal" ) < 0  && !isDead && !frozen)
-		{
+		} else if( Input.GetAxis( "Horizontal" ) < 0  && !isDead && !frozen) {
+			
 			normalizedHorizontalSpeed = -1;
 			if( transform.localScale.x > 0f )
 				transform.localScale = new Vector3( -transform.localScale.x, transform.localScale.y, transform.localScale.z );
@@ -221,7 +226,7 @@ public class PlayerScript : MonoBehaviour
 				_animator.Play (Animator.StringToHash ("Witch_Idle"));
 		}
 
-		if (!_controller.isGrounded && !isDead)
+		if (!_controller.isGrounded && !isDead && !hitting)
 			_animator.Play (Animator.StringToHash ("Witch_Fall"));
 
 		// we can only jump whilst grounded
@@ -235,10 +240,7 @@ public class PlayerScript : MonoBehaviour
 			_as.Play ();
 		}
 
-		if (Input.GetButtonDown ("B") && !isDead && !frozen) {
-			print ("B pressed");
-			StickHit ();
-		}
+
 
 		if (Input.GetButtonUp ("B") && !isDead && !frozen) {
 			StickWithdraw ();
@@ -305,19 +307,25 @@ public class PlayerScript : MonoBehaviour
 
 	private void StickHit ()
 	{
+		_animator.Play (Animator.StringToHash("Witch_Melee"));
 		GameObject stick;
-		if (facingRight == true) {
+		if (facingRight == true && !hitting) {
 			stick = Object.Instantiate (Resources.Load ("Prefabs/Stick"), new Vector3 (transform.position.x + 1.1f, transform.position.y, transform.position.z), Quaternion.AngleAxis(-45f, new Vector3(0,0,1))) as GameObject;
-		} else {
+			stick.transform.parent = this.gameObject.transform;
+		} else if (!hitting){
 			stick = Object.Instantiate (Resources.Load ("Prefabs/Stick"), new Vector3 (transform.position.x - 1.1f, transform.position.y - 0.1f, transform.position.z), Quaternion.AngleAxis(120f, new Vector3(0,0,1))) as GameObject;
+			stick.transform.parent = this.gameObject.transform;
 		}
-		stick.transform.parent = this.gameObject.transform;
+
+		hitting = true;
 		PlayRandomSound ();
 	}
 
 	private void StickWithdraw ()
 	{
-		Destroy (GameObject.FindGameObjectWithTag ("Stick"));
+		hitting = false;
+		foreach (GameObject go in GameObject.FindGameObjectsWithTag ("Stick"))
+			Destroy (go);
 	}
 
 	private void ActivatePotion ()

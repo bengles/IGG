@@ -5,6 +5,10 @@ public class ItemScript : MonoBehaviour {
 
 	private Collider2D _col;
 
+	public string itemName { get; set; }
+	public string flavorText { get; set; }
+	public int itemID { get; set; }
+
 	// Use this for initialization
 	void Start () {
 		_col = GetComponent<Collider2D> ();

@@ -319,14 +319,20 @@ public class PlayerScript : MonoBehaviour
 	private void StickHit ()
 	{
 		_animator.Play (Animator.StringToHash("Witch_Melee"));
-		GameObject stick;
-		if (facingRight == true && !hitting) {
-			stick = Object.Instantiate (Resources.Load ("Prefabs/Stick"), new Vector3 (transform.position.x + 1.1f, transform.position.y, transform.position.z), Quaternion.AngleAxis(-45f, new Vector3(0,0,1))) as GameObject;
-			stick.transform.parent = this.gameObject.transform;
-		} else if (!hitting){
-			stick = Object.Instantiate (Resources.Load ("Prefabs/Stick"), new Vector3 (transform.position.x - 1.1f, transform.position.y - 0.1f, transform.position.z), Quaternion.AngleAxis(120f, new Vector3(0,0,1))) as GameObject;
-			stick.transform.parent = this.gameObject.transform;
-		}
+		GameObject stick = null;
+
+        if (!hitting)
+        {
+            Debug.Log("Instantiating stick1");
+            int direction = facingRight ? 1 : -1;
+            Vector3 pos = transform.position;
+            pos.x += direction * 1f;
+            pos.y -= 0.22f;
+            stick = (GameObject)Instantiate(Resources.Load("Prefabs/Stick"), pos, Quaternion.identity);
+            stick.transform.parent = transform;
+            stick.transform.localScale = 2 * stick.transform.localScale;
+            Destroy(stick, 0.1f);
+        }
 
 		hitting = true;
 	}

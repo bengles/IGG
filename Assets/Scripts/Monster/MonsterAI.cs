@@ -33,6 +33,7 @@ public class MonsterAI : MonoBehaviour {
     private float timeSinceAttack;
 	private bool facingRight = false;
     private int currentHP;
+    private float lastDmgTime;
 
 	// Use this for initialization
 	void Start () {
@@ -43,6 +44,7 @@ public class MonsterAI : MonoBehaviour {
         if (monsterBody == null) Debug.Log("No Rigidbody on monster");
         spawnPosition = new Vector2(this.transform.position.x, this.transform.position.y);
         directionChangeCount = 0;
+        lastDmgTime = Time.time;
         switch(currentState)
         {
             case MonsterState.Walk:
@@ -171,6 +173,24 @@ public class MonsterAI : MonoBehaviour {
         Debug.Log("Entering Aggro-state.");
         targetPosition = player.transform.position;
         currentState = MonsterState.Aggro;
+    }
+
+    void OnCollisionEnter2D(Collision2D coll)
+    {
+        Debug.Log("Monster collide with: " + coll.gameObject.tag);
+        if (coll.gameObject.tag == "Player")
+        {
+            if (Time.time - lastDmgTime > 0.2f)
+            {
+                Debug.Log("Monster take dmg from stick");
+                currentHP -= coll.gameObject.GetComponentInParent<PlayerScript>().getStickDmg();
+                if (currentHP < 1)
+                {
+                    Die();
+                }
+                lastDmgTime = Time.time;
+            }
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)

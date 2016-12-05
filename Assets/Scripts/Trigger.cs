@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEditor.SceneManagement;
 
 public class Trigger : MonoBehaviour {
 
@@ -11,7 +12,7 @@ public class Trigger : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D col) {
-		if (col.gameObject.tag == "Player")
+		if (col.gameObject.tag == "Player") 
 			triggered = true;
 	}
 }

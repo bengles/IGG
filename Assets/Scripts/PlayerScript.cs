@@ -77,10 +77,10 @@ public class PlayerScript : MonoBehaviour
 	void Start()
 	{
 		foreach (Item item in GlobalData.Instance.currentInventory) {
+			Debug.Log(item.name);
 			switch (item.cat) {
 			case ItemCategory.Bomb:
 				bombIndex = item.index;
-				Debug.Log ("Bomb index: " + bombIndex);
 				break;
 			case ItemCategory.Potion:
 				potionIndex = item.index;
@@ -218,7 +218,6 @@ public class PlayerScript : MonoBehaviour
 			SceneManager.LoadScene (SceneManager.GetActiveScene().buildIndex);
 
 		if (Input.GetButton ("B") && !isDead && !frozen) {
-			print ("B pressed");
 			if (_controller.isGrounded)
 				normalizedHorizontalSpeed = 0;
 			StickHit ();
@@ -313,7 +312,6 @@ public class PlayerScript : MonoBehaviour
 				BombScript bs = bomb.GetComponent<BombScript> ();
 				bs.Initialize (new Vector3 (-runSpeed, 1f, 0f), bombIndex);
 			}
-
 			PlayRandomSound ();
 		}
 	}
@@ -331,7 +329,6 @@ public class PlayerScript : MonoBehaviour
 		}
 
 		hitting = true;
-		PlayRandomSound ();
 	}
 
 	private void StickWithdraw ()
@@ -448,7 +445,5 @@ public class PlayerScript : MonoBehaviour
 
 	private void Pickup (Item item) {
 		GlobalData.Instance.currentInventory.Add (item);
-		foreach(Item i in GlobalData.Instance.currentInventory)
-			Debug.Log(i.name);
 	}
 }

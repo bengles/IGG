@@ -12,7 +12,9 @@ public class ItemScript : MonoBehaviour {
 
 	void Awake() {
 		item = new Item (name, flavorText, index, cat);
-
+		foreach (Item i in GlobalData.Instance.currentInventory)
+			if (i.name == name)
+				Destroy (this.gameObject);
 	}
 
 	void OnTriggerEnter2D(Collider2D col){

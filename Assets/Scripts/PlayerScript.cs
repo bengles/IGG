@@ -345,7 +345,8 @@ public class PlayerScript : MonoBehaviour
 			case 2: 
 				// Freeze potion
 				frozen = true;
-				frost = Object.Instantiate (Resources.Load("Prefabs/Frost"), new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity) as GameObject;
+				frost = Object.Instantiate (Resources.Load ("Prefabs/Frost"), new Vector3 (transform.position.x, transform.position.y, transform.position.z), Quaternion.identity) as GameObject;
+				frost.gameObject.transform.parent = this.transform;
 				potionDuration = 2.0f;
 				break;
 			} 

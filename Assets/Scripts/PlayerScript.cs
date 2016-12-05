@@ -14,7 +14,6 @@ public class PlayerScript : MonoBehaviour
 	public float inAirDamping = 5f;
 	public float jumpHeight = 3f;
     public int HP = 10;
-	public bool isDead = false;
 	public int potionIndex = -1;
 	public int bombIndex = -1;
 	public int staffIndex = -1;
@@ -29,6 +28,7 @@ public class PlayerScript : MonoBehaviour
 	public float velocity;
 	private bool inWater = false;
 	private float waterTimer = 0.0f;
+	private bool isDead = false;
 	private float deadTimer = 0.0f;
 	private bool inAir;
 	private float poisonTimer = 0.0f;
@@ -448,5 +448,11 @@ public class PlayerScript : MonoBehaviour
 
 	private void Pickup (Item item) {
 		GlobalData.Instance.currentInventory.Add (item);
+	}
+
+	public void InflictDamage (int damage) {
+		currentHP -= damage;
+		if (currentHP <= 0)
+			Die ();
 	}
 }

@@ -6,12 +6,10 @@ public class FireWallScript : MonoBehaviour {
 	public float speed = 0.05f;
 	public int direction = -1;
 
-	private GameObject fireWall;
 	private Trigger trigger;
 
 	// Use this for initialization
 	void Start () {
-		fireWall = transform.FindChild ("Fire Wall").gameObject as GameObject;
 		trigger = transform.FindChild ("Trigger").GetComponent<Trigger>();
 	}
 	

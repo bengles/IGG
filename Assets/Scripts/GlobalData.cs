@@ -1,58 +1,40 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-public static class GlobalData
-{
+public class GlobalData : Singleton<GlobalData> {
 
-    public static List<ItemInfo> currentInventory;
-    public static int equippedStaffID;
-    public static int equippedBombID;
-    public static int equippedPotionID;
+	protected GlobalData () {} // guarantee this will be always a singleton only - can't use the constructor!
 
-    public static void init()
-    {
-        currentInventory = new List<ItemInfo>();
-        currentInventory.Add(new ItemInfo(4)); //add WinterMint
-        currentInventory.Add(new ItemInfo(5)); //add MammothBone
+	public static GlobalData i;
 
-        equippedStaffID = 1;
-        equippedBombID = 2;
-        equippedPotionID = 3;
-    }
-}
+	public List<Item> currentInventory;
+	public static int equippedBombIndex;
+	public static int equippedStaffIndex;
+	public static int equippedPotionIndex;
 
-public class ItemInfo
-{
-    private string itemName;
-    private string flavorText;
-    private int itemID;
-    //dmg, etc?
+	void Awake () {
+		// Your initialization code here
 
-    public ItemInfo(int id)
-    {
-        itemID = id;
-        switch (id)
-        {
-            case 4:
-                itemName = "Winter Mint";
-                flavorText = "";
-                break;
-            case 5:
-                itemName = "Mammoth Bone";
-                break;
-            default:
-                Debug.Log("ItemInfo got bogus id?");
-                break;
-        }
-    }
+		this.Reload ();
 
-    public string getName()
-    {
-        return itemName;
-    }
+		currentInventory = new List<Item>();
 
-    public int getID()
-    {
-        return itemID;
-    }
+		equippedPotionIndex = -1;
+		equippedBombIndex = -1;
+		equippedStaffIndex = 0;
+
+		// Add base items
+		currentInventory.Add(new Item( "Potion", 
+			"Before she can read, the first thing the witch learns is how to use the " +
+			"cauldron to brew the simplest of potions. Potions transform Willow in many kind of ways.", 
+			equippedPotionIndex, ItemCategory.Potion)); //add Potion
+		currentInventory.Add(new Item( "Bomb",
+			"The bomb case is easy to throw in the direction of an arc, and its contents " + 
+			"usually react when it touches the environment or other creatures.",
+			equippedBombIndex, ItemCategory.Bomb)); //add Bomb
+		currentInventory.Add(new Item( "Staff",
+			"The staff is the witch’s preferred weapon in close combat. Though weak in itself, " +
+			"dipping it in the right brews can give it peculiar properties.",
+			equippedStaffIndex, ItemCategory.Staff)); //add Staff
+	}
 }

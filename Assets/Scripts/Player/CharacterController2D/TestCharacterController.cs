@@ -19,14 +19,12 @@ public class TestCharacterController : MonoBehaviour {
 	private float velocityMultiplier = 1.0f;
 
 	private Rigidbody2D _rb;
-	private Collider2D _col;
 	private Animator _anim;
 	private SpriteRenderer _sr;
 
 	// Use this for initialization
 	void Start () {
 		_rb = GetComponent<Rigidbody2D> ();
-		_col = GetComponent<Collider2D> ();
 		_anim = GetComponent<Animator> ();
 		_sr = GetComponent<SpriteRenderer> ();
 	}

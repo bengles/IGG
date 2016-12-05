@@ -41,8 +41,6 @@ public class SmoothFollow : MonoBehaviour
 
 	void updateCameraPosition()
 	{
-		Debug.Log (Input.GetAxis("CameraHorizontal"));
-		Debug.Log (Input.GetAxis("CameraVertical"));
 
 		if( _playerController == null )
 		{

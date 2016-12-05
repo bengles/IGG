@@ -2,6 +2,7 @@
 using System.Collections;
 using Prime31;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
 
 
 public class PlayerScript : MonoBehaviour
@@ -14,8 +15,9 @@ public class PlayerScript : MonoBehaviour
 	public float jumpHeight = 3f;
     public int HP = 10;
 	public bool isDead = false;
-	public int potionIndex = 0;
-	public int bombIndex = 0;
+	public int potionIndex = -1;
+	public int bombIndex = -1;
+	public int staffIndex = -1;
 
 	[HideInInspector]
 	private float normalizedHorizontalSpeed = 0;
@@ -69,6 +71,25 @@ public class PlayerScript : MonoBehaviour
 
         currentHP = HP;
         stickDmg = 5; //Set this based on which item is equipped
+
+	}
+
+	void Start()
+	{
+		foreach (Item item in GlobalData.Instance.currentInventory) {
+			switch (item.cat) {
+			case ItemCategory.Bomb:
+				bombIndex = item.index;
+				Debug.Log ("Bomb index: " + bombIndex);
+				break;
+			case ItemCategory.Potion:
+				potionIndex = item.index;
+				break;
+			case ItemCategory.Staff:
+				staffIndex = item.index;
+				break;
+			}
+		}
 	}
 
 	#region Event Listeners
@@ -114,6 +135,10 @@ public class PlayerScript : MonoBehaviour
 			{
 				if (!frozen)
 					Die ();
+			}
+			if (col.gameObject.tag == "Item")
+			{
+				Pickup (col.gameObject.GetComponent<ItemScript>().item);
 			}
 				
 		} else if (col.gameObject.layer == 0)           //this shit doesnt seem to fire /Johan
@@ -234,7 +259,7 @@ public class PlayerScript : MonoBehaviour
 		{
 			inAir = true;
 			_velocity.y = Mathf.Sqrt( 3f * jumpHeight * -gravity );
-			_animator.Play( Animator.StringToHash( "Jump" ) );
+			_animator.Play( Animator.StringToHash( "Witch_Jump" ) );
 			_as.Stop ();
 			_as.clip = Resources.Load ("Audio/Witch/jump_1") as AudioClip;
 			_as.Play ();
@@ -252,18 +277,6 @@ public class PlayerScript : MonoBehaviour
 
 		if (Input.GetButtonDown ("Y") && !isDead && !frozen) {
 			ActivatePotion ();
-		}
-
-		if (Input.GetButtonDown ("Fire1") && !isDead && !frozen) {
-			_controller.rigidBody2D.AddForce (new Vector2 (0f, 1000f));
-		}
-
-		if (Input.GetButtonDown ("Fire2") && !isDead && !frozen && !potionActivated) {
-			potionIndex = (potionIndex + 1) % 3;
-		}
-
-		if (Input.GetButtonDown ("Fire3") && !isDead && !frozen) {
-			bombIndex = (bombIndex + 1) % 2;
 		}
 
 
@@ -290,19 +303,19 @@ public class PlayerScript : MonoBehaviour
 
 	private void ThrowBomb ()
 	{
-		
-		if (facingRight == true) {
-			GameObject bomb = Object.Instantiate (Resources.Load("Prefabs/Bomb"), new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity) as GameObject;
-			BombScript bs = bomb.GetComponent<BombScript> ();
-			bs.Initialize(new Vector3(runSpeed, 1f, 0f), bombIndex);
-		} else {
-			GameObject bomb = Object.Instantiate (Resources.Load("Prefabs/Bomb"), new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity) as GameObject;
-			BombScript bs = bomb.GetComponent<BombScript> ();
-			bs.Initialize (new Vector3(-runSpeed, 1f, 0f), bombIndex);
+		if (bombIndex != -1) {
+			if (facingRight == true) {
+				GameObject bomb = Object.Instantiate (Resources.Load ("Prefabs/Bomb"), new Vector3 (transform.position.x, transform.position.y, transform.position.z), Quaternion.identity) as GameObject;
+				BombScript bs = bomb.GetComponent<BombScript> ();
+				bs.Initialize (new Vector3 (runSpeed, 1f, 0f), bombIndex);
+			} else {
+				GameObject bomb = Object.Instantiate (Resources.Load ("Prefabs/Bomb"), new Vector3 (transform.position.x, transform.position.y, transform.position.z), Quaternion.identity) as GameObject;
+				BombScript bs = bomb.GetComponent<BombScript> ();
+				bs.Initialize (new Vector3 (-runSpeed, 1f, 0f), bombIndex);
+			}
+
+			PlayRandomSound ();
 		}
-
-		PlayRandomSound ();
-
 	}
 
 	private void StickHit ()
@@ -335,31 +348,35 @@ public class PlayerScript : MonoBehaviour
 			potionTime = 0f;
 			potionActivated = true;
 
-			switch (potionIndex)
-			{
+			switch (potionIndex) {
 			case -1:
 				break;
 			case 0: 
-				// Speed potion
-				runSpeed *= 2f;
-				potionDuration = 3.0f;
-				break;
-			case 1: 
-				// Small potion
-				this.gameObject.transform.localScale /= 4;
-				_rb.mass /= 4;
-				potionDuration = 3.0f;
-				break;
-			case 2: 
 				// Freeze potion
 				frozen = true;
 				frost = Object.Instantiate (Resources.Load ("Prefabs/Frost"), new Vector3 (transform.position.x, transform.position.y, transform.position.z), Quaternion.identity) as GameObject;
 				frost.gameObject.transform.parent = this.transform;
 				potionDuration = 2.0f;
+				break; 
+			case 1: 
+				// Curry potion
+				runSpeed *= 2f;
+				potionDuration = 3.0f;
 				break;
-			} 
+			case 2: 
+				// Small potion
+				this.gameObject.transform.localScale /= 4;
+				_rb.mass /= 4;
+				potionDuration = 3.0f;
+				break;
+			case 3:
+				// Peppermint Tea
+				break;
+			default:
+				PlayRandomSound ();
+				break;
+			}
 		}
-		PlayRandomSound ();
 	}
 
 	private void DeactivatePotion ()
@@ -368,17 +385,19 @@ public class PlayerScript : MonoBehaviour
 
 		switch (potionIndex) 
 		{
-		case 0: 
+		case -1:
+			break;
+		case 1: 
 			// Speed potion
 			runSpeed /= 2f;
 			break;
-		case 1:
+		case 2:
 			// Small potion
 			this.gameObject.transform.localScale *= 4;
 			_rb.mass *= 4;
 			this.gameObject.transform.position = new Vector3 (this.gameObject.transform.position.x, this.gameObject.transform.position.y + 0.5f, this.gameObject.transform.position.z);
 			break;
-		case 2:
+		case 3:
 			// Freeze potion
 			frozen = false;
 			Destroy (frost);
@@ -426,4 +445,10 @@ public class PlayerScript : MonoBehaviour
     {
         return stickDmg;
     }
+
+	private void Pickup (Item item) {
+		GlobalData.Instance.currentInventory.Add (item);
+		foreach(Item i in GlobalData.Instance.currentInventory)
+			Debug.Log(i.name);
+	}
 }

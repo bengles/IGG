@@ -394,10 +394,13 @@ public class PlayerScript : MonoBehaviour
 			_rb.mass *= 4;
 			this.gameObject.transform.position = new Vector3 (this.gameObject.transform.position.x, this.gameObject.transform.position.y + 0.5f, this.gameObject.transform.position.z);
 			break;
-		case 3:
+		case 0:
 			// Freeze potion
 			frozen = false;
 			Destroy (frost);
+			break;
+		case 3:
+			// Peppermint Tea
 			break;
 		} 
 	}

@@ -9,7 +9,7 @@ public class WaterScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		liquidWater = transform.FindChild ("Liquid Water").gameObject;
-		iceWater = transform.FindChild ("Ice Water").gameObject;
+		iceWater = transform.FindChild ("Freezed Water").gameObject;
 
 		liquidWater.SetActive (true);
 		iceWater.SetActive (false);

@@ -192,6 +192,7 @@ public class MonsterAI : MonoBehaviour {
             Destroy(this.gameObject);
         else if (other.CompareTag("Stick"))
         {
+            Debug.Log("Monster take dmg from stick");
             currentHP -= other.gameObject.GetComponentInParent<PlayerScript>().getStickDmg();
             if (currentHP < 1)
             {

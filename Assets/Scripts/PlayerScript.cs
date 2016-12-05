@@ -70,7 +70,6 @@ public class PlayerScript : MonoBehaviour
         stickDmg = 5; //Set this based on which item is equipped
 	}
 
-
 	#region Event Listeners
 
 	void onControllerCollider( RaycastHit2D hit )
@@ -116,7 +115,7 @@ public class PlayerScript : MonoBehaviour
 					Die ();
 			}
 				
-		} else if (col.gameObject.layer == 9)           //this shit doesnt seem to fire /Johan
+		} else if (col.gameObject.layer == 0)           //this shit doesnt seem to fire /Johan
         {
             Debug.Log("Layer 9 event");
             if (col.gameObject.tag == "MonsterAttack")
@@ -146,6 +145,7 @@ public class PlayerScript : MonoBehaviour
 	}
 
 	#endregion
+
 
 
 	// the Update loop contains a very simple example of moving the character around and controlling the animation

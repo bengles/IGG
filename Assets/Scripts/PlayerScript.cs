@@ -42,6 +42,7 @@ public class PlayerScript : MonoBehaviour
 	private AudioSource _as;
 
 	private AudioClip[] audioClips;
+	private GameObject frost;
 
 
 	void Awake()
@@ -109,6 +110,11 @@ public class PlayerScript : MonoBehaviour
 			if (col.gameObject.tag == "Poison") { 
 				InPoison = true;
     		}
+			if (col.gameObject.tag == "FireWall") 
+			{
+				if (!frozen)
+					Die ();
+			}
 				
 		} else if (col.gameObject.layer == 9)           //this shit doesnt seem to fire /Johan
         {
@@ -134,6 +140,8 @@ public class PlayerScript : MonoBehaviour
 		{
 			if (col.gameObject.tag == "Water") 
 				DeactivateWaterPhysics ();
+			if (col.gameObject.tag == "Poison") 
+				InPoison = false;
 		}
 	}
 
@@ -337,6 +345,7 @@ public class PlayerScript : MonoBehaviour
 			case 2: 
 				// Freeze potion
 				frozen = true;
+				frost = Object.Instantiate (Resources.Load("Prefabs/Frost"), new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity) as GameObject;
 				potionDuration = 2.0f;
 				break;
 			} 
@@ -357,14 +366,13 @@ public class PlayerScript : MonoBehaviour
 		case 1:
 			// Small potion
 			this.gameObject.transform.localScale *= 4;
-			potionDuration = 3.0f;
 			_rb.mass *= 4;
 			this.gameObject.transform.position = new Vector3 (this.gameObject.transform.position.x, this.gameObject.transform.position.y + 0.5f, this.gameObject.transform.position.z);
 			break;
 		case 2:
 			// Freeze potion
 			frozen = false;
-			potionDuration = 2.0f;
+			Destroy (frost);
 			break;
 		} 
 	}

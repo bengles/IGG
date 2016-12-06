@@ -9,7 +9,13 @@ public class MineMushroom : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+
+	}
+
+	void OnTriggerEnter2D (Collider2D col) {
+		if (col.CompareTag ("Player") || col.CompareTag ("Enemy")) {
+			Explode ();
+		}
 	}
 
 	public void Explode()

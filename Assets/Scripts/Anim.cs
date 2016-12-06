@@ -12,14 +12,11 @@ public class Anim : MonoBehaviour {
 	private float deltaTime = 0;
 	private float frameSeconds = 0.05f;
 
-	private Collider2D _col;
-
 	// Use this for initialization
 	void Start () {
 		_sr = GetComponent<SpriteRenderer> ();
 		sprites = Resources.LoadAll<Sprite> ("Sprites/exp3_0");
 
-		_col = GetComponent<Collider2D> ();
 	}
 
 	public void Initialize (bool loop, string location)
@@ -49,11 +46,9 @@ public class Anim : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D (Collider2D col) {
-		if (col.CompareTag ("Mushroom"))
-			col.gameObject.GetComponent<MineMushroom> ().Explode ();
-		else if (col.CompareTag ("Player") || col.CompareTag ("Enemy")) {
-			Vector3 direction = col.gameObject.transform.position - transform.position;
-			_col.gameObject.GetComponent<Rigidbody2D> ().velocity = 50f * direction.normalized;
+		foreach (Collider2D mm in Physics2D.OverlapCircleAll (transform.position, 10)) {
+			if (mm.CompareTag("Mushroom") && mm.gameObject.GetComponent<MineMushroom>() != null)
+				mm.gameObject.GetComponent<MineMushroom>().Explode ();
 		}
 	}
 

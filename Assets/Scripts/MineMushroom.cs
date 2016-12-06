@@ -13,9 +13,14 @@ public class MineMushroom : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D (Collider2D col) {
-		if (col.CompareTag ("Player") || col.CompareTag ("Enemy")) {
+		if (col.CompareTag ("Player") || col.CompareTag ("Enemy") || col.CompareTag("Mushroom")) {
 			Explode ();
 		}
+	}
+
+	void OnCollisionEnter2D (Collision2D col)
+	{
+		Debug.Log ("Collision minemushroom. " + col.gameObject.tag);
 	}
 
 	public void Explode()

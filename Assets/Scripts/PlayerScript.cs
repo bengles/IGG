@@ -25,7 +25,6 @@ public class PlayerScript : MonoBehaviour
 	private bool potionActivated = false;
 	private float potionDuration;
 	private bool frozen = false;
-	public float velocity;
 	private bool inWater = false;
 	private float waterTimer = 0.0f;
 	private bool isDead = false;

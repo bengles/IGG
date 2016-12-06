@@ -37,4 +37,35 @@ public class GlobalData : Singleton<GlobalData> {
 			"dipping it in the right brews can give it peculiar properties.",
 			equippedStaffIndex, ItemCategory.Staff)); //add Staff
 	}
+
+    public bool HasItemID(int itemID, ItemCategory cat)
+    {
+        foreach(Item item in currentInventory)
+        {
+            if (item.cat == cat && item.index == itemID)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public List<Item> GetIngredients()
+    {
+        List<Item> ingredientList = new List<Item>();
+        foreach(Item item in currentInventory)
+        {
+            if (item.cat == ItemCategory.Ingredient)
+            {
+                ingredientList.Add(item);
+            }
+        }
+        return ingredientList;
+    }
+
+    public void AddTestItems()
+    {
+        currentInventory.Add(new Item("WinterMint",
+            "Blabla ha blablahahabla", 3, ItemCategory.Ingredient));
+    }
 }

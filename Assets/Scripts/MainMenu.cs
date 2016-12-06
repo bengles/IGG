@@ -1,7 +1,5 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using System.Collections;
 
 public class MainMenu : MonoBehaviour {
 
@@ -12,11 +10,11 @@ public class MainMenu : MonoBehaviour {
 	
     public void Demo1Press()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(1);
     }
 
     public void Demo2Press()
     {
-        SceneManager.LoadScene(2);
+        //SceneManager.LoadScene(2);
     }
 }

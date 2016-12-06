@@ -179,7 +179,7 @@ public class MonsterAI : MonoBehaviour {
                 currentHP -= coll.gameObject.GetComponentInParent<PlayerScript>().getStickDmg();
                 if (currentHP < 1)
                 {
-                    Die();
+					StartCoroutine(Die());
                 }
                 lastDmgTime = Time.time;
             }
@@ -205,9 +205,11 @@ public class MonsterAI : MonoBehaviour {
             Destroy(this.gameObject);
     }
 
-    private void Die()
+	private IEnumerator Die()
     {
         //play sound, play animation
+		_animator.Play(Animator.StringToHash("Troll_Die"));
+		yield return new WaitForSeconds (2.0f);
         Destroy(this.gameObject);
     }
 

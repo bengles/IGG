@@ -1,0 +1,395 @@
+fileFormatVersion: 2
+guid: 10bd3f80770949e449dc966350af819d
+timeCreated: 1481044450
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: die!_troll_die!_0
+    21300002: die!_troll_die!_1
+    21300004: die!_troll_die!_2
+    21300006: die!_troll_die!_3
+    21300008: die!_troll_die!_4
+    21300010: die!_troll_die!_5
+    21300012: die!_troll_die!_6
+    21300014: die!_troll_die!_7
+    21300016: die!_troll_die!_8
+    21300018: die!_troll_die!_9
+    21300020: die!_troll_die!_10
+    21300022: die!_troll_die!_11
+    21300024: die!_troll_die!_12
+    21300026: die!_troll_die!_13
+    21300028: die!_troll_die!_14
+    21300030: die!_troll_die!_15
+    21300032: die!_troll_die!_16
+    21300034: die!_troll_die!_17
+    21300036: die!_troll_die!_18
+    21300038: die!_troll_die!_19
+    21300040: die!_troll_die!_20
+    21300042: die!_troll_die!_21
+    21300044: die!_troll_die!_22
+    21300046: die!_troll_die!_23
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: die!_troll_die!_0
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 692
+        width: 341
+        height: 479
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: die!_troll_die!_1
+      rect:
+        serializedVersion: 2
+        x: 1046
+        y: 692
+        width: 346
+        height: 480
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: die!_troll_die!_2
+      rect:
+        serializedVersion: 2
+        x: 1743
+        y: 692
+        width: 385
+        height: 480
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: die!_troll_die!_3
+      rect:
+        serializedVersion: 2
+        x: 2441
+        y: 692
+        width: 425
+        height: 480
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: die!_troll_die!_4
+      rect:
+        serializedVersion: 2
+        x: 3150
+        y: 692
+        width: 451
+        height: 480
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: die!_troll_die!_5
+      rect:
+        serializedVersion: 2
+        x: 3865
+        y: 692
+        width: 472
+        height: 483
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: die!_troll_die!_6
+      rect:
+        serializedVersion: 2
+        x: 4588
+        y: 692
+        width: 483
+        height: 484
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: die!_troll_die!_7
+      rect:
+        serializedVersion: 2
+        x: 5319
+        y: 692
+        width: 487
+        height: 486
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: die!_troll_die!_8
+      rect:
+        serializedVersion: 2
+        x: 6059
+        y: 692
+        width: 483
+        height: 488
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: die!_troll_die!_9
+      rect:
+        serializedVersion: 2
+        x: 6812
+        y: 692
+        width: 466
+        height: 527
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: die!_troll_die!_10
+      rect:
+        serializedVersion: 2
+        x: 7552
+        y: 688
+        width: 449
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: die!_troll_die!_11
+      rect:
+        serializedVersion: 2
+        x: 8228
+        y: 679
+        width: 459
+        height: 522
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: die!_troll_die!_12
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 54
+        width: 474
+        height: 475
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: die!_troll_die!_13
+      rect:
+        serializedVersion: 2
+        x: 823
+        y: 49
+        width: 522
+        height: 441
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: die!_troll_die!_14
+      rect:
+        serializedVersion: 2
+        x: 1512
+        y: 49
+        width: 556
+        height: 416
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: die!_troll_die!_15
+      rect:
+        serializedVersion: 2
+        x: 2223
+        y: 54
+        width: 562
+        height: 379
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: die!_troll_die!_16
+      rect:
+        serializedVersion: 2
+        x: 2941
+        y: 59
+        width: 560
+        height: 346
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: die!_troll_die!_17
+      rect:
+        serializedVersion: 2
+        x: 3655
+        y: 66
+        width: 564
+        height: 321
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: die!_troll_die!_18
+      rect:
+        serializedVersion: 2
+        x: 4378
+        y: 62
+        width: 564
+        height: 313
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: die!_troll_die!_19
+      rect:
+        serializedVersion: 2
+        x: 5109
+        y: 62
+        width: 565
+        height: 313
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: die!_troll_die!_20
+      rect:
+        serializedVersion: 2
+        x: 5837
+        y: 62
+        width: 568
+        height: 313
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: die!_troll_die!_21
+      rect:
+        serializedVersion: 2
+        x: 6568
+        y: 62
+        width: 564
+        height: 313
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: die!_troll_die!_22
+      rect:
+        serializedVersion: 2
+        x: 7299
+        y: 62
+        width: 565
+        height: 313
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: die!_troll_die!_23
+      rect:
+        serializedVersion: 2
+        x: 8027
+        y: 62
+        width: 568
+        height: 313
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

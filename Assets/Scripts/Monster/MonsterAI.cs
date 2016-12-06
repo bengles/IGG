@@ -106,13 +106,6 @@ public class MonsterAI : MonoBehaviour {
             timeSinceAttack = 0;
         }
 
-        /*
-        if (directionChangeCount > 1)
-        {
-            Debug.Log("Supressing movement due to direction changes");
-            transform.position = new Vector3(targetPosition.x, transform.position.y, transform.position.z);
-            lastMovement = 0;
-        }*/
         monsterBody.velocity = new Vector2(moveDirection * runSpeed, monsterBody.velocity.y);
 
 		if (monsterBody.velocity.x > 0 && !facingRight) {
@@ -210,15 +203,6 @@ public class MonsterAI : MonoBehaviour {
         }
         else if (other.CompareTag("Mushroom"))
             Destroy(this.gameObject);
-        else if (other.CompareTag("Stick"))
-        {
-            Debug.Log("Monster take dmg from stick");
-            currentHP -= other.gameObject.GetComponentInParent<PlayerScript>().getStickDmg();
-            if (currentHP < 1)
-            {
-                Die();
-            }
-        }
     }
 
     private void Die()

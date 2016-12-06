@@ -190,7 +190,7 @@ public class PlayerScript : MonoBehaviour
 		else
 			poisonTimer = 0;
 
-		if (poisonTimer > 2.0f)
+		if (poisonTimer > 1f)
 			Die ();
 
 		if (deadTimer > 2.0f)

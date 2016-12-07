@@ -12,7 +12,6 @@ public class SpiderTroll : MonoBehaviour {
 	}
 	
 	void OnTriggerEnter2D (Collider2D col) {
-		Debug.Log ("STAND");
 		if (col.gameObject.CompareTag ("Player"))
 			_animator.Play (Animator.StringToHash("Spider_Troll_Stand"));
 	}

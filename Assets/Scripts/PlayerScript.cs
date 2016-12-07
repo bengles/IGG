@@ -43,7 +43,9 @@ public class PlayerScript : MonoBehaviour
 	private AudioSource _as;
 	private bool hitting = false;
 	private bool poisonImmune = false;
-	private bool invulnerable;
+	private bool invulnerable = false;
+	private bool XaxisInUse = false;
+	private bool YaxisInUse = false;
 
 	private AudioClip[] audioClips;
 	private GameObject frost;
@@ -282,25 +284,35 @@ public class PlayerScript : MonoBehaviour
 			ActivatePotion ();
 		}
 
-		if (Input.GetButtonDown ("Fire2") && !isDead) {
-			foreach (Item item in GlobalData.Instance.currentInventory) {
-				if (item != null && item.cat == ItemCategory.Bomb && item.index != bombIndex) {
-					bombIndex = item.index;
-					break;
+		if (Input.GetAxisRaw ("DX") != 0f && !isDead) {
+			if (XaxisInUse == false && Input.GetAxisRaw("DX") == -1f) {
+				XaxisInUse = true;
+				foreach (Item item in GlobalData.Instance.currentInventory) {
+					if (item != null && item.cat == ItemCategory.Bomb && item.index != bombIndex) {
+						bombIndex = item.index;
+						break;
+					}
+				}
+			}
+		} 
+
+		if (Input.GetAxisRaw ("DX") == 0)
+			XaxisInUse = false;
+
+		if (Input.GetAxisRaw ("DY") == 1f && !isDead) {
+			if (YaxisInUse == false && Input.GetAxisRaw ("DY") == -1f) {
+				YaxisInUse = true;
+				foreach (Item item in GlobalData.Instance.currentInventory) {
+					if (item != null && item.cat == ItemCategory.Potion && item.index != potionIndex) {
+						potionIndex = item.index;
+						break;
+					}
 				}
 			}
 		}
 
-		if (Input.GetButtonDown ("Fire3") && !isDead) {
-			foreach (Item item in GlobalData.Instance.currentInventory) {
-				if (item != null && item.cat == ItemCategory.Potion && item.index != potionIndex) {
-					potionIndex = item.index;
-					break;
-				}
-			}
-		}
-
-
+		if (Input.GetAxisRaw ("DY") == 0)
+			YaxisInUse = false;
 
 
 		// apply horizontal speed smoothing it. dont really do this with Lerp. Use SmoothDamp or something that provides more control

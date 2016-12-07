@@ -134,6 +134,8 @@ public class CraftingScene : MonoBehaviour
 
     private void CraftItem(Item item)
     {
+        Destroy(newCraftWindow);
+
         resetToggles();
         if (item == null)           //play appropiate sound
         {
@@ -184,16 +186,20 @@ public class CraftingScene : MonoBehaviour
         //huuuge look-up table consisting of all possible crafts
         //first make sure only 1 non-ingredient is selected
         bool s = staffToggle.isOn; bool b = bombToggle.isOn; bool p = potionToggle.isOn;
-        if (!s && !s && !p)
+        Debug.Log(s + " " + b + " " + p);
+        if (!s && !b && !p)
             CraftItem(null);
+            
         if ((s && b) || (s && p) || (b && p))
             CraftItem(null);
+            
         //find out which item is crafted
         if (s)
         {
             if (itemIDs.Contains(4) && itemIDs.Count == 1) 
             {
                 CraftItem(new Item(0, ItemCategory.Staff));//bone axe
+                return;
             }
         }
         if (b)
@@ -201,14 +207,17 @@ public class CraftingScene : MonoBehaviour
             if (itemIDs.Contains(3) && itemIDs.Count == 1) 
             {
                 CraftItem(new Item(0, ItemCategory.Bomb));//snowball
+                return;
             }
             if (itemIDs.Contains(4) && itemIDs.Count == 1) 
             {
                 CraftItem(new Item(1, ItemCategory.Bomb));//mammoth bait
+                return;
             }
             if (itemIDs.Contains(3) && itemIDs.Count == 1) 
             {
                 CraftItem(new Item(0, ItemCategory.Bomb));//snowball
+                return;
             }
         }
         if (p)
@@ -216,26 +225,32 @@ public class CraftingScene : MonoBehaviour
             if (itemIDs.Contains(3) && itemIDs.Count == 1) 
             {
                 CraftItem(new Item(0, ItemCategory.Potion)); //Chilled Drink
+                return;
             }
             if (itemIDs.Contains(7) && itemIDs.Count == 1)
             {
                 CraftItem(new Item(4, ItemCategory.Potion)); // sniffle enhancer
+                return;
             }
             if (itemIDs.Contains(5) && itemIDs.Count == 1)
             {
                 CraftItem(new Item(1, ItemCategory.Potion)); //Curry sauce
+                return;
             }
             if (itemIDs.Contains(3) && itemIDs.Contains(8) && itemIDs.Count == 2)
             {
                 CraftItem(new Item(5, ItemCategory.Potion)); //Mushroom proof lotion
+                return;
             }
             if (itemIDs.Contains(6) && itemIDs.Count == 1) 
             {
                 CraftItem(new Item(2, ItemCategory.Potion)); //Pixifier
+                return;
             }
             if (itemIDs.Contains(3) && itemIDs.Contains(5) && itemIDs.Count == 2)
             {
                 CraftItem(new Item(3, ItemCategory.Potion)); //Mushroom proof lotion
+                return;
             }
         }
         CraftItem(null);

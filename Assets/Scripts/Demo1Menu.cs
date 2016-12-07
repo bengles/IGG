@@ -15,6 +15,6 @@ public class Demo1Menu : MonoBehaviour {
 
     public void PlayPress()
     {
-		SceneManager.LoadScene(GlobalData.Instance.currentLevel);
+		SceneManager.LoadScene(5);
     }
 }

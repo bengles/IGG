@@ -18,7 +18,7 @@ public class LoadOutScene : MonoBehaviour {
         itemHeight = 128.3f;
         canvasScale = GameObject.Find("Canvas").transform.localScale.x;
         background = GameObject.Find("Background");
-        GlobalData.Instance.AddTestItems();
+        //GlobalData.Instance.AddTestItems();
         staffs = new List<UIItem>();
         bombs = new List<UIItem>();
         potions = new List<UIItem>();

@@ -20,7 +20,9 @@ public class MineMushroom : MonoBehaviour {
 
 	void OnCollisionEnter2D (Collision2D col)
 	{
-		Debug.Log ("Collision minemushroom. " + col.gameObject.tag);
+		if (col.gameObject.CompareTag ("Player") || col.gameObject.CompareTag ("Enemy") || col.gameObject.CompareTag("Mushroom")) {
+			Explode ();
+		}
 	}
 
 	public void Explode()

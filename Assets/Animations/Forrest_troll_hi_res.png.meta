@@ -1,33 +1,33 @@
 fileFormatVersion: 2
-guid: 0315dfebbcce0af49ab6d9b99aac593d
-timeCreated: 1481126035
+guid: 60e7b52959bd6264385270c0df3e2813
+timeCreated: 1481125814
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: die!_troll_die!_low_res_0
-    21300002: die!_troll_die!_low_res_1
-    21300004: die!_troll_die!_low_res_2
-    21300006: die!_troll_die!_low_res_3
-    21300008: die!_troll_die!_low_res_4
-    21300010: die!_troll_die!_low_res_5
-    21300012: die!_troll_die!_low_res_6
-    21300014: die!_troll_die!_low_res_7
-    21300016: die!_troll_die!_low_res_8
-    21300018: die!_troll_die!_low_res_9
-    21300020: die!_troll_die!_low_res_10
-    21300022: die!_troll_die!_low_res_11
-    21300024: die!_troll_die!_low_res_12
-    21300026: die!_troll_die!_low_res_13
-    21300028: die!_troll_die!_low_res_14
-    21300030: die!_troll_die!_low_res_15
-    21300032: die!_troll_die!_low_res_16
-    21300034: die!_troll_die!_low_res_17
-    21300036: die!_troll_die!_low_res_18
-    21300038: die!_troll_die!_low_res_19
-    21300040: die!_troll_die!_low_res_20
-    21300042: die!_troll_die!_low_res_21
-    21300044: die!_troll_die!_low_res_22
-    21300046: die!_troll_die!_low_res_23
+    21300000: Forrest_troll_hi_res_0
+    21300002: Forrest_troll_hi_res_1
+    21300004: Forrest_troll_hi_res_2
+    21300006: Forrest_troll_hi_res_3
+    21300008: Forrest_troll_hi_res_4
+    21300010: Forrest_troll_hi_res_5
+    21300012: Forrest_troll_hi_res_6
+    21300014: Forrest_troll_hi_res_7
+    21300016: Forrest_troll_hi_res_8
+    21300018: Forrest_troll_hi_res_9
+    21300020: Forrest_troll_hi_res_10
+    21300022: Forrest_troll_hi_res_11
+    21300024: Forrest_troll_hi_res_12
+    21300026: Forrest_troll_hi_res_13
+    21300028: Forrest_troll_hi_res_14
+    21300030: Forrest_troll_hi_res_15
+    21300032: Forrest_troll_hi_res_16
+    21300034: Forrest_troll_hi_res_17
+    21300036: Forrest_troll_hi_res_18
+    21300038: Forrest_troll_hi_res_19
+    21300040: Forrest_troll_hi_res_20
+    21300042: Forrest_troll_hi_res_21
+    21300044: Forrest_troll_hi_res_22
+    21300046: Forrest_troll_hi_res_23
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -77,314 +77,314 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: die!_troll_die!_low_res_0
+      name: Forrest_troll_hi_res_0
       rect:
         serializedVersion: 2
-        x: 35
-        y: 158
-        width: 97
-        height: 137
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 211
+        y: 975
+        width: 350
+        height: 240
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: die!_troll_die!_low_res_1
+      name: Forrest_troll_hi_res_1
       rect:
         serializedVersion: 2
-        x: 234
-        y: 158
-        width: 98
-        height: 137
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 988
+        y: 975
+        width: 349
+        height: 240
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: die!_troll_die!_low_res_2
+      name: Forrest_troll_hi_res_2
       rect:
         serializedVersion: 2
-        x: 432
-        y: 158
-        width: 109
-        height: 137
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 1696
+        y: 975
+        width: 468
+        height: 240
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: die!_troll_die!_low_res_3
+      name: Forrest_troll_hi_res_3
       rect:
         serializedVersion: 2
-        x: 630
-        y: 158
-        width: 120
-        height: 137
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 2434
+        y: 975
+        width: 524
+        height: 240
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: die!_troll_die!_low_res_4
+      name: Forrest_troll_hi_res_4
       rect:
         serializedVersion: 2
-        x: 830
-        y: 158
-        width: 129
-        height: 137
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 3231
+        y: 975
+        width: 495
+        height: 240
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: die!_troll_die!_low_res_5
+      name: Forrest_troll_hi_res_5
       rect:
         serializedVersion: 2
-        x: 1033
-        y: 158
-        width: 134
-        height: 137
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 4026
+        y: 975
+        width: 451
+        height: 240
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: die!_troll_die!_low_res_6
+      name: Forrest_troll_hi_res_6
       rect:
         serializedVersion: 2
-        x: 1238
-        y: 158
-        width: 138
-        height: 138
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 4725
+        y: 975
+        width: 545
+        height: 240
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: die!_troll_die!_low_res_7
+      name: Forrest_troll_hi_res_7
       rect:
         serializedVersion: 2
-        x: 1446
-        y: 158
-        width: 138
-        height: 138
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 5461
+        y: 975
+        width: 621
+        height: 240
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: die!_troll_die!_low_res_8
+      name: Forrest_troll_hi_res_8
       rect:
         serializedVersion: 2
-        x: 1655
-        y: 158
-        width: 138
-        height: 139
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 6201
+        y: 975
+        width: 685
+        height: 240
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: die!_troll_die!_low_res_9
+      name: Forrest_troll_hi_res_9
       rect:
         serializedVersion: 2
-        x: 1870
-        y: 158
-        width: 131
-        height: 151
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 7005
+        y: 975
+        width: 626
+        height: 240
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: die!_troll_die!_low_res_10
+      name: Forrest_troll_hi_res_10
       rect:
         serializedVersion: 2
-        x: 2080
-        y: 157
-        width: 127
-        height: 158
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 7814
+        y: 975
+        width: 562
+        height: 240
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: die!_troll_die!_low_res_11
+      name: Forrest_troll_hi_res_11
       rect:
         serializedVersion: 2
-        x: 2271
-        y: 154
-        width: 129
-        height: 148
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 8603
+        y: 975
+        width: 554
+        height: 240
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: die!_troll_die!_low_res_12
+      name: Forrest_troll_hi_res_12
       rect:
         serializedVersion: 2
-        x: 0
+        x: 93
         y: 0
-        width: 114
-        height: 137
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 531
+        height: 284
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: die!_troll_die!_low_res_13
+      name: Forrest_troll_hi_res_13
       rect:
         serializedVersion: 2
-        x: 171
+        x: 889
         y: 0
-        width: 150
-        height: 137
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 512
+        height: 334
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: die!_troll_die!_low_res_14
+      name: Forrest_troll_hi_res_14
       rect:
         serializedVersion: 2
-        x: 365
+        x: 1682
         y: 0
-        width: 158
-        height: 137
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 486
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: die!_troll_die!_low_res_15
+      name: Forrest_troll_hi_res_15
       rect:
         serializedVersion: 2
-        x: 568
+        x: 2474
         y: 0
-        width: 159
-        height: 137
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 457
+        height: 434
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: die!_troll_die!_low_res_16
+      name: Forrest_troll_hi_res_16
       rect:
         serializedVersion: 2
-        x: 771
+        x: 3267
         y: 0
-        width: 159
-        height: 137
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 413
+        height: 484
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: die!_troll_die!_low_res_17
+      name: Forrest_troll_hi_res_17
       rect:
         serializedVersion: 2
-        x: 974
-        y: 2
-        width: 160
-        height: 137
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: die!_troll_die!_low_res_18
-      rect:
-        serializedVersion: 2
-        x: 1178
+        x: 4062
         y: 0
-        width: 161
-        height: 137
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 381
+        height: 534
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: die!_troll_die!_low_res_19
+      name: Forrest_troll_hi_res_18
       rect:
         serializedVersion: 2
-        x: 1386
+        x: 4857
         y: 0
-        width: 160
-        height: 137
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 354
+        height: 584
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: die!_troll_die!_low_res_20
+      name: Forrest_troll_hi_res_19
       rect:
         serializedVersion: 2
-        x: 1593
+        x: 5638
         y: 0
-        width: 161
-        height: 137
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 349
+        height: 634
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: die!_troll_die!_low_res_21
+      name: Forrest_troll_hi_res_20
       rect:
         serializedVersion: 2
-        x: 1800
+        x: 6410
         y: 0
-        width: 160
-        height: 137
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 352
+        height: 643
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: die!_troll_die!_low_res_22
+      name: Forrest_troll_hi_res_21
       rect:
         serializedVersion: 2
-        x: 2007
+        x: 7186
         y: 0
-        width: 160
-        height: 137
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 350
+        height: 643
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: die!_troll_die!_low_res_23
+      name: Forrest_troll_hi_res_22
       rect:
         serializedVersion: 2
-        x: 2214
+        x: 7963
         y: 0
-        width: 161
-        height: 137
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 349
+        height: 643
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Forrest_troll_hi_res_23
+      rect:
+        serializedVersion: 2
+        x: 8735
+        y: 0
+        width: 352
+        height: 643
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0

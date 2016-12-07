@@ -515,4 +515,8 @@ public class PlayerScript : MonoBehaviour
 		if (currentHP <= 0)
 			Die ();
 	}
+
+	public Vector3 GetVelocity () {
+		return _velocity;
+	}
 }

@@ -119,8 +119,9 @@ public class PlayerScript : MonoBehaviour
 		{
 			if (col.gameObject.tag == "Mushroom") {
 				Vector3 direction = transform.position - col.gameObject.transform.position;
-				_velocity = 100f * direction.normalized;
-				Die ();
+				_velocity = 50f * direction.normalized;
+				if (!invulnerable)
+					Die ();
 			}
 			Debug.Log( "onTriggerEnterEvent: " + col.gameObject.name );
 			if (col.gameObject.tag == "Water")
@@ -383,6 +384,11 @@ public class PlayerScript : MonoBehaviour
 				poisonImmune = true;
 				potionDuration = 10f;
 				break;
+			case 5:
+				// Invulnerable
+				invulnerable = true;
+				potionDuration = 5f;
+				break;
 			default:
 				PlayRandomSound ();
 				break;
@@ -419,6 +425,9 @@ public class PlayerScript : MonoBehaviour
 		case 4:
 			// Sniffle Enhancer
 			poisonImmune = false;
+			break;
+		case 5:
+			invulnerable = false;
 			break;
 		} 
 	}
@@ -469,7 +478,8 @@ public class PlayerScript : MonoBehaviour
 	}
 
 	public void InflictDamage (int damage) {
-		currentHP -= damage;
+		if (!invulnerable)
+			currentHP -= damage;
 		if (currentHP <= 0)
 			Die ();
 	}

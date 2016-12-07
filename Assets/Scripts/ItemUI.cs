@@ -17,8 +17,8 @@ public class ItemUI : MonoBehaviour {
 
 		player = GameObject.Find ("Player").GetComponent<PlayerScript>();
 
-		GlobalData.Instance.currentInventory.Add (new Item(0, ItemCategory.Bomb));
-		GlobalData.Instance.currentInventory.Add (new Item(0, ItemCategory.Potion));
+//		GlobalData.Instance.currentInventory.Add (new Item(0, ItemCategory.Bomb));
+//		GlobalData.Instance.currentInventory.Add (new Item(0, ItemCategory.Potion));
 
 	}
 	

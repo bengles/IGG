@@ -188,21 +188,16 @@ public class MonsterAI : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("PatrolObject"))
-        {
-            if (currentState == MonsterState.Walk)
-            {
-                PatrolEndpoint targetPatrol = other.gameObject.GetComponent<PatrolEndpoint>().target;
-                targetPosition = new Vector2(targetPatrol.transform.position.x, targetPatrol.transform.position.y);
-                Debug.Log("Monster new targetPos (x,y): (" + targetPosition.x + ", " + targetPosition.y + ")");
-            }
-        }
-        else if (other.CompareTag("Water"))
-        {
-            Destroy(this.gameObject);
-        }
-        else if (other.CompareTag("Mushroom"))
-            Destroy(this.gameObject);
+		if (other.CompareTag ("PatrolObject")) {
+			if (currentState == MonsterState.Walk) {
+				PatrolEndpoint targetPatrol = other.gameObject.GetComponent<PatrolEndpoint> ().target;
+				targetPosition = new Vector2 (targetPatrol.transform.position.x, targetPatrol.transform.position.y);
+				Debug.Log ("Monster new targetPos (x,y): (" + targetPosition.x + ", " + targetPosition.y + ")");
+			}
+		} else if (other.CompareTag ("Water")) {
+			Die ();
+		} else if (other.CompareTag ("Mushroom"))
+			Die ();
     }
 
 	private IEnumerator Die()

@@ -13,7 +13,7 @@ public class PlayerScript : MonoBehaviour
 	public float groundDamping = 20f; // how fast do we change direction? higher means faster
 	public float inAirDamping = 5f;
 	public float jumpHeight = 3f;
-    public int HP = 10;
+    public int currentHP = 3;
 	public int potionIndex = -1;
 	public int bombIndex = -1;
 	public int staffIndex = -1;
@@ -32,7 +32,6 @@ public class PlayerScript : MonoBehaviour
 	private bool inAir;
 	private float poisonTimer = 0.0f;
 	private bool InPoison = false;
-    private int currentHP;
     private int stickDmg;
 
 	private CharacterController2D _controller;
@@ -72,7 +71,6 @@ public class PlayerScript : MonoBehaviour
 		_controller.onTriggerStayEvent += onTriggerStayEvent;
 		_controller.onTriggerExitEvent += onTriggerExitEvent;
 
-        currentHP = HP;
         stickDmg = 5; //Set this based on which item is equipped
 
 	}
@@ -183,6 +181,9 @@ public class PlayerScript : MonoBehaviour
 	// the Update loop contains a very simple example of moving the character around and controlling the animation
 	void Update()
 	{
+
+		if (currentHP <= 0)
+			Die ();
 
 		if (potionTime >= potionDuration && potionActivated) {
 			DeactivatePotion ();

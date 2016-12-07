@@ -4,7 +4,6 @@ using System.Collections.Generic;
 
 public class Health : MonoBehaviour {
 
-	private int HP;
 	private List<GameObject> hpList;
 
 	private PlayerScript player;
@@ -14,9 +13,8 @@ public class Health : MonoBehaviour {
 
 		hpList = new List<GameObject> ();
 		player = GameObject.Find ("Player").GetComponent<PlayerScript> ();
-		HP = player.HP;
 
-		for (int i = 0; i < HP; ++i) {
+		for (int i = 0; i < player.currentHP; ++i) {
 			GameObject go = new GameObject ("HP" + i);
 			go.transform.parent = transform;
 			go.transform.position = transform.position;
@@ -31,7 +29,9 @@ public class Health : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (HP != player.HP)
+		if (hpList.Count != player.currentHP && hpList.Count != 0) {
+			Destroy (hpList [hpList.Count - 1]);
 			hpList.RemoveAt (hpList.Count - 1);
+		}
 	}
 }

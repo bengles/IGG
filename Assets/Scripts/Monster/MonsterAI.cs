@@ -87,9 +87,10 @@ public class MonsterAI : MonoBehaviour {
 
         int moveDirection;
 
-		if (Vector2.Distance (targetPosition, transform.position) < meleeRange/2)
+		if (Vector2.Distance (player.transform.position, transform.position) < meleeRange/2)
 			moveDirection = 0;
-		else if (targetPosition.x < transform.position.x)
+		else 
+			if (targetPosition.x < transform.position.x)
         {
             moveDirection = -1;
         } else
@@ -192,7 +193,7 @@ public class MonsterAI : MonoBehaviour {
 			if (currentState == MonsterState.Walk) {
 				targetPatrol = other.gameObject.GetComponent<PatrolEndpoint> ();
 				targetPosition = other.gameObject.GetComponent<PatrolEndpoint> ().target.transform.position;
-				Debug.Log ("Monster new targetPos (x,y): (" + targetPosition.x + ", " + targetPosition.y + ")");
+				//Debug.Log ("Monster new targetPos (x,y): (" + targetPosition.x + ", " + targetPosition.y + ")");
 			}
 		} else if (other.CompareTag ("Water")) {
 			StartCoroutine (Die ());

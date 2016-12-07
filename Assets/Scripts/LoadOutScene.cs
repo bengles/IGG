@@ -17,9 +17,7 @@ public class LoadOutScene : MonoBehaviour {
         itemHeight = 128.3f;
         canvasScale = GameObject.Find("Canvas").transform.localScale.x;
         background = GameObject.Find("Background");
-        Debug.Log("before adding items to list, size: " + GlobalData.Instance.currentInventory.Count);
         GlobalData.Instance.AddTestItems();
-        Debug.Log("after adding items to list, size: " + GlobalData.Instance.currentInventory.Count);
         staffs = new List<UIItem>();
         bombs = new List<UIItem>();
         potions = new List<UIItem>();
@@ -70,7 +68,6 @@ public class LoadOutScene : MonoBehaviour {
                 bombList.Add(item);
             }
         }
-        Debug.Log("Nr Items: " + bombList.Count);
         for (int col = 0; col < bombList.Count; col++)
         {
             Vector3 pos = background.transform.position;
@@ -101,10 +98,10 @@ public class LoadOutScene : MonoBehaviour {
             if (item.cat == ItemCategory.Potion)
             {
                 potionList.Add(item);
-                Debug.Log("Found potion: " + item.name);
+         
             }
         }
-        Debug.Log("There were " + GlobalData.Instance.currentInventory.Count + "items");
+        
         for (int col = 0; col < potionList.Count; col++)
         {
             Vector3 pos = background.transform.position;
@@ -113,7 +110,7 @@ public class LoadOutScene : MonoBehaviour {
             string resourcePath = "Prefabs/UI/" + potionList[col].name.Replace(" ", string.Empty);
             GameObject staff = (GameObject)Instantiate(Resources.Load(resourcePath), pos, Quaternion.identity, background.transform);
             staffs.Add(new UIItem(potionList[col], staff.GetComponent<Toggle>()));
-            Debug.Log("Creating potion: " + potionList[col].name);
+            
             /* for status text
             staff.AddComponent<EventTrigger>();
             EventTrigger.Entry ingredientEnterEvent = new EventTrigger.Entry();
@@ -130,7 +127,24 @@ public class LoadOutScene : MonoBehaviour {
 
     private void Transition()
     {
-        //Update GlobalData
+        GlobalData.Instance.equippedStaffs.Clear();
+        foreach(UIItem i in staffs)
+        {
+            if (i.toggle.isOn)
+                GlobalData.Instance.equippedStaffs.Add(i.item);
+        }
+        GlobalData.Instance.equippedBombs.Clear();
+        foreach (UIItem i in bombs)
+        {
+            if (i.toggle.isOn)
+                GlobalData.Instance.equippedBombs.Add(i.item);
+        }
+        GlobalData.Instance.equippedPotions.Clear();
+        foreach (UIItem i in potions)
+        {
+            if (i.toggle.isOn)
+                GlobalData.Instance.equippedPotions.Add(i.item);
+        }
         //Scenemanager.Go
     }
 

@@ -24,6 +24,10 @@ public class Item {
         {
             switch (index)
             {
+                case -1:
+                    this.name = "Staff";
+                    this.flavorText = "The staff is the witch’s preferred weapon in close combat. Though weak in itself, dipping it in the right brews can give it peculiar properties.";
+                    break;
                 case 0:
                     this.name = "Bone Axe";
                     this.flavorText = "A primitive but deadly tool, effective against primitive and deadly foes, like trolls.";
@@ -38,6 +42,10 @@ public class Item {
         {
             switch (index)
             {
+                case -1:
+                    this.name = "Bomb";
+                    this.flavorText = "The bomb case is easy to throw in the direction of an arc, and its contents usually react when it touches the environment or other creatures.";
+                    break;
                 case 0:
                     this.name = "Snowball";
                     this.flavorText = "A magic snowball that freezes creatures. Using it in snowball fights is considered cheating.";
@@ -56,6 +64,10 @@ public class Item {
         {
             switch (index)
             {
+                case -1:
+                    this.name = "Potion";
+                    this.flavorText = "Before she can read, the first thing the witch learns is how to use the cauldron to brew the simplest of potions. Potions transform Willow in many kind of ways.";
+                    break;
                 case 0:
                     this.name = "Chilled Drink";
                     this.flavorText = "Just a cold drink for a warm summer day. Drinking too fast might cause brain freeze.";

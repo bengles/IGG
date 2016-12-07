@@ -33,7 +33,8 @@ public class PlayerScript : MonoBehaviour
 	private bool inAir;
 	private float poisonTimer = 0.0f;
 	private bool InPoison = false;
-    private int stickDmg;
+    private int stickDmg = 1;
+	private float damageTimer = 0.0f;
 
 	private CharacterController2D _controller;
 	private Animator _animator;
@@ -48,6 +49,7 @@ public class PlayerScript : MonoBehaviour
 	private bool YaxisInUse = false;
 
 	private AudioClip[] audioClips;
+	private AudioClip[] audioHurt;
 	private GameObject frost;
 
 
@@ -65,6 +67,9 @@ public class PlayerScript : MonoBehaviour
 			Resources.Load ("Audio/Witch/laugh_short_1") as AudioClip,
 			Resources.Load ("Audio/Witch/laugh_long_1") as AudioClip
 		};
+		audioHurt = new AudioClip[] {Resources.Load ("Audio/Witch/hurt_1") as AudioClip, 
+			Resources.Load ("Audio/Witch/hurt_2") as AudioClip
+		};
 
 		// listen to some events for illustration purposes
 		_controller.onControllerCollidedEvent += onControllerCollider;
@@ -74,8 +79,6 @@ public class PlayerScript : MonoBehaviour
 
 		if (hasAllItems)
 			AddAllItems ();
-
-        stickDmg = 5; //Set this based on which item is equipped
 
 	}
 
@@ -105,7 +108,9 @@ public class PlayerScript : MonoBehaviour
 			return;
 
 		if (hit.collider.gameObject.tag == "Enemy")
-			//Die ();
+		{
+			InflictDamage (1);
+		}
 
 		if (hit.collider.gameObject.tag == "Mushroom") {
 			Die ();
@@ -127,11 +132,14 @@ public class PlayerScript : MonoBehaviour
 					Die ();
 			}
 			// Debug.Log( "onTriggerEnterEvent: " + col.gameObject.name );
+			if (col.gameObject)
 			if (col.gameObject.tag == "Water")
 				ActivateWaterPhysics ();
 			if (col.gameObject.tag == "Enemy")
             {
-                //Die();
+				Vector3 direction = transform.position - col.gameObject.transform.position;
+				_velocity = 100f * direction.normalized;
+				InflictDamage (1);
             }
 			if (col.gameObject.tag == "Poison") { 
 				InPoison = true;
@@ -184,6 +192,8 @@ public class PlayerScript : MonoBehaviour
 	// the Update loop contains a very simple example of moving the character around and controlling the animation
 	void Update()
 	{
+
+		damageTimer += Time.deltaTime;
 
 		if (currentHP <= 0)
 			Die ();
@@ -303,7 +313,7 @@ public class PlayerScript : MonoBehaviour
 		if (Input.GetAxisRaw ("DX") == 0)
 			XaxisInUse = false;
 
-		if (Input.GetAxisRaw ("DY") == 1f && !isDead) {
+		if (Input.GetAxisRaw ("DY") == 1f && !isDead && !potionActivated) {
 			if (YaxisInUse == false && Input.GetAxisRaw ("DY") == 1f) {
 				YaxisInUse = true;
 
@@ -514,10 +524,17 @@ public class PlayerScript : MonoBehaviour
 	}
 
 	public void InflictDamage (int damage) {
-		if (!invulnerable)
-			currentHP -= damage;
-		if (currentHP <= 0)
-			Die ();
+		if (damageTimer > 1f) {
+			if (!invulnerable) {
+				_as.Stop ();
+				_as.clip = audioHurt[Random.Range(0,2)];
+				_as.Play ();
+				currentHP -= damage;
+				damageTimer = 0;
+			}
+			if (currentHP <= 0)
+				Die ();
+		}
 	}
 
 	public Vector3 GetVelocity () {

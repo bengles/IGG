@@ -12,8 +12,14 @@ public class GlobalData : Singleton<GlobalData> {
 	public static int equippedStaffIndex;
 	public static int equippedPotionIndex;
 
+	private AudioSource audio;
+
 	void Awake () {
 		// Your initialization code here
+
+		audio = this.gameObject.AddComponent<AudioSource> ();
+		audio.clip = (Resources.Load ("Audio/Level/tutorialmap") as AudioClip);
+		audio.Play ();
 
 		this.Reload ();
 

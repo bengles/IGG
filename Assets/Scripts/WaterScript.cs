@@ -22,6 +22,7 @@ public class WaterScript : MonoBehaviour {
 	public void Freeze() {
 		col.isTrigger = false;
 		gameObject.layer = 0;
+		col.tag = "Untagged";
 		liquidWater.SetActive (false);
 		iceWater.SetActive (true);
 	}

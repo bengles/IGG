@@ -11,20 +11,19 @@ public class MonsterAI : MonoBehaviour {
 
 
     public MonsterState startState  = MonsterState.Walk;
-    public PatrolEndpoint firstPatrol;
-    public GameObject player;
-    public float aggroDistance      = 5;
+    public PatrolEndpoint targetPatrol;
+    public float aggroDistance      = 10;
     public float runSpeed           = 2;
-    public int HP                   = 10;
     public float meleeRange         = 4f;
+	public int currentHP = 3;
     public int meleeDmg             = 1;
     //OBS: Changes here require update in animator-speed (in editor)
     private float attackSpeed       =  1f; 
 
+	private GameObject player;
     private MonsterState currentState;
     private Rigidbody2D monsterBody;
     private Vector2 targetPosition;
-    private Vector2 spawnPosition;
 	private Animator _animator;
     
 
@@ -32,51 +31,52 @@ public class MonsterAI : MonoBehaviour {
     private int lastMovement;
     private float timeSinceAttack;
 	private bool facingRight = false;
-    private int currentHP;
+	private bool isDead = false;
+
     private float lastDmgTime;
 
 	// Use this for initialization
 	void Start () {
+		player = GameObject.Find ("Player");
         currentState = startState;
-        currentHP = HP;
         monsterBody = this.GetComponent<Rigidbody2D>();
 		_animator = GetComponent<Animator> ();
-        if (monsterBody == null) Debug.Log("No Rigidbody on monster");
-        spawnPosition = new Vector2(this.transform.position.x, this.transform.position.y);
         directionChangeCount = 0;
         lastDmgTime = Time.time;
-        switch(currentState)
-        {
-            case MonsterState.Walk:
-                walkState();
-                break;
-        }
+
+
+        walkState();
 	}
 	
 	// Update is called once per frame
-	void FixedUpdate () {
-	    switch(currentState)
-        {
-            case MonsterState.Sleep:
-                 // check for aggro
-                 break;
-            case MonsterState.Walk:
-                moveTowardsTarget();
+	void Update () {
 
-                if (aggroDistance > Vector3.Distance(this.transform.position, player.transform.position))
-                {
-                    //player got in aggro range
-                    aggroState();
-                }
-                break;
-            case MonsterState.Aggro:
-                targetPosition = player.transform.position;
-                moveTowardsTarget();
-                break;
-            default:
-                Debug.Log("Unknown state, investigate");
-                break;
-        }
+		if (currentHP <= 0)
+			StartCoroutine(Die());
+		if (!isDead) {
+			switch (currentState) {
+			case MonsterState.Sleep:
+                 // check for aggro
+				break;
+			case MonsterState.Walk:
+				moveTowardsTarget ();
+
+				if (aggroDistance > Vector3.Distance (transform.position, player.transform.position)) {
+					//player got in aggro range
+					aggroState ();
+				} else {
+					currentState = MonsterState.Walk;
+				}
+				break;
+			case MonsterState.Aggro:
+				targetPosition = player.transform.position;
+				moveTowardsTarget ();
+				break;
+			default:
+				Debug.Log ("Unknown state, investigate");
+				break;
+			}
+		}
 	}
 
     void moveTowardsTarget()
@@ -84,10 +84,7 @@ public class MonsterAI : MonoBehaviour {
         //anim.SetFloat("Speed", Mathf.Abs(move));
 
         int moveDirection;
-        if (Mathf.Abs(targetPosition.x - transform.position.x) < meleeRange / 3)
-        {
-            moveDirection = 0;
-        } else if (targetPosition.x < transform.position.x)
+		if (targetPosition.x < transform.position.x)
         {
             moveDirection = -1;
         } else
@@ -96,13 +93,14 @@ public class MonsterAI : MonoBehaviour {
         }
 
         timeSinceAttack += Time.deltaTime;
+
         if (currentState == MonsterState.Aggro && 
-            Vector3.Distance(this.transform.position, player.transform.position) < meleeRange
+            Vector2.Distance(this.transform.position, player.transform.position) < meleeRange
             && timeSinceAttack > 1 / attackSpeed)
         {
             Debug.Log("SHOULD MELEE THIS FUKKER");
             _animator.Play(Animator.StringToHash("Troll_Bash"));
-            Invoke("MeleeAttack", 1 / attackSpeed);
+			MeleeAttack();
             timeSinceAttack = 0;
         }
 
@@ -149,14 +147,14 @@ public class MonsterAI : MonoBehaviour {
     {
         Debug.Log("Entering Walk-state");
 		_animator.Play (Animator.StringToHash ("Troll_Walk"));
-        targetPosition = new Vector2(firstPatrol.transform.position.x, firstPatrol.transform.position.y);
+		targetPosition = targetPatrol.transform.position;
         currentState = MonsterState.Walk;
     }
 
     void sleepState()
     {
         Debug.Log("Entering Sleep-state.");
-        targetPosition = new Vector2(this.transform.position.x, this.transform.position.y);
+		targetPosition = targetPatrol.transform.position;
         currentState = MonsterState.Sleep;
 		_animator.Play (Animator.StringToHash("Troll_Idle"));
     }
@@ -177,10 +175,6 @@ public class MonsterAI : MonoBehaviour {
             {
                 Debug.Log("Monster take dmg from stick");
                 currentHP -= coll.gameObject.GetComponentInParent<PlayerScript>().getStickDmg();
-                if (currentHP < 1)
-                {
-					StartCoroutine(Die());
-                }
                 lastDmgTime = Time.time;
             }
         }
@@ -188,20 +182,23 @@ public class MonsterAI : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
+		Debug.Log("Monster collide with: " + other.gameObject.tag);
 		if (other.CompareTag ("PatrolObject")) {
 			if (currentState == MonsterState.Walk) {
-				PatrolEndpoint targetPatrol = other.gameObject.GetComponent<PatrolEndpoint> ().target;
-				targetPosition = new Vector2 (targetPatrol.transform.position.x, targetPatrol.transform.position.y);
+				targetPatrol = other.gameObject.GetComponent<PatrolEndpoint> ();
+				targetPosition = other.gameObject.GetComponent<PatrolEndpoint> ().target.transform.position;
 				Debug.Log ("Monster new targetPos (x,y): (" + targetPosition.x + ", " + targetPosition.y + ")");
 			}
 		} else if (other.CompareTag ("Water")) {
-			Die ();
+			StartCoroutine(Die());
 		} else if (other.CompareTag ("Mushroom"))
-			Die ();
+			StartCoroutine(Die());
     }
 
 	private IEnumerator Die()
     {
+		this.gameObject.tag = "Untagged";
+		isDead = true;
         //play sound, play animation
 		_animator.Play(Animator.StringToHash("Troll_Die"));
 		yield return new WaitForSeconds (2.0f);

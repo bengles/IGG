@@ -32,6 +32,9 @@ public class MonsterAI : MonoBehaviour {
     private float timeSinceAttack;
 	private bool facingRight = false;
 	private bool isDead = false;
+	private bool frozen = false;
+	private GameObject frost;
+	private float frostTimer = 0.0f;
 
     private float lastDmgTime;
 
@@ -53,7 +56,7 @@ public class MonsterAI : MonoBehaviour {
 
 		if (currentHP <= 0)
 			StartCoroutine(Die());
-		if (!isDead) {
+		if (!isDead && !frozen) {
 			switch (currentState) {
 			case MonsterState.Sleep:
                  // check for aggro
@@ -75,6 +78,13 @@ public class MonsterAI : MonoBehaviour {
 			default:
 				Debug.Log ("Unknown state, investigate");
 				break;
+			}
+		} else {
+			frostTimer += Time.deltaTime;
+			if (frostTimer > 2.0f) {
+				frozen = false;
+				Destroy (frost.gameObject);
+				frostTimer = 0f;
 			}
 		}
 	}
@@ -183,7 +193,8 @@ public class MonsterAI : MonoBehaviour {
                 currentHP -= coll.gameObject.GetComponentInParent<PlayerScript>().getStickDmg();
                 lastDmgTime = Time.time;
             }
-        }
+		} else if (coll.gameObject.CompareTag ("IceBomb"))
+			Freeze ();
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -199,13 +210,16 @@ public class MonsterAI : MonoBehaviour {
 			StartCoroutine (Die ());
 		} else if (other.CompareTag ("Mushroom")) {
 			StartCoroutine (Die ());
-			if (other.gameObject.GetComponent<MineMushroom>() != null)
+			if (other.gameObject.GetComponent<MineMushroom> () != null)
 				other.gameObject.GetComponent<MineMushroom> ().Explode ();
-		}
+		} else if (other.CompareTag ("IceBomb"))
+			Freeze ();
     }
 
 	private IEnumerator Die()
     {
+		if (frozen)
+			Destroy (frost);
 		this.gameObject.tag = "Untagged";
 		isDead = true;
         //play sound, play animation
@@ -218,6 +232,14 @@ public class MonsterAI : MonoBehaviour {
     {
         return facingRight;
     }
+
+	public void Freeze() {
+		frozen = true;
+		frost = Object.Instantiate (Resources.Load ("Prefabs/Frost"), new Vector3 (transform.position.x, transform.position.y, transform.position.z), Quaternion.identity) as GameObject;
+		frost.gameObject.transform.parent = this.transform;
+		frost.transform.localScale = transform.localScale;
+		_animator.Play(Animator.StringToHash("Troll_Idle"));
+	}
 }
 
 public enum MonsterState { Sleep, Walk, Aggro };

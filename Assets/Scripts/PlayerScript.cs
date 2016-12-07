@@ -282,6 +282,26 @@ public class PlayerScript : MonoBehaviour
 			ActivatePotion ();
 		}
 
+		if (Input.GetButtonDown ("Fire2") && !isDead) {
+			foreach (Item item in GlobalData.Instance.currentInventory) {
+				if (item != null && item.cat == ItemCategory.Bomb && item.index != bombIndex) {
+					bombIndex = item.index;
+					break;
+				}
+			}
+		}
+
+		if (Input.GetButtonDown ("Fire3") && !isDead) {
+			foreach (Item item in GlobalData.Instance.currentInventory) {
+				if (item != null && item.cat == ItemCategory.Potion && item.index != potionIndex) {
+					potionIndex = item.index;
+					break;
+				}
+			}
+		}
+
+
+
 
 		// apply horizontal speed smoothing it. dont really do this with Lerp. Use SmoothDamp or something that provides more control
 		var smoothedMovementFactor = _controller.isGrounded ? groundDamping : inAirDamping; // how fast do we change direction?
@@ -327,7 +347,7 @@ public class PlayerScript : MonoBehaviour
 
         if (!hitting)
         {
-            Debug.Log("Instantiating stick1");
+            //Debug.Log("Instantiating stick1");
             int direction = facingRight ? 1 : -1;
             Vector3 pos = transform.position;
             pos.x += direction * 1f;

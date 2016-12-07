@@ -533,6 +533,8 @@ public class PlayerScript : MonoBehaviour
 		GlobalData.Instance.currentInventory.Add (new Item(1, ItemCategory.Potion));
 		GlobalData.Instance.currentInventory.Add (new Item(2, ItemCategory.Potion));
 		GlobalData.Instance.currentInventory.Add (new Item(3, ItemCategory.Potion));
+		GlobalData.Instance.currentInventory.Add (new Item(4, ItemCategory.Potion));
+		GlobalData.Instance.currentInventory.Add (new Item(5, ItemCategory.Potion));
 
 		// Staffs
 		GlobalData.Instance.currentInventory.Add (new Item(0, ItemCategory.Staff));

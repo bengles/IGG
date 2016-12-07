@@ -72,6 +72,14 @@ public class Item {
                     this.name = "Peppermint Tea";
                     this.flavorText = "A delicious cup of tea is all a witch needs to restore her spirits.";
                     break;
+				case 4:
+					this.name = "Sniffle Enhancer";
+					this.flavorText = "Just gives you a bad case of the sniffles.";
+					break;
+				case 5:
+					this.name = "Invulnerable";
+					this.flavorText = "YOU CAN NOT DIE!";
+					break;
             }
         }
 

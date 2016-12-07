@@ -83,7 +83,8 @@ public class MonsterAI : MonoBehaviour {
 			frostTimer += Time.deltaTime;
 			if (frostTimer > 2.0f) {
 				frozen = false;
-				Destroy (frost.gameObject);
+				if (frost != null)
+					Destroy (frost.gameObject);
 				frostTimer = 0f;
 			}
 		}

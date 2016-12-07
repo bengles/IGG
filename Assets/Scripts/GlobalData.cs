@@ -88,8 +88,6 @@ public class GlobalData : Singleton<GlobalData> {
             0, ItemCategory.Staff)); //add BoneStaff
         currentInventory.Add(new Item(0, ItemCategory.Potion));
         currentInventory.Add(new Item(1, ItemCategory.Potion));
-        currentInventory.Add(new Item(0, ItemCategory.Potion));
-        currentInventory.Add(new Item(1, ItemCategory.Potion));
         currentInventory.Add(new Item(2, ItemCategory.Potion));
         currentInventory.Add(new Item(3, ItemCategory.Potion));
         currentInventory.Add(new Item(4, ItemCategory.Potion));

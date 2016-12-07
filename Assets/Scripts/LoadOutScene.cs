@@ -17,7 +17,9 @@ public class LoadOutScene : MonoBehaviour {
         itemHeight = 128.3f;
         canvasScale = GameObject.Find("Canvas").transform.localScale.x;
         background = GameObject.Find("Background");
+        Debug.Log("before adding items to list, size: " + GlobalData.Instance.currentInventory.Count);
         GlobalData.Instance.AddTestItems();
+        Debug.Log("after adding items to list, size: " + GlobalData.Instance.currentInventory.Count);
         staffs = new List<UIItem>();
         bombs = new List<UIItem>();
         potions = new List<UIItem>();
@@ -102,6 +104,7 @@ public class LoadOutScene : MonoBehaviour {
                 Debug.Log("Found potion: " + item.name);
             }
         }
+        Debug.Log("There were " + GlobalData.Instance.currentInventory.Count + "items");
         for (int col = 0; col < potionList.Count; col++)
         {
             Vector3 pos = background.transform.position;
@@ -110,6 +113,7 @@ public class LoadOutScene : MonoBehaviour {
             string resourcePath = "Prefabs/UI/" + potionList[col].name.Replace(" ", string.Empty);
             GameObject staff = (GameObject)Instantiate(Resources.Load(resourcePath), pos, Quaternion.identity, background.transform);
             staffs.Add(new UIItem(potionList[col], staff.GetComponent<Toggle>()));
+            Debug.Log("Creating potion: " + potionList[col].name);
             /* for status text
             staff.AddComponent<EventTrigger>();
             EventTrigger.Entry ingredientEnterEvent = new EventTrigger.Entry();
@@ -121,6 +125,64 @@ public class LoadOutScene : MonoBehaviour {
             ingredient.GetComponent<EventTrigger>().triggers.Add(ingredientEnterEvent);
             ingredient.GetComponent<EventTrigger>().triggers.Add(ingredientExitEvent);
             */
+        }
+    }
+
+    private void Transition()
+    {
+        //Update GlobalData
+        //Scenemanager.Go
+    }
+
+    void Update()
+    {
+        int staffsToggled = 0;
+        foreach (UIItem i in staffs)
+        {
+            if (i.toggle.isOn)
+                staffsToggled++;
+        }
+        if (staffsToggled > GlobalData.Instance.nrStaffSlots)
+        {
+            clearStaffToggles();
+        }
+        int bombsToggled = 0;
+        foreach (UIItem i in bombs)
+        {
+            if (i.toggle.isOn)
+                bombsToggled++;
+        }
+        if (bombsToggled > GlobalData.Instance.nrBombSlots)
+            clearBombToggles();
+        int potionsToggled = 0;
+        foreach (UIItem i in potions)
+        {
+            if (i.toggle.isOn)
+                potionsToggled++;
+        }
+        if (bombsToggled > GlobalData.Instance.nrPotionSlots)
+            clearPotionToggles();
+    }
+
+    private void clearStaffToggles()
+    {
+        foreach (UIItem i in staffs)
+        {
+            i.toggle.isOn = false;
+        }
+    }
+    private void clearBombToggles()
+    {
+        foreach (UIItem i in bombs)
+        {
+            i.toggle.isOn = false;
+        }
+    }
+    private void clearPotionToggles()
+    {
+        foreach (UIItem i in potions)
+        {
+            i.toggle.isOn = false;
         }
     }
 

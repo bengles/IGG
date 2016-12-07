@@ -1,33 +1,33 @@
 fileFormatVersion: 2
-guid: 10bd3f80770949e449dc966350af819d
-timeCreated: 1481044450
+guid: 0315dfebbcce0af49ab6d9b99aac593d
+timeCreated: 1481099455
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: die!_troll_die!_0
-    21300002: die!_troll_die!_1
-    21300004: die!_troll_die!_2
-    21300006: die!_troll_die!_3
-    21300008: die!_troll_die!_4
-    21300010: die!_troll_die!_5
-    21300012: die!_troll_die!_6
-    21300014: die!_troll_die!_7
-    21300016: die!_troll_die!_8
-    21300018: die!_troll_die!_9
-    21300020: die!_troll_die!_10
-    21300022: die!_troll_die!_11
-    21300024: die!_troll_die!_12
-    21300026: die!_troll_die!_13
-    21300028: die!_troll_die!_14
-    21300030: die!_troll_die!_15
-    21300032: die!_troll_die!_16
-    21300034: die!_troll_die!_17
-    21300036: die!_troll_die!_18
-    21300038: die!_troll_die!_19
-    21300040: die!_troll_die!_20
-    21300042: die!_troll_die!_21
-    21300044: die!_troll_die!_22
-    21300046: die!_troll_die!_23
+    21300000: die!_troll_die!_low_res_0
+    21300002: die!_troll_die!_low_res_1
+    21300004: die!_troll_die!_low_res_2
+    21300006: die!_troll_die!_low_res_3
+    21300008: die!_troll_die!_low_res_4
+    21300010: die!_troll_die!_low_res_5
+    21300012: die!_troll_die!_low_res_6
+    21300014: die!_troll_die!_low_res_7
+    21300016: die!_troll_die!_low_res_8
+    21300018: die!_troll_die!_low_res_9
+    21300020: die!_troll_die!_low_res_10
+    21300022: die!_troll_die!_low_res_11
+    21300024: die!_troll_die!_low_res_12
+    21300026: die!_troll_die!_low_res_13
+    21300028: die!_troll_die!_low_res_14
+    21300030: die!_troll_die!_low_res_15
+    21300032: die!_troll_die!_low_res_16
+    21300034: die!_troll_die!_low_res_17
+    21300036: die!_troll_die!_low_res_18
+    21300038: die!_troll_die!_low_res_19
+    21300040: die!_troll_die!_low_res_20
+    21300042: die!_troll_die!_low_res_21
+    21300044: die!_troll_die!_low_res_22
+    21300046: die!_troll_die!_low_res_23
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -77,314 +77,314 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: die!_troll_die!_0
+      name: die!_troll_die!_low_res_0
       rect:
         serializedVersion: 2
-        x: 345
-        y: 692
-        width: 341
-        height: 479
+        x: 35
+        y: 158
+        width: 97
+        height: 137
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: die!_troll_die!_1
+      name: die!_troll_die!_low_res_1
       rect:
         serializedVersion: 2
-        x: 1046
-        y: 692
-        width: 346
-        height: 480
+        x: 234
+        y: 158
+        width: 98
+        height: 137
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: die!_troll_die!_2
+      name: die!_troll_die!_low_res_2
       rect:
         serializedVersion: 2
-        x: 1743
-        y: 692
-        width: 385
-        height: 480
+        x: 432
+        y: 158
+        width: 109
+        height: 137
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: die!_troll_die!_3
+      name: die!_troll_die!_low_res_3
       rect:
         serializedVersion: 2
-        x: 2441
-        y: 692
-        width: 425
-        height: 480
+        x: 630
+        y: 158
+        width: 120
+        height: 137
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: die!_troll_die!_4
+      name: die!_troll_die!_low_res_4
       rect:
         serializedVersion: 2
-        x: 3150
-        y: 692
-        width: 451
-        height: 480
+        x: 830
+        y: 158
+        width: 129
+        height: 137
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: die!_troll_die!_5
+      name: die!_troll_die!_low_res_5
       rect:
         serializedVersion: 2
-        x: 3865
-        y: 692
-        width: 472
-        height: 483
+        x: 1033
+        y: 158
+        width: 134
+        height: 137
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: die!_troll_die!_6
+      name: die!_troll_die!_low_res_6
       rect:
         serializedVersion: 2
-        x: 4588
-        y: 692
-        width: 483
-        height: 484
+        x: 1238
+        y: 158
+        width: 138
+        height: 138
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: die!_troll_die!_7
+      name: die!_troll_die!_low_res_7
       rect:
         serializedVersion: 2
-        x: 5319
-        y: 692
-        width: 487
-        height: 486
+        x: 1446
+        y: 158
+        width: 138
+        height: 138
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: die!_troll_die!_8
+      name: die!_troll_die!_low_res_8
       rect:
         serializedVersion: 2
-        x: 6059
-        y: 692
-        width: 483
-        height: 488
+        x: 1655
+        y: 158
+        width: 138
+        height: 139
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: die!_troll_die!_9
+      name: die!_troll_die!_low_res_9
       rect:
         serializedVersion: 2
-        x: 6812
-        y: 692
-        width: 466
-        height: 527
+        x: 1870
+        y: 158
+        width: 131
+        height: 151
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: die!_troll_die!_10
+      name: die!_troll_die!_low_res_10
       rect:
         serializedVersion: 2
-        x: 7552
-        y: 688
-        width: 449
-        height: 550
+        x: 2080
+        y: 157
+        width: 127
+        height: 158
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: die!_troll_die!_11
+      name: die!_troll_die!_low_res_11
       rect:
         serializedVersion: 2
-        x: 8228
-        y: 679
-        width: 459
-        height: 522
+        x: 2271
+        y: 154
+        width: 129
+        height: 148
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: die!_troll_die!_12
+      name: die!_troll_die!_low_res_12
       rect:
         serializedVersion: 2
-        x: 148
-        y: 54
-        width: 474
-        height: 475
+        x: 0
+        y: 0
+        width: 114
+        height: 137
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: die!_troll_die!_13
+      name: die!_troll_die!_low_res_13
       rect:
         serializedVersion: 2
-        x: 823
-        y: 49
-        width: 522
-        height: 441
+        x: 171
+        y: 0
+        width: 148
+        height: 137
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: die!_troll_die!_14
+      name: die!_troll_die!_low_res_14
       rect:
         serializedVersion: 2
-        x: 1512
-        y: 49
-        width: 556
-        height: 416
+        x: 365
+        y: 0
+        width: 158
+        height: 137
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: die!_troll_die!_15
+      name: die!_troll_die!_low_res_15
       rect:
         serializedVersion: 2
-        x: 2223
-        y: 54
-        width: 562
-        height: 379
+        x: 568
+        y: 0
+        width: 159
+        height: 137
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: die!_troll_die!_16
+      name: die!_troll_die!_low_res_16
       rect:
         serializedVersion: 2
-        x: 2941
-        y: 59
-        width: 560
-        height: 346
+        x: 770
+        y: 0
+        width: 159
+        height: 137
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: die!_troll_die!_17
+      name: die!_troll_die!_low_res_17
       rect:
         serializedVersion: 2
-        x: 3655
-        y: 66
-        width: 564
-        height: 321
+        x: 974
+        y: 2
+        width: 160
+        height: 137
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: die!_troll_die!_18
+      name: die!_troll_die!_low_res_18
       rect:
         serializedVersion: 2
-        x: 4378
-        y: 62
-        width: 564
-        height: 313
+        x: 1178
+        y: 0
+        width: 161
+        height: 137
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: die!_troll_die!_19
+      name: die!_troll_die!_low_res_19
       rect:
         serializedVersion: 2
-        x: 5109
-        y: 62
-        width: 565
-        height: 313
+        x: 1386
+        y: 0
+        width: 160
+        height: 137
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: die!_troll_die!_20
+      name: die!_troll_die!_low_res_20
       rect:
         serializedVersion: 2
-        x: 5837
-        y: 62
-        width: 568
-        height: 313
+        x: 1593
+        y: 0
+        width: 161
+        height: 137
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: die!_troll_die!_21
+      name: die!_troll_die!_low_res_21
       rect:
         serializedVersion: 2
-        x: 6568
-        y: 62
-        width: 564
-        height: 313
+        x: 1800
+        y: 0
+        width: 160
+        height: 137
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: die!_troll_die!_22
+      name: die!_troll_die!_low_res_22
       rect:
         serializedVersion: 2
-        x: 7299
-        y: 62
-        width: 565
-        height: 313
+        x: 2007
+        y: 0
+        width: 160
+        height: 137
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: die!_troll_die!_23
+      name: die!_troll_die!_low_res_23
       rect:
         serializedVersion: 2
-        x: 8027
-        y: 62
-        width: 568
-        height: 313
+        x: 2214
+        y: 0
+        width: 161
+        height: 137
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0

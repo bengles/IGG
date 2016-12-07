@@ -17,6 +17,9 @@ public class PlayerScript : MonoBehaviour
 	public int potionIndex = -1;
 	public int bombIndex = -1;
 	public int staffIndex = -1;
+	private int nrOfBombs = 0;
+	private int nrOfPotions = 0;
+	private int nrOfStaffs = 0;
 	public bool hasAllItems = false;
 
 	[HideInInspector]
@@ -84,19 +87,24 @@ public class PlayerScript : MonoBehaviour
 
 	void Start()
 	{
-		foreach (Item item in GlobalData.Instance.currentInventory) {
-			switch (item.cat) {
-			case ItemCategory.Bomb:
-				bombIndex = item.index;
-				break;
-			case ItemCategory.Potion:
-				potionIndex = item.index;
-				break;
-			case ItemCategory.Staff:
-				staffIndex = item.index;
+		foreach (Item i in GlobalData.Instance.currentInventory)
+			if (i.cat == ItemCategory.Bomb && i != null) {
+				bombIndex = i.index;
+				nrOfBombs++;
 				break;
 			}
-		}
+		foreach (Item i in GlobalData.Instance.currentInventory)
+			if (i.cat == ItemCategory.Potion && i != null) {
+				potionIndex = i.index;
+				nrOfPotions++;
+				break;
+			}
+		foreach (Item i in GlobalData.Instance.currentInventory) 
+			if (i.cat == ItemCategory.Staff && i != null) {
+				staffIndex = i.index;
+				nrOfStaffs++;
+				break;
+			}
 	}
 
 	#region Event Listeners
@@ -113,6 +121,7 @@ public class PlayerScript : MonoBehaviour
 		}
 
 		if (hit.collider.gameObject.tag == "Mushroom") {
+			currentHP = 0;
 			Die ();
 		}
 
@@ -146,8 +155,10 @@ public class PlayerScript : MonoBehaviour
     		}
 			if (col.gameObject.tag == "FireWall") 
 			{
-				if (!frozen)
+				if (!frozen) {
+					currentHP = 0;
 					Die ();
+				}
 				else
 					DeactivatePotion ();
 			}
@@ -298,35 +309,43 @@ public class PlayerScript : MonoBehaviour
 			ActivatePotion ();
 		}
 
-		if (Input.GetAxisRaw ("DX") != 0f && !isDead) {
+		if (Input.GetAxisRaw ("DX") != 0f  && !isDead ) {
 			if (XaxisInUse == false && Input.GetAxisRaw("DX") == -1f) {
 				XaxisInUse = true;
-
-				int numberOfBombs = 0;
-				foreach (Item item in GlobalData.Instance.currentInventory)
-					if (item != null && item.cat == ItemCategory.Bomb)
-						numberOfBombs++;
-				bombIndex = (bombIndex + 1) % numberOfBombs;
+				if (nrOfBombs != 0)
+					bombIndex = (bombIndex + 1) % nrOfBombs % GlobalData.Instance.nrBombSlots;
 			}
 		} 
 
 		if (Input.GetAxisRaw ("DX") == 0)
 			XaxisInUse = false;
 
+		if (Input.GetKeyDown(KeyCode.Alpha1) && !isDead ) {
+			if (nrOfBombs != 0)
+				bombIndex = (bombIndex + 1) % nrOfBombs % GlobalData.Instance.nrBombSlots;
+		} 
+
 		if (Input.GetAxisRaw ("DY") == 1f && !isDead && !potionActivated) {
 			if (YaxisInUse == false && Input.GetAxisRaw ("DY") == 1f) {
 				YaxisInUse = true;
 
-				int numberOfPotions = 0;
-				foreach (Item item in GlobalData.Instance.currentInventory)
-					if (item != null && item.cat == ItemCategory.Potion)
-						numberOfPotions++;
-				potionIndex = (potionIndex + 1) % numberOfPotions;
+				if (nrOfPotions != 0)
+					potionIndex = (potionIndex + 1) % nrOfPotions % GlobalData.Instance.nrPotionSlots;
 			}
 		}
 
 		if (Input.GetAxisRaw ("DY") == 0)
 			YaxisInUse = false;
+
+		if (Input.GetKeyDown(KeyCode.Alpha2) && !isDead && !potionActivated) {
+			if (nrOfPotions < 0)
+				potionIndex = (potionIndex + 1) % GlobalData.Instance.nrPotionSlots % nrOfPotions;
+		}
+
+		if (Input.GetKeyDown(KeyCode.Alpha3) && !isDead) {
+			if (nrOfStaffs != 0)
+				staffIndex = (staffIndex + 1) % nrOfStaffs % GlobalData.Instance.nrPotionSlots;
+		}
 
 
 		// apply horizontal speed smoothing it. dont really do this with Lerp. Use SmoothDamp or something that provides more control
@@ -520,6 +539,8 @@ public class PlayerScript : MonoBehaviour
     }
 
 	private void Pickup (Item item) {
+		if (item.name == "Extra Slot")
+			GlobalData.Instance.nrPotionSlots++;
 		GlobalData.Instance.currentInventory.Add (item);
 	}
 

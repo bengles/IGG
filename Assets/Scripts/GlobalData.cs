@@ -8,6 +8,11 @@ public class GlobalData : Singleton<GlobalData> {
 	public static GlobalData i;
 
 	public List<Item> currentInventory;
+	public int currentLevel;
+	public int nrPotionSlots;
+	public int nrBombSlots;
+	public int nrStaffSlots;
+
 	public static int equippedBombIndex;
 	public static int equippedStaffIndex;
 	public static int equippedPotionIndex;
@@ -19,11 +24,17 @@ public class GlobalData : Singleton<GlobalData> {
 
 		audio = this.gameObject.AddComponent<AudioSource> ();
 		audio.clip = (Resources.Load ("Audio/Level/tutorialmap") as AudioClip);
+		audio.volume = 0.1f;
 		audio.Play ();
+		audio.loop = true;
 
 		this.Reload ();
 
 		currentInventory = new List<Item>();
+		currentLevel = 3;
+		nrPotionSlots = 1;
+		nrBombSlots = 1;
+		nrStaffSlots = 1;
 
 		equippedPotionIndex = -1;
 		equippedBombIndex = -1;

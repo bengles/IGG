@@ -43,6 +43,7 @@ public class PlayerScript : MonoBehaviour
 	private AudioSource _as;
 	private bool hitting = false;
 	private bool poisonImmune = false;
+	private bool invulnerable;
 
 	private AudioClip[] audioClips;
 	private GameObject frost;
@@ -135,6 +136,8 @@ public class PlayerScript : MonoBehaviour
 			{
 				if (!frozen)
 					Die ();
+				else
+					DeactivatePotion ();
 			}
 			if (col.gameObject.tag == "Item")
 			{

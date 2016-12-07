@@ -83,8 +83,13 @@ public class MonsterAI : MonoBehaviour {
     {
         //anim.SetFloat("Speed", Mathf.Abs(move));
 
+		_animator.Play(Animator.StringToHash("Troll_Walk"));
+
         int moveDirection;
-		if (targetPosition.x < transform.position.x)
+
+		if (Vector2.Distance (targetPosition, transform.position) < meleeRange/2)
+			moveDirection = 0;
+		else if (targetPosition.x < transform.position.x)
         {
             moveDirection = -1;
         } else
@@ -190,9 +195,12 @@ public class MonsterAI : MonoBehaviour {
 				Debug.Log ("Monster new targetPos (x,y): (" + targetPosition.x + ", " + targetPosition.y + ")");
 			}
 		} else if (other.CompareTag ("Water")) {
-			StartCoroutine(Die());
-		} else if (other.CompareTag ("Mushroom"))
-			StartCoroutine(Die());
+			StartCoroutine (Die ());
+		} else if (other.CompareTag ("Mushroom")) {
+			StartCoroutine (Die ());
+			if (other.gameObject.GetComponent<MineMushroom>() != null)
+				other.gameObject.GetComponent<MineMushroom> ().Explode ();
+		}
     }
 
 	private IEnumerator Die()

@@ -8,6 +8,7 @@ public class GlobalData : Singleton<GlobalData> {
 	public static GlobalData i;
 
 	public List<Item> currentInventory;
+	public int currentLevel;
 	public static int equippedBombIndex;
 	public static int equippedStaffIndex;
 	public static int equippedPotionIndex;
@@ -24,6 +25,7 @@ public class GlobalData : Singleton<GlobalData> {
 		this.Reload ();
 
 		currentInventory = new List<Item>();
+		currentLevel = 3;
 
 		equippedPotionIndex = -1;
 		equippedBombIndex = -1;

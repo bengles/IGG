@@ -113,6 +113,7 @@ public class PlayerScript : MonoBehaviour
 		}
 
 		if (hit.collider.gameObject.tag == "Mushroom") {
+			currentHP = 0;
 			Die ();
 		}
 
@@ -146,8 +147,10 @@ public class PlayerScript : MonoBehaviour
     		}
 			if (col.gameObject.tag == "FireWall") 
 			{
-				if (!frozen)
+				if (!frozen) {
+					currentHP = 0;
 					Die ();
+				}
 				else
 					DeactivatePotion ();
 			}
@@ -298,7 +301,7 @@ public class PlayerScript : MonoBehaviour
 			ActivatePotion ();
 		}
 
-		if (Input.GetAxisRaw ("DX") != 0f && !isDead) {
+		if (Input.GetAxisRaw ("DX") != 0f  && !isDead ) {
 			if (XaxisInUse == false && Input.GetAxisRaw("DX") == -1f) {
 				XaxisInUse = true;
 
@@ -312,6 +315,14 @@ public class PlayerScript : MonoBehaviour
 
 		if (Input.GetAxisRaw ("DX") == 0)
 			XaxisInUse = false;
+
+		if (Input.GetKeyDown(KeyCode.Alpha1) && !isDead ) {
+				int numberOfBombs = 0;
+				foreach (Item item in GlobalData.Instance.currentInventory)
+					if (item != null && item.cat == ItemCategory.Bomb)
+						numberOfBombs++;
+				bombIndex = (bombIndex + 1) % numberOfBombs;
+		} 
 
 		if (Input.GetAxisRaw ("DY") == 1f && !isDead && !potionActivated) {
 			if (YaxisInUse == false && Input.GetAxisRaw ("DY") == 1f) {
@@ -327,6 +338,22 @@ public class PlayerScript : MonoBehaviour
 
 		if (Input.GetAxisRaw ("DY") == 0)
 			YaxisInUse = false;
+
+		if (Input.GetKeyDown(KeyCode.Alpha2) && !isDead && !potionActivated) {
+				int numberOfPotions = 0;
+				foreach (Item item in GlobalData.Instance.currentInventory)
+					if (item != null && item.cat == ItemCategory.Potion)
+						numberOfPotions++;
+			potionIndex = (potionIndex + 1) % numberOfPotions;
+		}
+
+		if (Input.GetKeyDown(KeyCode.Alpha3) && !isDead) {
+			int numberOfStaffs = 0;
+			foreach (Item item in GlobalData.Instance.currentInventory)
+				if (item != null && item.cat == ItemCategory.Potion)
+					numberOfStaffs++;
+			staffIndex = (staffIndex + 1) % numberOfStaffs;
+		}
 
 
 		// apply horizontal speed smoothing it. dont really do this with Lerp. Use SmoothDamp or something that provides more control

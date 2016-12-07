@@ -42,6 +42,7 @@ public class PlayerScript : MonoBehaviour
 	private Rigidbody2D _rb;
 	private AudioSource _as;
 	private bool hitting = false;
+	private bool poisonImmune = false;
 
 	private AudioClip[] audioClips;
 	private GameObject frost;
@@ -184,12 +185,12 @@ public class PlayerScript : MonoBehaviour
 		if (isDead)
 			deadTimer += Time.deltaTime;
 
-		if (InPoison)
+		if (InPoison && !poisonImmune)
 			poisonTimer += Time.deltaTime;
 		else
 			poisonTimer = 0;
 
-		if (poisonTimer > 1f)
+		if (poisonTimer > 1f && !poisonImmune)
 			Die ();
 
 		if (deadTimer > 2.0f)
@@ -374,6 +375,11 @@ public class PlayerScript : MonoBehaviour
 			case 3:
 				// Peppermint Tea
 				break;
+			case 4:
+				// Sniffle Enhancer
+				poisonImmune = true;
+				potionDuration = 10f;
+				break;
 			default:
 				PlayRandomSound ();
 				break;
@@ -406,6 +412,10 @@ public class PlayerScript : MonoBehaviour
 			break;
 		case 3:
 			// Peppermint Tea
+			break;
+		case 4:
+			// Sniffle Enhancer
+			poisonImmune = false;
 			break;
 		} 
 	}

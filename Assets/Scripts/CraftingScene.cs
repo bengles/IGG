@@ -134,7 +134,8 @@ public class CraftingScene : MonoBehaviour
 
     private void CraftItem(Item item)
     {
-        if (item == null)
+        resetToggles();
+        if (item == null)           //play appropiate sound
         {
             //display
             Debug.Log("Crafting null");
@@ -160,18 +161,21 @@ public class CraftingScene : MonoBehaviour
 
         Debug.Log("Crafting " + item.name);
 
-        foreach(UIItem i in ingredients)
+        if (!GlobalData.Instance.HasItemID(item.index, item.cat))
+        {
+            GlobalData.Instance.currentInventory.Add(item);
+        }
+    }
+
+    private void resetToggles()
+    {
+        foreach (UIItem i in ingredients)
         {
             i.toggle.isOn = false;
         }
         staffToggle.isOn = false;
         bombToggle.isOn = false;
         potionToggle.isOn = false;
-
-        if (!GlobalData.Instance.HasItemID(item.index, item.cat))
-        {
-            GlobalData.Instance.currentInventory.Add(item);
-        }
     }
 
     public void craft()

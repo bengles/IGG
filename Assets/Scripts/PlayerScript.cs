@@ -77,8 +77,8 @@ public class PlayerScript : MonoBehaviour
 		_controller.onTriggerStayEvent += onTriggerStayEvent;
 		_controller.onTriggerExitEvent += onTriggerExitEvent;
 
-		if (hasAllItems)
-			AddAllItems ();
+		//if (hasAllItems)
+			//AddAllItems ();
 
 	}
 
@@ -550,7 +550,7 @@ public class PlayerScript : MonoBehaviour
 	public Vector3 GetVelocity () {
 		return _velocity;
 	}
-
+/*
 	public void AddAllItems () {
 		// Bombs
 		GlobalData.Instance.currentInventory.Add (new Item(0, ItemCategory.Bomb));
@@ -565,5 +565,5 @@ public class PlayerScript : MonoBehaviour
 
 		// Staffs
 		GlobalData.Instance.currentInventory.Add (new Item(0, ItemCategory.Staff));
-	}
+	}*/
 }

@@ -13,9 +13,9 @@ public class GlobalData : Singleton<GlobalData> {
 	public int nrBombSlots;
 	public int nrStaffSlots;
 
-	public static int equippedBombIndex;
-	public static int equippedStaffIndex;
-	public static int equippedPotionIndex;
+	public List<Item> equippedBombs;
+	public List<Item> equippedStaffs;
+	public List<Item> equippedPotions;
 
 	private AudioSource audio;
 
@@ -31,28 +31,13 @@ public class GlobalData : Singleton<GlobalData> {
 		this.Reload ();
 
 		currentInventory = new List<Item>();
+        equippedBombs = new List<Item>();
+        equippedStaffs = new List<Item>();
+        equippedPotions = new List<Item>();
 		currentLevel = 3;
 		nrPotionSlots = 1;
 		nrBombSlots = 1;
 		nrStaffSlots = 1;
-
-		equippedPotionIndex = -1;
-		equippedBombIndex = -1;
-		equippedStaffIndex = 0;
-
-		// Add base items
-//		currentInventory.Add(new Item( "Potion", 
-//			"Before she can read, the first thing the witch learns is how to use the " +
-//			"cauldron to brew the simplest of potions. Potions transform Willow in many kind of ways.", 
-//			equippedPotionIndex, ItemCategory.Potion)); //add Potion
-//		currentInventory.Add(new Item( "Bomb",
-//			"The bomb case is easy to throw in the direction of an arc, and its contents " + 
-//			"usually react when it touches the environment or other creatures.",
-//			equippedBombIndex, ItemCategory.Bomb)); //add Bomb
-//		currentInventory.Add(new Item( "Staff",
-//			"The staff is the witch’s preferred weapon in close combat. Though weak in itself, " +
-//			"dipping it in the right brews can give it peculiar properties.",
-//			equippedStaffIndex, ItemCategory.Staff)); //add Staff
 	}
 
     public bool HasItemID(int itemID, ItemCategory cat)
@@ -84,5 +69,14 @@ public class GlobalData : Singleton<GlobalData> {
     {
         currentInventory.Add(new Item("WinterMint",
             "Blabla ha blablahahabla", 3, ItemCategory.Ingredient));
+        currentInventory.Add(new Item("BoneAxe",
+            "blahablohoblaha",
+            0, ItemCategory.Staff)); //add BoneStaff
+        currentInventory.Add(new Item(0, ItemCategory.Potion));
+        currentInventory.Add(new Item(1, ItemCategory.Potion));
+        currentInventory.Add(new Item(2, ItemCategory.Potion));
+        currentInventory.Add(new Item(3, ItemCategory.Potion));
+        currentInventory.Add(new Item(4, ItemCategory.Potion));
+        currentInventory.Add(new Item(5, ItemCategory.Potion));
     }
 }

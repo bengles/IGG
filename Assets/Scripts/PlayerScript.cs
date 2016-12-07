@@ -17,6 +17,7 @@ public class PlayerScript : MonoBehaviour
 	public int potionIndex = -1;
 	public int bombIndex = -1;
 	public int staffIndex = -1;
+	public bool hasAllItems = false;
 
 	[HideInInspector]
 	private float normalizedHorizontalSpeed = 0;
@@ -71,6 +72,9 @@ public class PlayerScript : MonoBehaviour
 		_controller.onTriggerStayEvent += onTriggerStayEvent;
 		_controller.onTriggerExitEvent += onTriggerExitEvent;
 
+		if (hasAllItems)
+			AddAllItems ();
+
         stickDmg = 5; //Set this based on which item is equipped
 
 	}
@@ -78,7 +82,6 @@ public class PlayerScript : MonoBehaviour
 	void Start()
 	{
 		foreach (Item item in GlobalData.Instance.currentInventory) {
-			Debug.Log(item.name);
 			switch (item.cat) {
 			case ItemCategory.Bomb:
 				bombIndex = item.index;
@@ -123,7 +126,7 @@ public class PlayerScript : MonoBehaviour
 				if (!invulnerable)
 					Die ();
 			}
-			Debug.Log( "onTriggerEnterEvent: " + col.gameObject.name );
+			// Debug.Log( "onTriggerEnterEvent: " + col.gameObject.name );
 			if (col.gameObject.tag == "Water")
 				ActivateWaterPhysics ();
 			if (col.gameObject.tag == "Enemy")
@@ -288,12 +291,12 @@ public class PlayerScript : MonoBehaviour
 		if (Input.GetAxisRaw ("DX") != 0f && !isDead) {
 			if (XaxisInUse == false && Input.GetAxisRaw("DX") == -1f) {
 				XaxisInUse = true;
-				foreach (Item item in GlobalData.Instance.currentInventory) {
-					if (item != null && item.cat == ItemCategory.Bomb && item.index != bombIndex) {
-						bombIndex = item.index;
-						break;
-					}
-				}
+
+				int numberOfBombs = 0;
+				foreach (Item item in GlobalData.Instance.currentInventory)
+					if (item != null && item.cat == ItemCategory.Bomb)
+						numberOfBombs++;
+				bombIndex = (bombIndex + 1) % numberOfBombs;
 			}
 		} 
 
@@ -301,14 +304,14 @@ public class PlayerScript : MonoBehaviour
 			XaxisInUse = false;
 
 		if (Input.GetAxisRaw ("DY") == 1f && !isDead) {
-			if (YaxisInUse == false && Input.GetAxisRaw ("DY") == -1f) {
+			if (YaxisInUse == false && Input.GetAxisRaw ("DY") == 1f) {
 				YaxisInUse = true;
-				foreach (Item item in GlobalData.Instance.currentInventory) {
-					if (item != null && item.cat == ItemCategory.Potion && item.index != potionIndex) {
-						potionIndex = item.index;
-						break;
-					}
-				}
+
+				int numberOfPotions = 0;
+				foreach (Item item in GlobalData.Instance.currentInventory)
+					if (item != null && item.cat == ItemCategory.Potion)
+						numberOfPotions++;
+				potionIndex = (potionIndex + 1) % numberOfPotions;
 			}
 		}
 
@@ -519,5 +522,19 @@ public class PlayerScript : MonoBehaviour
 
 	public Vector3 GetVelocity () {
 		return _velocity;
+	}
+
+	public void AddAllItems () {
+		// Bombs
+		GlobalData.Instance.currentInventory.Add (new Item(0, ItemCategory.Bomb));
+
+		// Potions
+		GlobalData.Instance.currentInventory.Add (new Item(0, ItemCategory.Potion));
+		GlobalData.Instance.currentInventory.Add (new Item(1, ItemCategory.Potion));
+		GlobalData.Instance.currentInventory.Add (new Item(2, ItemCategory.Potion));
+		GlobalData.Instance.currentInventory.Add (new Item(3, ItemCategory.Potion));
+
+		// Staffs
+		GlobalData.Instance.currentInventory.Add (new Item(0, ItemCategory.Staff));
 	}
 }

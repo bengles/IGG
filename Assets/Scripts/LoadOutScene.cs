@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class LoadOutScene : MonoBehaviour {
     private GameObject background;
@@ -13,7 +14,7 @@ public class LoadOutScene : MonoBehaviour {
 
     void Start()
     {
-        itemWidth = 138.6f;
+        itemWidth = 139.5f;
         itemHeight = 128.3f;
         canvasScale = GameObject.Find("Canvas").transform.localScale.x;
         background = GameObject.Find("Background");
@@ -39,8 +40,8 @@ public class LoadOutScene : MonoBehaviour {
         for(int col = 0; col < staffList.Count; col++)
         {
             Vector3 pos = background.transform.position;
-            pos.x -= 220.3f * canvasScale - itemWidth * col * canvasScale;
-            pos.y += 350f * canvasScale;
+            pos.x += 32f * canvasScale + itemWidth * col * canvasScale;
+            pos.y += 347f * canvasScale;
             string resourcePath = "Prefabs/UI/" + staffList[col].name.Replace(" ", string.Empty);
             GameObject staff = (GameObject)Instantiate(Resources.Load(resourcePath), pos, Quaternion.identity, background.transform);
             staffs.Add(new UIItem(staffList[col], staff.GetComponent<Toggle>()));
@@ -71,8 +72,8 @@ public class LoadOutScene : MonoBehaviour {
         for (int col = 0; col < bombList.Count; col++)
         {
             Vector3 pos = background.transform.position;
-            pos.x -= 220.3f * canvasScale - itemWidth * col * canvasScale;
-            pos.y += 150f * canvasScale;
+            pos.x += 32f * canvasScale + itemWidth * col * canvasScale;
+            pos.y += 210f * canvasScale;
             string resourcePath = "Prefabs/UI/" + bombList[col].name.Replace(" ", string.Empty);
             GameObject staff = (GameObject)Instantiate(Resources.Load(resourcePath), pos, Quaternion.identity, background.transform);
             bombs.Add(new UIItem(bombList[col], staff.GetComponent<Toggle>()));
@@ -105,11 +106,11 @@ public class LoadOutScene : MonoBehaviour {
         for (int col = 0; col < potionList.Count; col++)
         {
             Vector3 pos = background.transform.position;
-            pos.x -= 220.3f * canvasScale - itemWidth * col * canvasScale;
-            pos.y += 50f * canvasScale;
+            pos.x += 32f * canvasScale + itemWidth * col * canvasScale;
+            pos.y += 70f * canvasScale;
             string resourcePath = "Prefabs/UI/" + potionList[col].name.Replace(" ", string.Empty);
-            GameObject staff = (GameObject)Instantiate(Resources.Load(resourcePath), pos, Quaternion.identity, background.transform);
-            staffs.Add(new UIItem(potionList[col], staff.GetComponent<Toggle>()));
+            GameObject potion = (GameObject)Instantiate(Resources.Load(resourcePath), pos, Quaternion.identity, background.transform);
+            potions.Add(new UIItem(potionList[col], potion.GetComponent<Toggle>()));
             
             /* for status text
             staff.AddComponent<EventTrigger>();
@@ -125,7 +126,7 @@ public class LoadOutScene : MonoBehaviour {
         }
     }
 
-    private void Transition()
+    public void Transition()
     {
         GlobalData.Instance.equippedStaffs.Clear();
         foreach(UIItem i in staffs)
@@ -145,7 +146,8 @@ public class LoadOutScene : MonoBehaviour {
             if (i.toggle.isOn)
                 GlobalData.Instance.equippedPotions.Add(i.item);
         }
-        //Scenemanager.Go
+
+        SceneManager.LoadScene(GlobalData.Instance.currentLevel);
     }
 
     void Update()
@@ -160,6 +162,7 @@ public class LoadOutScene : MonoBehaviour {
         {
             clearStaffToggles();
         }
+
         int bombsToggled = 0;
         foreach (UIItem i in bombs)
         {
@@ -168,13 +171,14 @@ public class LoadOutScene : MonoBehaviour {
         }
         if (bombsToggled > GlobalData.Instance.nrBombSlots)
             clearBombToggles();
+
         int potionsToggled = 0;
         foreach (UIItem i in potions)
         {
             if (i.toggle.isOn)
                 potionsToggled++;
         }
-        if (bombsToggled > GlobalData.Instance.nrPotionSlots)
+        if (potionsToggled > GlobalData.Instance.nrPotionSlots)
             clearPotionToggles();
     }
 
@@ -182,6 +186,7 @@ public class LoadOutScene : MonoBehaviour {
     {
         foreach (UIItem i in staffs)
         {
+            Debug.Log("Clearing staff toggle");
             i.toggle.isOn = false;
         }
     }
@@ -196,6 +201,7 @@ public class LoadOutScene : MonoBehaviour {
     {
         foreach (UIItem i in potions)
         {
+            Debug.Log("Clearing potion toggle");
             i.toggle.isOn = false;
         }
     }

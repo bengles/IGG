@@ -191,13 +191,24 @@ public class CraftingScene : MonoBehaviour
         //find out which item is crafted
         if (s)
         {
-            
+            if (itemIDs.Contains(4) && itemIDs.Count == 1) 
+            {
+                CraftItem(new Item(0, ItemCategory.Staff));//bone axe
+            }
         }
         if (b)
         {
-            if (itemIDs.Contains(3) && itemIDs.Count == 1)
+            if (itemIDs.Contains(3) && itemIDs.Count == 1) 
             {
-                CraftItem(new Item(0, ItemCategory.Bomb));
+                CraftItem(new Item(0, ItemCategory.Bomb));//snowball
+            }
+            if (itemIDs.Contains(4) && itemIDs.Count == 1) 
+            {
+                CraftItem(new Item(1, ItemCategory.Bomb));//mammoth bait
+            }
+            if (itemIDs.Contains(3) && itemIDs.Count == 1) 
+            {
+                CraftItem(new Item(0, ItemCategory.Bomb));//snowball
             }
         }
         if (p)
@@ -217,6 +228,14 @@ public class CraftingScene : MonoBehaviour
             if (itemIDs.Contains(3) && itemIDs.Contains(8) && itemIDs.Count == 2)
             {
                 CraftItem(new Item(5, ItemCategory.Potion)); //Mushroom proof lotion
+            }
+            if (itemIDs.Contains(6) && itemIDs.Count == 1) 
+            {
+                CraftItem(new Item(2, ItemCategory.Potion)); //Pixifier
+            }
+            if (itemIDs.Contains(3) && itemIDs.Contains(5) && itemIDs.Count == 2)
+            {
+                CraftItem(new Item(3, ItemCategory.Potion)); //Mushroom proof lotion
             }
         }
         CraftItem(null);

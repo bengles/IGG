@@ -17,9 +17,6 @@ public class PlayerScript : MonoBehaviour
 	public int potionIndex = -1;
 	public int bombIndex = -1;
 	public int staffIndex = -1;
-	private int nrOfBombs = 0;
-	private int nrOfPotions = 0;
-	private int nrOfStaffs = 0;
 	public bool hasAllItems = false;
 
 	[HideInInspector]
@@ -87,22 +84,19 @@ public class PlayerScript : MonoBehaviour
 
 	void Start()
 	{
-		foreach (Item i in GlobalData.Instance.currentInventory)
+		foreach (Item i in GlobalData.Instance.equippedBombs)
 			if (i.cat == ItemCategory.Bomb && i != null) {
 				bombIndex = i.index;
-				nrOfBombs++;
 				break;
 			}
-		foreach (Item i in GlobalData.Instance.currentInventory)
+		foreach (Item i in GlobalData.Instance.equippedPotions)
 			if (i.cat == ItemCategory.Potion && i != null) {
 				potionIndex = i.index;
-				nrOfPotions++;
 				break;
 			}
-		foreach (Item i in GlobalData.Instance.currentInventory) 
+		foreach (Item i in GlobalData.Instance.equippedStaffs) 
 			if (i.cat == ItemCategory.Staff && i != null) {
 				staffIndex = i.index;
-				nrOfStaffs++;
 				break;
 			}
 	}
@@ -312,8 +306,7 @@ public class PlayerScript : MonoBehaviour
 		if (Input.GetAxisRaw ("DX") != 0f  && !isDead ) {
 			if (XaxisInUse == false && Input.GetAxisRaw("DX") == -1f) {
 				XaxisInUse = true;
-				if (nrOfBombs != 0)
-					bombIndex = (bombIndex + 1) % nrOfBombs % GlobalData.Instance.nrBombSlots;
+				bombIndex = (bombIndex + 1)  % GlobalData.Instance.equippedBombs.Count;
 			}
 		} 
 
@@ -321,16 +314,13 @@ public class PlayerScript : MonoBehaviour
 			XaxisInUse = false;
 
 		if (Input.GetKeyDown(KeyCode.Alpha1) && !isDead ) {
-			if (nrOfBombs != 0)
-				bombIndex = (bombIndex + 1) % nrOfBombs % GlobalData.Instance.nrBombSlots;
+			bombIndex = (bombIndex + 1)  % GlobalData.Instance.equippedBombs.Count;
 		} 
 
 		if (Input.GetAxisRaw ("DY") == 1f && !isDead && !potionActivated) {
 			if (YaxisInUse == false && Input.GetAxisRaw ("DY") == 1f) {
 				YaxisInUse = true;
-
-				if (nrOfPotions != 0)
-					potionIndex = (potionIndex + 1) % nrOfPotions % GlobalData.Instance.nrPotionSlots;
+				potionIndex = (potionIndex + 1) % GlobalData.Instance.equippedPotions.Count;
 			}
 		}
 
@@ -338,13 +328,11 @@ public class PlayerScript : MonoBehaviour
 			YaxisInUse = false;
 
 		if (Input.GetKeyDown(KeyCode.Alpha2) && !isDead && !potionActivated) {
-			if (nrOfPotions < 0)
-				potionIndex = (potionIndex + 1) % GlobalData.Instance.nrPotionSlots % nrOfPotions;
+			potionIndex = (potionIndex + 1) % GlobalData.Instance.equippedPotions.Count;
 		}
 
 		if (Input.GetKeyDown(KeyCode.Alpha3) && !isDead) {
-			if (nrOfStaffs != 0)
-				staffIndex = (staffIndex + 1) % nrOfStaffs % GlobalData.Instance.nrPotionSlots;
+			staffIndex = (staffIndex + 1) % GlobalData.Instance.equippedStaffs.Count;
 		}
 
 
@@ -541,7 +529,8 @@ public class PlayerScript : MonoBehaviour
 	private void Pickup (Item item) {
 		if (item.name == "Extra Slot")
 			GlobalData.Instance.nrPotionSlots++;
-		GlobalData.Instance.currentInventory.Add (item);
+		if (!GlobalData.Instance.HasItemID(item.index, item.cat))
+			GlobalData.Instance.currentInventory.Add (item);
 	}
 
 	public void InflictDamage (int damage) {

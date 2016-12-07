@@ -30,7 +30,7 @@ public class CraftingScene : MonoBehaviour
         ingredients = new List<UIItem>(6*6);
         currentStatusText = null;
 
-        GlobalData.Instance.AddTestItems();
+        //GlobalData.Instance.AddTestItems();
         populateStandardItems();
         populateIngredients(GlobalData.Instance.GetIngredients());
     }

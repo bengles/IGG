@@ -160,6 +160,14 @@ public class CraftingScene : MonoBehaviour
 
         Debug.Log("Crafting " + item.name);
 
+        foreach(UIItem i in ingredients)
+        {
+            i.toggle.isOn = false;
+        }
+        staffToggle.isOn = false;
+        bombToggle.isOn = false;
+        potionToggle.isOn = false;
+
         if (!GlobalData.Instance.HasItemID(item.index, item.cat))
         {
             GlobalData.Instance.currentInventory.Add(item);

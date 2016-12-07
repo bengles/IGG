@@ -76,10 +76,10 @@ public class Item {
 					this.name = "Sniffle Enhancer";
 					this.flavorText = "Just gives you a bad case of the sniffles.";
 					break;
-				case 5:
-					this.name = "Invulnerable";
-					this.flavorText = "YOU CAN NOT DIE!";
-					break;
+                case 5:
+                    this.name = "Mushroom Proof Lotion";
+                    this.flavorText = "This lotion protects witches from the damage of exploding mushrooms, but not the impact.";
+                    break;
             }
         }
 
@@ -106,6 +106,10 @@ public class Item {
                 case 7:
                     this.name = "Sniffle Snot";
                     this.flavorText = "Disgusting mucus from a troll who caught a nasty cold.";
+                    break;
+                case 8:
+                    this.name = "Familiar Mushroom";
+                    this.flavorText = "A toadstool that makes things… wait a minute, this looks familiar…";
                     break;
             }
         }

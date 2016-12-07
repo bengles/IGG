@@ -21,24 +21,19 @@ public class ItemUI : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		foreach (Item item in GlobalData.Instance.currentInventory) {
-			if (item != null) {
-				switch (item.cat) {
-				case ItemCategory.Bomb:
-					if (item.index == player.bombIndex) {
-						bombSlot.GetComponent<SpriteRenderer> ().sprite = Resources.Load ("Sprites/Items/" + item.name, typeof(Sprite)) as Sprite;
-					}
-					break;
-				case ItemCategory.Potion:
-					if (item.index == player.potionIndex)
-						potionSlot.GetComponent<SpriteRenderer> ().sprite = Resources.Load ("Sprites/Items/" + item.name, typeof(Sprite)) as Sprite;
-					break;
-				case ItemCategory.Staff:
-					if (item.index == player.staffIndex)
-						stickSlot.GetComponent<SpriteRenderer> ().sprite = Resources.Load ("Sprites/Items/" + item.name, typeof(Sprite)) as Sprite;
-					break;
-				}
-			}
-		}
+		foreach (Item item in GlobalData.Instance.equippedBombs) 
+			if (item != null) 
+				if (item.index == player.bombIndex) 
+					bombSlot.GetComponent<SpriteRenderer> ().sprite = Resources.Load ("Sprites/Items/" + item.name, typeof(Sprite)) as Sprite;
+				
+		foreach (Item item in GlobalData.Instance.equippedPotions) 
+			if (item != null) 
+				if (item.index == player.potionIndex)
+					potionSlot.GetComponent<SpriteRenderer> ().sprite = Resources.Load ("Sprites/Items/" + item.name, typeof(Sprite)) as Sprite;
+		
+		foreach (Item item in GlobalData.Instance.equippedStaffs) 
+			if (item != null) 
+				if (item.index == player.staffIndex)
+					stickSlot.GetComponent<SpriteRenderer> ().sprite = Resources.Load ("Sprites/Items/" + item.name, typeof(Sprite)) as Sprite;
 	}
 }

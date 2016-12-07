@@ -13,7 +13,7 @@ public class ItemScript : MonoBehaviour {
 	void Awake() {
 		item = new Item (name, flavorText, index, cat);
 		foreach (Item i in GlobalData.Instance.currentInventory)
-			if (i.name == name)
+			if (i.name == name && i.name != "Extra Slot")
 				Destroy (this.gameObject);
 	}
 

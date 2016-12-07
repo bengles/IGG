@@ -77,8 +77,8 @@ public class PlayerScript : MonoBehaviour
 		_controller.onTriggerStayEvent += onTriggerStayEvent;
 		_controller.onTriggerExitEvent += onTriggerExitEvent;
 
-		//if (hasAllItems)
-			//AddAllItems ();
+		if (hasAllItems)
+			AddAllItems ();
 
 	}
 
@@ -243,9 +243,11 @@ public class PlayerScript : MonoBehaviour
 			SceneManager.LoadScene (SceneManager.GetActiveScene().buildIndex);
 
 		if (Input.GetButton ("B") && !isDead && !frozen) {
-			if (_controller.isGrounded)
-				normalizedHorizontalSpeed = 0;
-			StickHit ();
+			if (staffIndex != -1) {
+				if (_controller.isGrounded)
+					normalizedHorizontalSpeed = 0;
+				StickHit ();
+			}
 		}  else if ( Input.GetAxis( "Horizontal" ) > 0  && !isDead && !frozen) {
 			
 			normalizedHorizontalSpeed = 1;
@@ -306,7 +308,16 @@ public class PlayerScript : MonoBehaviour
 		if (Input.GetAxisRaw ("DX") != 0f  && !isDead ) {
 			if (XaxisInUse == false && Input.GetAxisRaw("DX") == -1f) {
 				XaxisInUse = true;
-				bombIndex = (bombIndex + 1)  % GlobalData.Instance.equippedBombs.Count;
+				if (GlobalData.Instance.equippedBombs.Count != 0)
+					bombIndex = (bombIndex + 1)  % GlobalData.Instance.equippedBombs.Count;
+			}
+		} 
+
+		if (Input.GetAxisRaw ("DX") != 0f  && !isDead ) {
+			if (XaxisInUse == false && Input.GetAxisRaw("DX") == 1f) {
+				XaxisInUse = true;
+				if (GlobalData.Instance.equippedStaffs.Count != 0)
+					staffIndex = (staffIndex + 1)  % GlobalData.Instance.equippedStaffs.Count;
 			}
 		} 
 
@@ -314,13 +325,15 @@ public class PlayerScript : MonoBehaviour
 			XaxisInUse = false;
 
 		if (Input.GetKeyDown(KeyCode.Alpha1) && !isDead ) {
-			bombIndex = (bombIndex + 1)  % GlobalData.Instance.equippedBombs.Count;
+			if (GlobalData.Instance.equippedBombs.Count != 0)
+				bombIndex = (bombIndex + 1)  % GlobalData.Instance.equippedBombs.Count;
 		} 
 
 		if (Input.GetAxisRaw ("DY") == 1f && !isDead && !potionActivated) {
 			if (YaxisInUse == false && Input.GetAxisRaw ("DY") == 1f) {
 				YaxisInUse = true;
-				potionIndex = (potionIndex + 1) % GlobalData.Instance.equippedPotions.Count;
+				if (GlobalData.Instance.equippedPotions.Count != 0)
+					potionIndex = (potionIndex + 1) % GlobalData.Instance.equippedPotions.Count;
 			}
 		}
 
@@ -328,10 +341,12 @@ public class PlayerScript : MonoBehaviour
 			YaxisInUse = false;
 
 		if (Input.GetKeyDown(KeyCode.Alpha2) && !isDead && !potionActivated) {
+			if (GlobalData.Instance.equippedPotions.Count != 0)
 			potionIndex = (potionIndex + 1) % GlobalData.Instance.equippedPotions.Count;
 		}
 
 		if (Input.GetKeyDown(KeyCode.Alpha3) && !isDead) {
+			if (GlobalData.Instance.equippedStaffs.Count != 0)
 			staffIndex = (staffIndex + 1) % GlobalData.Instance.equippedStaffs.Count;
 		}
 
@@ -550,20 +565,22 @@ public class PlayerScript : MonoBehaviour
 	public Vector3 GetVelocity () {
 		return _velocity;
 	}
-/*
+
 	public void AddAllItems () {
-		// Bombs
-		GlobalData.Instance.currentInventory.Add (new Item(0, ItemCategory.Bomb));
+		GlobalData.Instance.equippedBombs.Add (new Item(-1, ItemCategory.Bomb));
+		GlobalData.Instance.equippedBombs.Add (new Item(0, ItemCategory.Bomb));
+		GlobalData.Instance.equippedBombs.Add (new Item(1, ItemCategory.Bomb));
 
-		// Potions
-		GlobalData.Instance.currentInventory.Add (new Item(0, ItemCategory.Potion));
-		GlobalData.Instance.currentInventory.Add (new Item(1, ItemCategory.Potion));
-		GlobalData.Instance.currentInventory.Add (new Item(2, ItemCategory.Potion));
-		GlobalData.Instance.currentInventory.Add (new Item(3, ItemCategory.Potion));
-		GlobalData.Instance.currentInventory.Add (new Item(4, ItemCategory.Potion));
-		GlobalData.Instance.currentInventory.Add (new Item(5, ItemCategory.Potion));
+		GlobalData.Instance.equippedPotions.Add (new Item(-1, ItemCategory.Potion));
+		GlobalData.Instance.equippedPotions.Add (new Item(0, ItemCategory.Potion));
+		GlobalData.Instance.equippedPotions.Add (new Item(1, ItemCategory.Potion));
+		GlobalData.Instance.equippedPotions.Add (new Item(2, ItemCategory.Potion));
+		GlobalData.Instance.equippedPotions.Add (new Item(3, ItemCategory.Potion));
+		GlobalData.Instance.equippedPotions.Add (new Item (4, ItemCategory.Potion));
+		GlobalData.Instance.equippedPotions.Add (new Item (5, ItemCategory.Potion));
 
-		// Staffs
-		GlobalData.Instance.currentInventory.Add (new Item(0, ItemCategory.Staff));
-	}*/
+		GlobalData.Instance.equippedStaffs.Add (new Item (-1, ItemCategory.Staff));
+		GlobalData.Instance.equippedStaffs.Add (new Item (0, ItemCategory.Staff));
+
+	}
 }

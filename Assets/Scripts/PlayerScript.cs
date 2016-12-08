@@ -275,6 +275,8 @@ public class PlayerScript : MonoBehaviour
 
 		if (Input.GetButtonDown ("Reset"))
 			SceneManager.LoadScene (SceneManager.GetActiveScene().buildIndex);
+		if (Input.GetButtonDown ("Submit"))
+			SceneManager.LoadScene (0);
 
 		if (Input.GetButton ("B") && !isDead && !frozen) {
 			if (staffIndex != -1) {

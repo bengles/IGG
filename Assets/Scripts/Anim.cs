@@ -15,7 +15,7 @@ public class Anim : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		_sr = GetComponent<SpriteRenderer> ();
-		sprites = Resources.LoadAll<Sprite> ("Sprites/exp3_0");
+		sprites = Resources.LoadAll<Sprite> ("Sprites/bomb_explosion");
 
 	}
 

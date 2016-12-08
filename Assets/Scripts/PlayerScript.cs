@@ -36,6 +36,15 @@ public class PlayerScript : MonoBehaviour
     private int stickDmg = 1;
 	private float damageTimer = 0.0f;
 
+	private int[] potionIndexes;
+	private int potionArrayIndex = 0;
+
+	private int[] bombIndexes;
+	private int bombArrayIndex = 0;
+
+	private int[] staffIndexes;
+	private int staffArrayIndex = 0;
+
 	private CharacterController2D _controller;
 	private Animator _animator;
 	private RaycastHit2D _lastControllerColliderHit;
@@ -84,21 +93,46 @@ public class PlayerScript : MonoBehaviour
 
 	void Start()
 	{
+		potionIndexes = new int[GlobalData.Instance.equippedPotions.Count];
+		bombIndexes = new int[GlobalData.Instance.equippedBombs.Count];
+		staffIndexes = new int[GlobalData.Instance.equippedStaffs.Count];
+
+
 		foreach (Item i in GlobalData.Instance.equippedBombs)
 			if (i.cat == ItemCategory.Bomb && i != null) {
 				bombIndex = i.index;
 				break;
 			}
+		foreach (Item i in GlobalData.Instance.equippedBombs)
+			if (i.cat == ItemCategory.Bomb && i != null) {
+				bombIndexes [bombArrayIndex] = i.index;
+				bombArrayIndex++;
+			}
+		bombArrayIndex = 0;
+
 		foreach (Item i in GlobalData.Instance.equippedPotions)
 			if (i.cat == ItemCategory.Potion && i != null) {
 				potionIndex = i.index;
 				break;
 			}
+		foreach (Item i in GlobalData.Instance.equippedPotions)
+			if (i.cat == ItemCategory.Potion && i != null) {
+				potionIndexes [potionArrayIndex] = i.index;
+				potionArrayIndex++;
+			}
+		potionArrayIndex = 0;
+
 		foreach (Item i in GlobalData.Instance.equippedStaffs) 
 			if (i.cat == ItemCategory.Staff && i != null) {
 				staffIndex = i.index;
 				break;
 			}
+		foreach (Item i in GlobalData.Instance.equippedStaffs) 
+			if (i.cat == ItemCategory.Staff && i != null) {
+				staffIndexes [staffArrayIndex] = i.index;
+				staffArrayIndex++;
+			}
+		staffArrayIndex = 0;
 	}
 
 	#region Event Listeners
@@ -286,9 +320,11 @@ public class PlayerScript : MonoBehaviour
 			inAir = true;
 			_velocity.y = Mathf.Sqrt( 3f * jumpHeight * -gravity );
 			_animator.Play( Animator.StringToHash( "Witch_Jump" ) );
-			_as.Stop ();
-			_as.clip = Resources.Load ("Audio/Witch/jump_1") as AudioClip;
-			_as.Play ();
+			if (Random.Range (0, 2) == 1) {
+				_as.Stop ();
+				_as.clip = Resources.Load ("Audio/Witch/jump_1") as AudioClip;
+				_as.Play ();
+			}
 		}
 
 
@@ -308,16 +344,20 @@ public class PlayerScript : MonoBehaviour
 		if (Input.GetAxisRaw ("DX") != 0f  && !isDead ) {
 			if (XaxisInUse == false && Input.GetAxisRaw("DX") == -1f) {
 				XaxisInUse = true;
-				if (GlobalData.Instance.equippedBombs.Count != 0)
-					bombIndex = (bombIndex + 1)  % GlobalData.Instance.equippedBombs.Count;
+				if (GlobalData.Instance.equippedBombs.Count > 1) {
+					bombIndex = bombIndexes [bombArrayIndex];
+					bombArrayIndex = (bombArrayIndex + 1) % GlobalData.Instance.equippedBombs.Count;
+				}
 			}
 		} 
 
 		if (Input.GetAxisRaw ("DX") != 0f  && !isDead ) {
 			if (XaxisInUse == false && Input.GetAxisRaw("DX") == 1f) {
 				XaxisInUse = true;
-				if (GlobalData.Instance.equippedStaffs.Count != 0)
-					staffIndex = (staffIndex + 1)  % GlobalData.Instance.equippedStaffs.Count;
+				if (GlobalData.Instance.equippedStaffs.Count > 1) {
+					staffIndex = staffIndexes [staffArrayIndex];
+					staffArrayIndex = (staffArrayIndex + 1) % GlobalData.Instance.equippedStaffs.Count;
+				}
 			}
 		} 
 
@@ -325,15 +365,19 @@ public class PlayerScript : MonoBehaviour
 			XaxisInUse = false;
 
 		if (Input.GetKeyDown(KeyCode.Alpha1) && !isDead ) {
-			if (GlobalData.Instance.equippedBombs.Count != 0)
-				bombIndex = (bombIndex + 1)  % GlobalData.Instance.equippedBombs.Count;
+			if (GlobalData.Instance.equippedBombs.Count > 1) {
+				bombIndex = bombIndexes [bombArrayIndex];
+				bombArrayIndex = (bombArrayIndex + 1) % GlobalData.Instance.equippedBombs.Count;
+			}
 		} 
 
 		if (Input.GetAxisRaw ("DY") == 1f && !isDead && !potionActivated) {
 			if (YaxisInUse == false && Input.GetAxisRaw ("DY") == 1f) {
 				YaxisInUse = true;
-				if (GlobalData.Instance.equippedPotions.Count != 0)
-					potionIndex = (potionIndex + 1) % GlobalData.Instance.equippedPotions.Count;
+				if (GlobalData.Instance.equippedPotions.Count > 1) {
+					potionIndex = potionIndexes [potionArrayIndex];
+					potionArrayIndex = (potionArrayIndex + 1) % GlobalData.Instance.equippedPotions.Count;
+				}
 			}
 		}
 
@@ -341,13 +385,17 @@ public class PlayerScript : MonoBehaviour
 			YaxisInUse = false;
 
 		if (Input.GetKeyDown(KeyCode.Alpha2) && !isDead && !potionActivated) {
-			if (GlobalData.Instance.equippedPotions.Count != 0)
-			potionIndex = (potionIndex + 1) % GlobalData.Instance.equippedPotions.Count;
+			if (GlobalData.Instance.equippedPotions.Count > 1) {
+				potionIndex = potionIndexes [potionArrayIndex];
+				potionArrayIndex = (potionArrayIndex + 1) % GlobalData.Instance.equippedPotions.Count;
+			}
 		}
 
 		if (Input.GetKeyDown(KeyCode.Alpha3) && !isDead) {
-			if (GlobalData.Instance.equippedStaffs.Count != 0)
-			staffIndex = (staffIndex + 1) % GlobalData.Instance.equippedStaffs.Count;
+			if (GlobalData.Instance.equippedStaffs.Count > 1) {
+				staffIndex = staffIndexes [staffArrayIndex];
+				staffArrayIndex = (staffArrayIndex + 1) % GlobalData.Instance.equippedStaffs.Count;
+			}
 		}
 
 
@@ -544,7 +592,7 @@ public class PlayerScript : MonoBehaviour
 	private void Pickup (Item item) {
 		if (item.name == "Extra Slot")
 			GlobalData.Instance.nrPotionSlots++;
-		if (!GlobalData.Instance.HasItemID(item.index, item.cat))
+		else if (!GlobalData.Instance.HasItemID(item.index, item.cat))
 			GlobalData.Instance.currentInventory.Add (item);
 	}
 

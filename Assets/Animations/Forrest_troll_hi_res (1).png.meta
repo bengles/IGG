@@ -1,0 +1,395 @@
+fileFormatVersion: 2
+guid: 7eea007d60b1c7444b7c3868813eecfe
+timeCreated: 1481150157
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Forrest_troll_hi_res (1)_0
+    21300002: Forrest_troll_hi_res (1)_1
+    21300004: Forrest_troll_hi_res (1)_2
+    21300006: Forrest_troll_hi_res (1)_3
+    21300008: Forrest_troll_hi_res (1)_4
+    21300010: Forrest_troll_hi_res (1)_5
+    21300012: Forrest_troll_hi_res (1)_6
+    21300014: Forrest_troll_hi_res (1)_7
+    21300016: Forrest_troll_hi_res (1)_8
+    21300018: Forrest_troll_hi_res (1)_9
+    21300020: Forrest_troll_hi_res (1)_10
+    21300022: Forrest_troll_hi_res (1)_11
+    21300024: Forrest_troll_hi_res (1)_12
+    21300026: Forrest_troll_hi_res (1)_13
+    21300028: Forrest_troll_hi_res (1)_14
+    21300030: Forrest_troll_hi_res (1)_15
+    21300032: Forrest_troll_hi_res (1)_16
+    21300034: Forrest_troll_hi_res (1)_17
+    21300036: Forrest_troll_hi_res (1)_18
+    21300038: Forrest_troll_hi_res (1)_19
+    21300040: Forrest_troll_hi_res (1)_20
+    21300042: Forrest_troll_hi_res (1)_21
+    21300044: Forrest_troll_hi_res (1)_22
+    21300046: Forrest_troll_hi_res (1)_23
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Forrest_troll_hi_res (1)_0
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 975
+        width: 350
+        height: 240
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Forrest_troll_hi_res (1)_1
+      rect:
+        serializedVersion: 2
+        x: 988
+        y: 975
+        width: 349
+        height: 240
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Forrest_troll_hi_res (1)_2
+      rect:
+        serializedVersion: 2
+        x: 1696
+        y: 975
+        width: 468
+        height: 240
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Forrest_troll_hi_res (1)_3
+      rect:
+        serializedVersion: 2
+        x: 2434
+        y: 975
+        width: 524
+        height: 240
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Forrest_troll_hi_res (1)_4
+      rect:
+        serializedVersion: 2
+        x: 3231
+        y: 975
+        width: 495
+        height: 240
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Forrest_troll_hi_res (1)_5
+      rect:
+        serializedVersion: 2
+        x: 4026
+        y: 975
+        width: 451
+        height: 240
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Forrest_troll_hi_res (1)_6
+      rect:
+        serializedVersion: 2
+        x: 4725
+        y: 975
+        width: 545
+        height: 240
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Forrest_troll_hi_res (1)_7
+      rect:
+        serializedVersion: 2
+        x: 5461
+        y: 975
+        width: 621
+        height: 240
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Forrest_troll_hi_res (1)_8
+      rect:
+        serializedVersion: 2
+        x: 6201
+        y: 975
+        width: 685
+        height: 240
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Forrest_troll_hi_res (1)_9
+      rect:
+        serializedVersion: 2
+        x: 7005
+        y: 975
+        width: 626
+        height: 240
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Forrest_troll_hi_res (1)_10
+      rect:
+        serializedVersion: 2
+        x: 7814
+        y: 975
+        width: 562
+        height: 240
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Forrest_troll_hi_res (1)_11
+      rect:
+        serializedVersion: 2
+        x: 8603
+        y: 975
+        width: 554
+        height: 240
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Forrest_troll_hi_res (1)_12
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 0
+        width: 531
+        height: 284
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Forrest_troll_hi_res (1)_13
+      rect:
+        serializedVersion: 2
+        x: 889
+        y: 0
+        width: 512
+        height: 334
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Forrest_troll_hi_res (1)_14
+      rect:
+        serializedVersion: 2
+        x: 1682
+        y: 0
+        width: 486
+        height: 384
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Forrest_troll_hi_res (1)_15
+      rect:
+        serializedVersion: 2
+        x: 2474
+        y: 0
+        width: 457
+        height: 434
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Forrest_troll_hi_res (1)_16
+      rect:
+        serializedVersion: 2
+        x: 3267
+        y: 0
+        width: 413
+        height: 484
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Forrest_troll_hi_res (1)_17
+      rect:
+        serializedVersion: 2
+        x: 4062
+        y: 0
+        width: 381
+        height: 534
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Forrest_troll_hi_res (1)_18
+      rect:
+        serializedVersion: 2
+        x: 4857
+        y: 0
+        width: 354
+        height: 584
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Forrest_troll_hi_res (1)_19
+      rect:
+        serializedVersion: 2
+        x: 5638
+        y: 0
+        width: 349
+        height: 634
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Forrest_troll_hi_res (1)_20
+      rect:
+        serializedVersion: 2
+        x: 6410
+        y: 0
+        width: 352
+        height: 643
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Forrest_troll_hi_res (1)_21
+      rect:
+        serializedVersion: 2
+        x: 7186
+        y: 0
+        width: 350
+        height: 643
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Forrest_troll_hi_res (1)_22
+      rect:
+        serializedVersion: 2
+        x: 7963
+        y: 0
+        width: 349
+        height: 643
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Forrest_troll_hi_res (1)_23
+      rect:
+        serializedVersion: 2
+        x: 8735
+        y: 0
+        width: 352
+        height: 643
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

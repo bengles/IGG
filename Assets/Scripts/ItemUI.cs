@@ -26,10 +26,11 @@ public class ItemUI : MonoBehaviour {
 				if (item.index == player.bombIndex) 
 					bombSlot.GetComponent<SpriteRenderer> ().sprite = Resources.Load ("Sprites/Items/" + item.name, typeof(Sprite)) as Sprite;
 				
-		foreach (Item item in GlobalData.Instance.equippedPotions) 
-			if (item != null) 
-				if (item.index == player.potionIndex)
-					potionSlot.GetComponent<SpriteRenderer> ().sprite = Resources.Load ("Sprites/Items/" + item.name, typeof(Sprite)) as Sprite;
+		foreach (Item item in GlobalData.Instance.equippedPotions)
+			if (item != null)
+			if (item.index == player.potionIndex) {
+				potionSlot.GetComponent<SpriteRenderer> ().sprite = Resources.Load ("Sprites/Items/" + item.name, typeof(Sprite)) as Sprite;
+			}
 		
 		foreach (Item item in GlobalData.Instance.equippedStaffs) 
 			if (item != null) 

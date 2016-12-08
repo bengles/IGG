@@ -19,6 +19,9 @@ public class CraftingScene : MonoBehaviour
     private List<UIItem> ingredients; //list to keep track of which items are toggled
     private GameObject currentStatusText;
     private GameObject newCraftWindow;
+	private AudioSource audio;
+	private AudioClip[] failed;
+	private AudioClip[] success;
 
     void Start()
     {
@@ -33,6 +36,11 @@ public class CraftingScene : MonoBehaviour
         //GlobalData.Instance.AddTestItems();
         populateStandardItems();
         populateIngredients(GlobalData.Instance.GetIngredients());
+		audio = gameObject.AddComponent<AudioSource> ();
+		failed = new AudioClip[] {Resources.Load("Audio/Crafting/failed_crafting_1") as AudioClip,
+			Resources.Load("Audio/Crafting/failed_crafting_2") as AudioClip};
+		success = new AudioClip[] {Resources.Load("Audio/Crafting/crafting_1") as AudioClip,
+			Resources.Load("Audio/Crafting/crafting_2") as AudioClip};
     }
 
     private void populateStandardItems()
@@ -141,8 +149,15 @@ public class CraftingScene : MonoBehaviour
         {
             //display
             Debug.Log("Crafting null");
+			audio.Stop ();
+			audio.clip = failed[Random.Range(0,2)];
+			audio.Play ();
             return;
         }
+
+		audio.Stop ();
+		audio.clip = success[Random.Range(0,2)];
+		audio.Play ();
 
         newCraftWindow = (GameObject)Instantiate(Resources.Load("Prefabs/UI/NewCraftBackground"), this.transform.position, Quaternion.identity, this.transform);
 

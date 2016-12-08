@@ -164,7 +164,7 @@ public class PlayerScript : MonoBehaviour
 		{
 			if (col.gameObject.tag == "Mushroom") {
 				Vector3 direction = transform.position - col.gameObject.transform.position;
-				_velocity = 50f * direction.normalized;
+				_velocity = 35f * direction.normalized;
 				if (!invulnerable)
 					Die ();
 			}

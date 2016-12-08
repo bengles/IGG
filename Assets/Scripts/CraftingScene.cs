@@ -115,6 +115,7 @@ public class CraftingScene : MonoBehaviour
                 GameObject ingredient = (GameObject)Instantiate(Resources.Load(resourcePath), pos, Quaternion.identity, background.transform);
                 ingredients.Add(new UIItem(ingredientList[index], ingredient.GetComponent<Toggle>()));
                 ingredient.AddComponent<EventTrigger>();
+                /*
                 EventTrigger.Entry ingredientEnterEvent = new EventTrigger.Entry();
                 ingredientEnterEvent.eventID = EventTriggerType.PointerEnter;
                 ingredientEnterEvent.callback.AddListener((data) => { IngredientPointerEnter((PointerEventData)data); });
@@ -123,6 +124,7 @@ public class CraftingScene : MonoBehaviour
                 ingredientExitEvent.callback.AddListener((data) => { PointerExit((PointerEventData)data); });
                 ingredient.GetComponent<EventTrigger>().triggers.Add(ingredientEnterEvent);
                 ingredient.GetComponent<EventTrigger>().triggers.Add(ingredientExitEvent);
+                */
             }
         }
     PostLoop:
